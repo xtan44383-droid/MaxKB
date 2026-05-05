@@ -7,6 +7,7 @@
     @desc:
 """
 import os
+import re
 from typing import List, Dict
 
 from django.db.models import QuerySet
@@ -28,6 +29,8 @@ from models_provider.tools import get_model, get_model_by_id, get_model_default_
 
 
 def reset_meta(meta):
+    if meta is None:
+        return {'allow_download': False}
     if not meta.get('allow_download', False):
         return {'allow_download': False}
     return meta
@@ -75,7 +78,68 @@ class BaseSearchDatasetStep(ISearchDatasetStep):
             return []
         paragraph_list = self.list_paragraph(embedding_list, vector)
         result = [self.reset_paragraph(paragraph, embedding_list) for paragraph in paragraph_list]
+        result = self.after_sales_rerank(exec_problem_text, result)
         return result
+
+    @staticmethod
+    def _extract_structured_tokens(question: str) -> Dict:
+        text = question or ""
+        upper_text = text.upper()
+        model_list = list(set(re.findall(r"[A-Za-z]{1,4}[-]?[A-Za-z0-9]{2,12}", upper_text)))
+        sn_imei_list = list(set(re.findall(r"(?:SN|IMEI)[:：]?\s*([A-Za-z0-9]{6,20})", upper_text)))
+        brand_candidates = ["华为", "小米", "苹果", "联想", "VIVO", "OPPO", "荣耀", "三星", "戴尔", "惠普", "THINKPAD"]
+        brand_list = [b for b in brand_candidates if b in upper_text]
+        return {
+            "model_list": model_list[:5],
+            "sn_imei_list": sn_imei_list[:3],
+            "brand_list": brand_list[:3],
+        }
+
+    @staticmethod
+    def _after_sales_bonus(question_tokens: Dict, row: ParagraphPipelineModel) -> float:
+        text = f"{(row.document_name or '').upper()} {(row.content or '').upper()}"
+        meta = row.meta or {}
+        meta_models = [m.upper() for m in (meta.get("after_sales_model_tokens") or [])]
+        meta_brands = [b.upper() for b in (meta.get("after_sales_brands") or [])]
+        bonus = 0.0
+        for model in question_tokens.get("model_list", []):
+            if len(model) >= 4 and (model in text or model in meta_models):
+                bonus += 0.12
+        for brand in question_tokens.get("brand_list", []):
+            if brand in text or brand in meta_brands:
+                bonus += 0.1
+        for sn_imei in question_tokens.get("sn_imei_list", []):
+            if sn_imei and sn_imei in text:
+                bonus += 0.18
+        doc_type = meta.get("after_sales_doc_type")
+        if doc_type in ("warranty_policy", "return_exchange", "fault_sop", "service_channel"):
+            bonus += 0.05
+        return bonus
+
+    def after_sales_rerank(self, question: str, rows: List[ParagraphPipelineModel]) -> List[ParagraphPipelineModel]:
+        if not rows:
+            return rows
+        # 通用库导入的段落会携带 after_sales_mode，重排仅作用于这些段落。
+        after_sales_rows = [row for row in rows if bool((row.meta or {}).get("after_sales_mode"))]
+        if len(after_sales_rows) == 0:
+            return rows
+        tokens = self._extract_structured_tokens(question)
+        has_model = len(tokens.get("model_list", [])) > 0
+        if has_model:
+            matched = [
+                row for row in rows if any(
+                    m in f"{(row.document_name or '').upper()} {(row.content or '').upper()}"
+                    or m in [x.upper() for x in ((row.meta or {}).get("after_sales_model_tokens") or [])]
+                    for m in tokens.get("model_list", [])
+                )
+            ]
+            if len(matched) > 0:
+                rows = matched
+        return sorted(
+            rows,
+            key=lambda row: (row.comprehensive_score or 0) + self._after_sales_bonus(tokens, row),
+            reverse=True
+        )
 
     @staticmethod
     def reset_paragraph(paragraph: Dict, embedding_list: List) -> ParagraphPipelineModel:

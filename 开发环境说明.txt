@@ -1,0 +1,35 @@
+【MaxKB 本机二开 - 环境约定 - 请只看这一份】
+
+一、唯一工程目录（物理在 D 盘，WSL 里为 /mnt/d/ 路径）
+  路径: D:\porject\github\MaxKB
+  WSL:  cd /mnt/d/porject/github/MaxKB
+  说明: 所有源码、.venv-wsl 虚拟环境、data 缓存均只放在此目录。不要再 cp 到 ~/projects，否则大文件会写进「本机 Ubuntu 的 ext4 虚拟盘」（你当前为 D:\wsl\ubuntu\ext4.vhdx），占 D 且需压缩 vhdx 才回收。
+
+二、虚拟环境
+  目录: 本仓库下 .venv-wsl（与上面目录同盘，即 D 盘）
+  已安装: pip install .（若缺失在本目录执行: python3.11 -m venv .venv-wsl && source .venv-wsl/bin/activate && pip install -U pip && pip install .）
+
+三、启动 Web（在 WSL 终端）
+  cd /mnt/d/porject/github/MaxKB
+  bash scripts/dev-wsl-d.sh
+  或: source .venv-wsl/bin/activate && export HF_HOME=$PWD/data/hf && export TMPDIR=$PWD/tmp && mkdir -p data/hf tmp && python main.py dev web
+  浏览器: http://127.0.0.1:8080
+
+四、Docker 依赖（仍由 Docker Desktop 提供，端口见 config.yml）
+  Postgres: 127.0.0.1:15432  Redis: 127.0.0.1:16379
+
+五、WSL 虚拟盘位置与「压缩」回收空间（本机实测）
+  · 你的 Ubuntu-22.04 的 ext4 在: D:\wsl\ubuntu\ext4.vhdx（约 20GB+，在 D 盘，不在 C 盘默认商店路径）
+  · 删除 ~/ 大目录后，.vhdx 文件不会自动变小，需压缩: 先 wsl --shutdown
+  · 以 **管理员** 身份运行仓库内: scripts\压缩Ubuntu虚拟盘-管理员运行.bat（会调用 diskpart 压缩 D 盘该 vhdx）
+  · Docker 数据在 C:  C:\Users\你的用户名\AppData\Local\Docker\wsl\disk\docker_data.vhdx ；若要减 C 盘，同样需管理员用 diskpart 压缩（可参考 scripts\compact-docker-data-C盘.txt 自行做第二遍）
+
+六、Celery（如需要另开一终端）
+  同上目录下: source .venv-wsl/bin/activate && python main.py dev celery
+
+七、C 盘少了约 20G，与「WSL 家目录」常不是一回事
+  · 你的 Ubuntu 虚拟盘在 D:\wsl\ubuntu\ext4.vhdx，~/ 大文件主要占 D 那一份。
+  · C 盘上常见大项: Docker 的 C:\Users\你的用户名\AppData\Local\Docker\wsl\disk\docker_data.vhdx（多 GB~十几 GB 都可能）、系统更新缓存、别软件等。
+  · 只清 C: 上 Docker 的 WSL 虚拟盘: 先 完全退出 Docker Desktop，再「以管理员」运行: scripts\压缩C盘_Docker的虚拟盘-管理员运行.bat
+
+更新时间: 以本机操作为准

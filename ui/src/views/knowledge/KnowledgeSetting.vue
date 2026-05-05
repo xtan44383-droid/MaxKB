@@ -298,6 +298,11 @@ async function submit() {
                 ...BaseFormRef.value.form,
               }
             : {
+                // 通用库固定为售后分块策略，与后端导入逻辑一致（不在 UI 提供开关）
+                meta: {
+                  ...(detail.value.meta || {}),
+                  after_sales_mode: true,
+                },
                 file_count_limit: form.value.file_count_limit,
                 file_size_limit: form.value.file_size_limit,
                 ...BaseFormRef.value.form,

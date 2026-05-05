@@ -46,7 +46,7 @@ export default {
     modeName: {
       label: 'Model Name',
       placeholder: 'Set a name for the base model',
-      tooltip: 'Custom model name in MaxKB',
+      tooltip: 'Display name you assign to this base model in the platform',
       requiredMessage: 'Model name cannot be empty',
     },
     permissionType: {

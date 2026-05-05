@@ -1,0 +1,62 @@
+[
+  {
+    "url": "https://support.hp.com/cn-zh/help/repair",
+    "brand": "hp",
+    "category": "warranty",
+    "slug": "hp_repair_service_guide"
+  },
+  {
+    "url": "https://support.hp.com/cn-zh/document/ish_9187618-9372078-16",
+    "brand": "hp",
+    "category": "warranty",
+    "slug": "hp_gold_service_terms"
+  },
+  {
+    "url": "https://support.hp.com/cn-zh/document/ish_2376260-3084186-16",
+    "brand": "hp",
+    "category": "sop",
+    "slug": "hp_printer_paper_error_sop"
+  },
+  {
+    "url": "https://consumer.huawei.com/cn/support/content/zh-cn15888511/",
+    "brand": "huawei",
+    "category": "warranty",
+    "slug": "huawei_on_site_service_guide"
+  },
+  {
+    "url": "https://consumer.huawei.com/cn/support/legal/express-repair-provisions/",
+    "brand": "huawei",
+    "category": "warranty",
+    "slug": "huawei_express_repair_terms"
+  },
+  {
+    "url": "https://consumer.huawei.com/cn/support/content/knowledgelist/zh-cn-vol15939876/",
+    "brand": "huawei",
+    "category": "error_code",
+    "slug": "huawei_printer_error_codes"
+  },
+  {
+    "url": "https://www.mi.com/c/service/help/index.html",
+    "brand": "xiaomi",
+    "category": "faq",
+    "slug": "xiaomi_service_help_center"
+  },
+  {
+    "url": "https://order.mi.com/service/guarantee",
+    "brand": "xiaomi",
+    "category": "warranty",
+    "slug": "xiaomi_warranty_policy"
+  },
+  {
+    "url": "https://www.mi.com/service/miphone/troubleshoot/hongmi",
+    "brand": "xiaomi",
+    "category": "sop",
+    "slug": "xiaomi_redmi_troubleshooting"
+  },
+  {
+    "url": "https://zh.ifixit.com/Wiki/Troubleshooting_Problems_After_a_Repair",
+    "brand": "ifixit",
+    "category": "sop",
+    "slug": "ifixit_repair_troubleshooting"
+  }
+]

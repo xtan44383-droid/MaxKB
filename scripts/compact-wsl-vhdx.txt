@@ -1,0 +1,4 @@
+select vdisk file="D:\wsl\ubuntu\ext4.vhdx"
+attach vdisk readonly
+compact vdisk
+detach vdisk

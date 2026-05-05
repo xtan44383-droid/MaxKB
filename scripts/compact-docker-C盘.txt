@@ -1,0 +1,8 @@
+select vdisk file="C:\Users\tlx\AppData\Local\Docker\wsl\disk\docker_data.vhdx"
+attach vdisk readonly
+compact vdisk
+detach vdisk
+select vdisk file="C:\Users\tlx\AppData\Local\Docker\wsl\main\ext4.vhdx"
+attach vdisk readonly
+compact vdisk
+detach vdisk

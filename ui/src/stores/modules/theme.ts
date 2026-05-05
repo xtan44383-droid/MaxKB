@@ -6,7 +6,7 @@ import type {Ref} from "vue";
 export interface themeStateTypes {
   themeInfo: any
 }
-const defalueColor = '#3370FF'
+const defalueColor = '#0D9488'
 
 const useThemeStore = defineStore('theme', {
   state: (): themeStateTypes => ({

@@ -1,6 +1,6 @@
 <template>
   <div class="item-content lighter">
-    <div v-for="(answer_text, index) in answer_text_list" :key="index" class="mb-8">
+    <div v-for="(answer_text, blockIdx) in answer_text_list" :key="blockIdx" class="mb-8">
       <div class="avatar mr-8" v-if="showAvatar">
         <img v-if="application.avatar" :src="application.avatar" height="28px" width="28px" />
         <LogoIcon v-else height="28px" width="28px" />
@@ -13,36 +13,62 @@
         }"
       >
         <el-card shadow="always" class="border-r-8" style="--el-card-padding: 6px 16px">
-          <MdRenderer
-            v-if="
-              (chatRecord.write_ed === undefined || chatRecord.write_ed === true) &&
-              answer_text.length == 0 &&
-              answer_text
-                .map((item) => item.content)
-                .join('')
-                .trim().length == 0
-            "
-            :source="$t('chat.tip.answerMessage')"
-          ></MdRenderer>
-          <template v-else-if="answer_text.length > 0">
+          <div class="answer-md-area">
             <MdRenderer
-              v-for="(answer, index) in answer_text"
-              :key="index"
-              :chat_record_id="answer.chat_record_id"
-              :child_node="answer.child_node"
-              :runtime_node_id="answer.runtime_node_id"
-              :reasoning_content="answer.reasoning_content"
-              :disabled="loading || type == 'log'"
-              :source="answer.content"
-              :send-message="chatMessage"
+              v-if="
+                (chatRecord.write_ed === undefined || chatRecord.write_ed === true) &&
+                answer_text.length == 0 &&
+                answer_text
+                  .map((item) => item.content)
+                  .join('')
+                  .trim().length == 0
+              "
+              :source="$t('chat.tip.answerMessage')"
             ></MdRenderer>
-          </template>
-          <p v-else-if="chatRecord.is_stop" shadow="always" style="margin: 0.5rem 0">
-            {{ $t('chat.tip.stopAnswer') }}
-          </p>
-          <p v-else shadow="always" style="margin: 0.5rem 0">
-            {{ $t('chat.tip.answerLoading') }} <span class="dotting"></span>
-          </p>
+            <template v-else-if="answer_text.length > 0">
+              <MdRenderer
+                v-for="(answer, index) in answer_text"
+                :key="index"
+                :chat_record_id="answer.chat_record_id"
+                :child_node="answer.child_node"
+                :runtime_node_id="answer.runtime_node_id"
+                :reasoning_content="answer.reasoning_content"
+                :disabled="loading || type == 'log'"
+                :source="formatAnswerForDisplay(answer.content, chatRecord.paragraph_list)"
+                :send-message="chatMessage"
+              ></MdRenderer>
+            </template>
+            <p v-else-if="chatRecord.is_stop" shadow="always" style="margin: 0.5rem 0">
+              {{ $t('chat.tip.stopAnswer') }}
+            </p>
+            <p v-else shadow="always" style="margin: 0.5rem 0">
+              {{ $t('chat.tip.answerLoading') }} <span class="dotting"></span>
+            </p>
+            <!-- 回答依据：右下角小标签，悬停展示知识库中的具体文档与片段（避免正文里括号 SOP 出处） -->
+            <div
+              v-if="showSourceFootnote(chatRecord, blockIdx)"
+              class="answer-source-footnote"
+            >
+              <el-tooltip placement="top-end" effect="dark" :show-after="200">
+                <template #content>
+                  <div class="answer-source-footnote__tip">
+                    <div class="answer-source-footnote__tip-title">回答依据：</div>
+                    <div
+                      v-for="(p, pi) in footnoteParagraphList(chatRecord)"
+                      :key="pi"
+                      class="answer-source-footnote__item"
+                    >
+                      <div class="answer-source-footnote__doc">{{ p.document_name }}</div>
+                      <div class="answer-source-footnote__snippet">{{ truncateForFootnote(p.content) }}</div>
+                    </div>
+                  </div>
+                </template>
+                <span class="answer-source-footnote__chip" tabindex="0" title="鼠标悬停查看回答依据"
+                  >回答依据</span
+                >
+              </el-tooltip>
+            </div>
+          </div>
           <!-- 知识来源 -->
           <KnowledgeSourceComponent
             :data="chatRecord"
@@ -53,7 +79,7 @@
             @open-execution-detail="emit('openExecutionDetail')"
             @openParagraph="emit('openParagraph')"
             @openParagraphDocument="(val: string) => emit('openParagraphDocument', val)"
-            v-if="showSource(chatRecord) && index === chatRecord.answer_text_list.length - 1"
+            v-if="showSource(chatRecord) && blockIdx === chatRecord.answer_text_list.length - 1"
           />
         </el-card>
       </div>
@@ -87,6 +113,8 @@ import MdRenderer from '@/components/markdown/MdRenderer.vue'
 import OperationButton from '@/components/ai-chat/component/operation-button/index.vue'
 import { type chatType } from '@/api/type/application'
 import bus from '@/bus'
+import { arraySort } from '@/utils/array'
+import { formatAnswerForDisplay } from '@/utils/answerEvidence'
 
 const props = defineProps<{
   chatRecord: chatType
@@ -162,6 +190,40 @@ function showSource(row: any) {
   return false
 }
 
+function showSourceFootnote(row: any, blockIdx: number) {
+  if (!showSource(row) || blockIdx !== props.chatRecord.answer_text_list.length - 1) {
+    return false
+  }
+  const n = row.paragraph_list?.length || 0
+  return n > 0
+}
+
+function normalizeParagraphMeta(p: any) {
+  const row = { ...p }
+  if (row.meta && typeof row.meta === 'string') {
+    try {
+      row.meta = JSON.parse(row.meta)
+    } catch {
+      // 保持原样
+    }
+  }
+  return row
+}
+
+function footnoteParagraphList(row: any) {
+  const raw = row.paragraph_list || []
+  const list = raw.map(normalizeParagraphMeta)
+  return arraySort(list, 'similarity', true)
+}
+
+function truncateForFootnote(text: string | undefined, maxLen = 140) {
+  const t = (text || '').replace(/\s+/g, ' ').trim()
+  if (t.length <= maxLen) {
+    return t
+  }
+  return `${t.slice(0, maxLen)}…`
+}
+
 const regenerationChart = (chat: chatType) => {
   const container = props.chatRecord?.upload_meta
     ? props.chatRecord.upload_meta
@@ -189,4 +251,62 @@ onMounted(() => {
   })
 })
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.answer-md-area {
+  position: relative;
+  padding-bottom: 36px;
+}
+
+.answer-source-footnote {
+  position: absolute;
+  right: 0;
+  bottom: 2px;
+  z-index: 2;
+}
+
+.answer-source-footnote__chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 22px;
+  padding: 0 8px;
+  font-size: 11px;
+  line-height: 1;
+  color: var(--el-color-primary);
+  cursor: help;
+  user-select: none;
+  white-space: nowrap;
+  border: 1px solid var(--el-color-primary-light-5);
+  border-radius: 4px;
+  background: var(--el-bg-color);
+}
+
+.answer-source-footnote__tip {
+  max-width: 420px;
+  max-height: 360px;
+  overflow: auto;
+  line-height: 1.45;
+}
+
+.answer-source-footnote__tip-title {
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.answer-source-footnote__item + .answer-source-footnote__item {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.answer-source-footnote__doc {
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.answer-source-footnote__snippet {
+  font-size: 12px;
+  opacity: 0.92;
+  word-break: break-word;
+}
+</style>

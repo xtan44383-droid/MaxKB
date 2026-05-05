@@ -8,6 +8,7 @@
 """
 import os
 import subprocess
+import sys
 
 from django.core.management.base import BaseCommand
 
@@ -30,8 +31,10 @@ class Command(BaseCommand):
             os.environ.setdefault('C_FORCE_ROOT', '1')
         if not server_hostname:
             server_hostname = '%h'
+        # 使用当前解释器执行 celery，避免仅安装到 venv 时 PATH 中无 celery 可执行文件
         cmd = [
-            'celery',
+            sys.executable,
+            '-m', 'celery',
             '-A', 'ops',
             'worker',
             '-P', 'threads',

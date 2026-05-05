@@ -38,7 +38,7 @@ export default {
     neverExpires: '永不過期',
     daysValid: '天有效',
   },
-  copyright: '版權所有 © 2014-2026 杭州飛致雲信息科技有限公司',
-  userManualUrl: 'https://maxkb.cn/docs/v2/',
-  forumUrl: 'https://github.com/1Panel-dev/MaxKB/discussions',
+  copyright: '3C 數碼售後助手 · 基於開源 RAG 平台的領域化二開（本機部署）',
+  userManualUrl: '',
+  forumUrl: '',
 }

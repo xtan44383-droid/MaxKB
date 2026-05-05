@@ -99,8 +99,9 @@ def dev():
 
 
 if __name__ == '__main__':
-    os.environ['HF_HOME'] = '/opt/maxkb-app/model/base'
-    os.environ['TMPDIR'] = '/opt/maxkb-app/tmp'
+    # 本地开发：未设置时使用仓库内目录；Docker/生产可通过环境变量覆盖
+    os.environ.setdefault('HF_HOME', os.path.join(BASE_DIR, 'data', 'hf'))
+    os.environ.setdefault('TMPDIR', os.path.join(BASE_DIR, 'tmp'))
     parser = argparse.ArgumentParser(
         description="""
            qabot service control tools;

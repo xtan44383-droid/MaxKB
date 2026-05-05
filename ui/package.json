@@ -3,14 +3,17 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "scripts": {
     "dev": "vite",
     "chat": "vite --mode chat",
     "build": "run-p type-check \"build-only {@}\" --",
     "build-chat": "run-p type-check \"build-only-chat {@}\" --",
     "preview": "vite preview",
-    "build-only": "vite build",
-    "build-only-chat": "vite build --mode chat",
+    "build-only": "node --max-old-space-size=8192 ./node_modules/vite/bin/vite.js build",
+    "build-only-chat": "node --max-old-space-size=8192 ./node_modules/vite/bin/vite.js build --mode chat",
     "type-check": "vue-tsc --build",
     "lint": "eslint . --fix",
     "format": "prettier --write src/"

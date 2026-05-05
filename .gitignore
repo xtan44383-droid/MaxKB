@@ -137,6 +137,7 @@ celerybeat.pid
 # Environments
 .env
 .venv
+.venv-wsl
 # env/
 venv/
 # ENV/
@@ -190,3 +191,11 @@ apps/models_provider/impl/tencent_model_provider/model/stt.py
 tmp/
 config.yml
 .SANDBOX_BANNED_HOSTS
+
+# 售后评估脚本本地密钥（勿提交）
+scripts/after_sales_assistant_eval/local_env.sh
+scripts/after_sales_assistant_eval/local_secrets.json
+scripts/after_sales_assistant_eval/report.json
+scripts/after_sales_assistant_eval/report.txt
+scripts/after_sales_assistant_eval/first_batch_report.json
+scripts/after_sales_assistant_eval/first_batch_report.txt

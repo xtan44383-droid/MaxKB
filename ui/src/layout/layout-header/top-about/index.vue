@@ -1,8 +1,9 @@
 <template>
   <div class="flex align-center top-about">
+    <!-- 二开：不展示跳转上游商业订购页 -->
     <el-button
+      v-if="false"
       round
-      @click="toUrl('https://maxkb.cn/pricing.html')"
       class="pricing-button mr-8"
       v-hasPermission="EditionConst.IS_CE"
     >

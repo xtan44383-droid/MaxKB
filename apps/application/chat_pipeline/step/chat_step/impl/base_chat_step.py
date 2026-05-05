@@ -7,6 +7,7 @@
     @desc: 对话step Base实现
 """
 import json
+import re
 import time
 import traceback
 from typing import List
@@ -32,6 +33,148 @@ from common.utils.shared_resource_auth import filter_authorized_ids
 from common.utils.tool_code import ToolExecutor
 from models_provider.tools import get_model_instance_by_model_workspace_id
 from tools.models import Tool, ToolType
+
+
+HIGH_RISK_KEYWORDS = [
+    "保修", "拒保", "换新", "免费维修", "维修费用", "时效", "质量问题", "人为损坏", "判责"
+]
+HIGH_RISK_COMMITMENT_PHRASES = [
+    "一定保修", "肯定保修", "一定换新", "肯定换新", "免费维修",
+    "必然免费", "保证当天修好", "肯定是质量问题", "一定是质量问题"
+]
+STRONG_EVIDENCE_KEYWORDS = ["依据", "条款", "规则", "政策", "SOP", "步骤", "文档显示"]
+
+# 纯寒暄/开场白：不走「证据不足硬拒答」，避免对「你好」也输出法务口吻（仍可能在后续走正常模型回复）
+_SMALL_TALK_DEVICE_HINTS = (
+    "手机", "平板", "电脑", "手表", "耳机", "笔记本", "充电器", "数据线",
+    "华为", "小米", "苹果", "三星", "OPPO", "vivo", "荣耀", "一加", "魅族",
+    "维修", "保修", "退换", "换新", "拒保", "坏", "故障", "碎屏", "进水", "黑屏",
+    "无法", "不能", "异常", "连不上", "连不", "wifi", "WiFi", "网络", "信号",
+    "发票", "激活", "序列号", "IMEI", "SN", "型号",
+)
+_SMALL_TALK_RE = re.compile(
+    r"^\s*(你好|您好|在吗|在么|嗨|哈喽|hi|hello|早上好|下午好|晚上好|谢谢|感谢|多谢|辛苦了|再见|拜拜|好的|行|ok|OK|哈喽)"
+    r"[呀啊呢噢哦！!。.…~～\s]*$"
+    r"|^\s*(测试)\s*[!！。.…~～\s]*$",
+    re.I,
+)
+
+
+def _is_greeting_or_small_talk(problem_text: str) -> bool:
+    """仅问候、不涉及设备/故障意图的极短句：不做售后硬拒答。"""
+    t = (problem_text or "").strip()
+    if not t:
+        return True
+    if len(t) > 36:
+        return False
+    if any(h in t for h in _SMALL_TALK_DEVICE_HINTS):
+        return False
+    return bool(_SMALL_TALK_RE.match(t))
+
+
+def _is_meta_assistant_query(problem_text: str) -> bool:
+    """你是谁/能做什么 等元问题，不涉及具体设备，不必走「结论-依据-建议」长模板。"""
+    t = (problem_text or "").strip()
+    if not t or len(t) > 48:
+        return False
+    if any(h in t for h in _SMALL_TALK_DEVICE_HINTS):
+        return False
+    return bool(
+        re.match(
+            r"^\s*(你是谁|你是什么|你是干嘛的|你是干什么的|能做什么|可以做什么|你会什么|有什么功能|怎么用|如何使用)\s*[？?！!。…\s]*$",
+            t,
+        )
+    )
+
+
+def _use_after_sales_plain_short_reply(problem_text: str) -> bool:
+    return _is_greeting_or_small_talk(problem_text) or _is_meta_assistant_query(problem_text)
+
+
+def _after_sales_plain_short_reply(problem_text: str) -> str:
+    """不用大模型拼「结论/依据/建议」，避免寒暄也像写报告。"""
+    t = (problem_text or "").strip()
+    if re.search(r"谢谢|感谢|多谢|辛苦了", t):
+        return "不客气，有设备或售后问题随时说就行。"
+    if re.search(r"再见|拜拜", t):
+        return "再见，有需要再找我。"
+    if re.search(r"在吗|在么", t):
+        return "在的。有具体问题直接说品牌、型号和现象就行。"
+    if _is_meta_assistant_query(problem_text):
+        return (
+            "我是3C数码售后助手，主要帮你查知识库里的保修、退换、维修相关说明。"
+            "你遇到实际问题可以说一下品牌、型号和故障现象，我再帮你对准查。"
+        )
+    return (
+        "你好，我是3C数码售后助手。要是手机、平板、手表这类有问题，说一下品牌、型号和出了什么情况，我再帮你查。"
+    )
+
+
+def _refuse_answer(problem_text: str) -> str:
+    # 不再把用户原文塞进方括号，避免出现截图里「把调试说明整段展示出来」的生硬观感
+    return (
+        "暂时没有在知识库里检索到能直接对照的条款或记录，我没法给你一个写得「死」的结论。\n\n"
+        "如果你是在问具体设备的问题，麻烦补充一下品牌、型号、故障现象，以及购买或保修相关信息（能多说一句就多一句），我再帮你对准检索。\n\n"
+        "涉及保修范围、费用、能不能换新这类敏感结论，最终以对应品牌官方售后或人工客服为准。"
+    )
+
+
+def _answer_has_after_sales_disclaimer(answer: str) -> bool:
+    """后置拦截用：判断是否已包含拒答/免责口径，避免重复替换。"""
+    if any(
+        x in answer
+        for x in (
+            "当前知识库未提供足够依据",
+            "暂时没有在知识库里检索到",
+            "没法给你一个写得",
+            "最终以对应品牌官方售后",
+        )
+    ):
+        return True
+    return any(k in answer for k in ["依据", "条款", "规则", "建议补充"])
+
+
+def _is_after_sales_context(paragraph_list: List[ParagraphPipelineModel]) -> bool:
+    return any(bool((paragraph.meta or {}).get("after_sales_mode")) for paragraph in (paragraph_list or []))
+
+
+def _need_after_sales_refuse(problem_text: str, paragraph_list: List[ParagraphPipelineModel]) -> bool:
+    if _is_greeting_or_small_talk(problem_text):
+        return False
+    if len(paragraph_list or []) == 0:
+        return True
+    question = problem_text or ""
+    high_risk = any(keyword in question for keyword in HIGH_RISK_KEYWORDS)
+    top_similarity = max([(paragraph.similarity or 0) for paragraph in paragraph_list], default=0)
+    if top_similarity < 0.6 or len(paragraph_list) < 2:
+        return True
+    if high_risk and (top_similarity < 0.82 or len(paragraph_list) < 3):
+        return True
+    model_tokens = re.findall(r"[A-Za-z]{1,4}[-]?[A-Za-z0-9]{2,12}", question.upper())
+    has_model_hint = len(model_tokens) > 0 or any(k in question for k in ["型号", "SN", "IMEI", "序列号"])
+    if model_tokens:
+        merged_context = " ".join([f"{paragraph.document_name} {paragraph.content}" for paragraph in paragraph_list]).upper()
+        if not any(token in merged_context for token in model_tokens[:5]):
+            return True
+    if high_risk and not has_model_hint:
+        return True
+    merged_content = " ".join([paragraph.content or "" for paragraph in paragraph_list])
+    if high_risk and not any(keyword in merged_content for keyword in STRONG_EVIDENCE_KEYWORDS):
+        return True
+    return False
+
+
+def _need_after_sales_post_refuse(problem_text: str, answer_text: str) -> bool:
+    question = problem_text or ""
+    answer = answer_text or ""
+    if len(answer.strip()) == 0:
+        return True
+    if any(phrase in answer for phrase in HIGH_RISK_COMMITMENT_PHRASES):
+        return True
+    high_risk = any(keyword in question for keyword in HIGH_RISK_KEYWORDS)
+    if high_risk and not _answer_has_after_sales_disclaimer(answer):
+        return True
+    return False
 
 
 def add_access_num(chat_user_id=None, chat_user_type=None, application_id=None):
@@ -81,6 +224,9 @@ def event_content(response,
                           reasoning_content_end)
     all_text = ''
     reasoning_content = ''
+    # 售后模式下：后置合规/拒答依赖完整答案文本判断；若边生成边推送正文，可能出现“先输出高风险措辞、后无法撤回”的体验问题。
+    # 因此在售后上下文且为模型生成流时，正文先缓冲，结束后再一次性输出（仍保留 reasoning 分块流式展示）。
+    buffer_main_text_stream = bool(is_ai_chat) and _is_after_sales_context(paragraph_list)
     try:
         response_reasoning_content = False
         for chunk in response:
@@ -96,8 +242,9 @@ def event_content(response,
             if reasoning_content_chunk is None:
                 reasoning_content_chunk = ''
             reasoning_content += reasoning_content_chunk
+            out_content_chunk = '' if buffer_main_text_stream else content_chunk
             yield manage.get_base_to_response().to_stream_chunk_response(chat_id, str(chat_record_id), 'ai-chat-node',
-                                                                         [], content_chunk,
+                                                                         [], out_content_chunk,
                                                                          False,
                                                                          0, 0, {'node_is_end': False,
                                                                                 'view_type': 'many_view',
@@ -110,8 +257,11 @@ def event_content(response,
         if not response_reasoning_content:
             reasoning_content_chunk = reasoning_chunk.get(
                 'reasoning_content')
+        end_content_chunk = reasoning_chunk.get('content')
+        if buffer_main_text_stream:
+            end_content_chunk = ''
         yield manage.get_base_to_response().to_stream_chunk_response(chat_id, str(chat_record_id), 'ai-chat-node',
-                                                                     [], reasoning_chunk.get('content'),
+                                                                     [], end_content_chunk,
                                                                      False,
                                                                      0, 0, {'node_is_end': False,
                                                                             'view_type': 'many_view',
@@ -119,6 +269,20 @@ def event_content(response,
                                                                             'real_node_id': 'ai-chat-node',
                                                                             'reasoning_content'
                                                                             : reasoning_content_chunk if reasoning_content_enable else ''})
+        # 流式正文在售后场景下已缓冲，这里与块式路径对齐做一次后置拦截，再一次性输出正文
+        if buffer_main_text_stream:
+            final_text = all_text
+            if _is_after_sales_context(paragraph_list) and _need_after_sales_post_refuse(problem_text, final_text):
+                final_text = _refuse_answer(problem_text)
+            yield manage.get_base_to_response().to_stream_chunk_response(chat_id, str(chat_record_id), 'ai-chat-node',
+                                                                         [], final_text,
+                                                                         False,
+                                                                         0, 0, {'node_is_end': False,
+                                                                                'view_type': 'many_view',
+                                                                                'node_type': 'ai-chat-node',
+                                                                                'real_node_id': 'ai-chat-node',
+                                                                                'reasoning_content': ''})
+            all_text = final_text
         # 获取token
         if is_ai_chat:
             try:
@@ -346,6 +510,10 @@ class BaseChatStep(IChatStep):
                           ):
         if paragraph_list is None:
             paragraph_list = []
+        if _is_after_sales_context(paragraph_list) and _use_after_sales_plain_short_reply(problem_text):
+            return iter([AIMessageChunk(content=_after_sales_plain_short_reply(problem_text))]), False
+        if _is_after_sales_context(paragraph_list) and _need_after_sales_refuse(problem_text, paragraph_list):
+            return iter([AIMessageChunk(content=_refuse_answer(problem_text))]), False
         directly_return_chunk_list = [AIMessageChunk(content=paragraph.content)
                                       for paragraph in paragraph_list if (
                                               paragraph.hit_handling_method == 'directly_return' and paragraph.similarity >= paragraph.directly_return_similarity)]
@@ -436,6 +604,10 @@ class BaseChatStep(IChatStep):
                          ):
         if paragraph_list is None:
             paragraph_list = []
+        if _is_after_sales_context(paragraph_list) and _use_after_sales_plain_short_reply(problem_text):
+            return AIMessage(_after_sales_plain_short_reply(problem_text)), False
+        if _is_after_sales_context(paragraph_list) and _need_after_sales_refuse(problem_text, paragraph_list):
+            return AIMessage(_refuse_answer(problem_text)), False
         directly_return_chunk_list = [AIMessageChunk(content=paragraph.content)
                                       for paragraph in paragraph_list if (
                                               paragraph.hit_handling_method == 'directly_return' and paragraph.similarity >= paragraph.directly_return_similarity)]
@@ -511,6 +683,8 @@ class BaseChatStep(IChatStep):
             reasoning_result = reasoning.get_reasoning_content(chat_result)
             reasoning_result_end = reasoning.get_end_reasoning_content()
             content = reasoning_result.get('content') + reasoning_result_end.get('content')
+            if _is_after_sales_context(paragraph_list) and _need_after_sales_post_refuse(problem_text, content):
+                content = _refuse_answer(problem_text)
             if 'reasoning_content' in chat_result.response_metadata:
                 reasoning_content = (chat_result.response_metadata.get('reasoning_content', '') or '')
             else:

@@ -3,7 +3,7 @@ import { t } from '@/locales'
 export const themeList = [
   {
     label: t('theme.default'),
-    value: '#3370FF',
+    value: '#0D9488',
     loginBackground: 'default',
   },
   {
@@ -37,17 +37,17 @@ export const defaultSetting = {
   icon: '',
   loginLogo: '',
   loginImage: '',
-  title: 'MaxKB',
+  title: '3C数码售后助手',
   slogan: t('theme.defaultSlogan'),
 }
 
 export const defaultPlatformSetting = {
-  showUserManual: true,
+  showUserManual: false,
   userManualUrl: t('layout.userManualUrl'),
-  showForum: true,
+  showForum: false,
   forumUrl: t('layout.forumUrl'),
-  showProject: true,
-  projectUrl: 'https://github.com/1Panel-dev/MaxKB',
+  showProject: false,
+  projectUrl: '',
 }
 
 export function hexToRgba(hex?: string, alpha?: number) {

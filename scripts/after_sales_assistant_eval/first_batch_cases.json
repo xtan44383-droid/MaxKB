@@ -1,0 +1,310 @@
+{
+  "version": 1,
+  "comment": "基于 docs/after_sales_assistant/12 中当前已上传 5 篇文档整理的首批 30 题，用于 baseline 自动测试。",
+  "cases": [
+    {
+      "id": "FB01",
+      "category": "保修与服务政策类",
+      "question": "华为寄修服务适用于哪些产品？",
+      "expect_note": "回答应提到华为、荣耀，以及手机、平板、可穿戴设备或部分固网产品。",
+      "expect": {
+        "answer_contains_all": ["华为", "荣耀"],
+        "answer_contains_any": ["手机", "平板", "可穿戴", "固网"],
+        "case_insensitive": true
+      }
+    },
+    {
+      "id": "FB02",
+      "category": "保修与服务政策类",
+      "question": "用户提交华为寄修申请后，需要在多久内寄出故障机？",
+      "expect_note": "回答应命中“两个自然日”这一时限，不应答成 7 天。",
+      "expect": {
+        "answer_contains_any": ["两个自然日", "2个自然日", "两天"],
+        "answer_not_contains": ["7天", "七天"],
+        "case_insensitive": true
+      }
+    },
+    {
+      "id": "FB03",
+      "category": "保修与服务政策类",
+      "question": "如果华为寄修中心在 20 个自然日内没有收到故障机，会怎样处理？",
+      "expect_note": "回答应提到寄修申请单会自动关闭，需重新提交寄修申请。",
+      "expect": {
+        "answer_contains_any": ["自动关闭", "超期自动关闭", "重新提交寄修服务申请", "重新提交"],
+        "case_insensitive": true
+      }
+    },
+    {
+      "id": "FB04",
+      "category": "保修与服务政策类",
+      "question": "华为寄修服务的往返物流费用是否需要用户承担？",
+      "expect_note": "回答应命中中国大陆正规渠道购买机器往返物流免费或无需支付物流费用。",
+      "expect": {
+        "answer_contains_any": ["无需支付物流费用", "往返物流邮寄免费", "物流免费", "无需支付"],
+        "case_insensitive": true
+      }
+    },
+    {
+      "id": "FB05",
+      "category": "保修与服务政策类",
+      "question": "如果设备已经过保，或者属于人为损坏，华为会直接免费维修吗？",
+      "expect_note": "回答应提到不会直接免费修，而是联系用户报价维修。",
+      "expect": {
+        "answer_contains_any": ["报价维修", "联系用户进行报价", "保外维修", "不会直接免费维修"],
+        "case_insensitive": true
+      }
+    },
+    {
+      "id": "FB06",
+      "category": "保修与服务政策类",
+      "question": "华为为什么建议用户在寄修前先备份数据并清除开机密码？",
+      "expect_note": "回答应提到维修检测可能导致数据丢失或涉及隐私查看，因此建议提前备份和清除密码。",
+      "expect": {
+        "answer_contains_any": ["数据丢失", "隐私泄露", "维修人员", "备份", "清除手机开机密码"],
+        "case_insensitive": true
+      }
+    },
+    {
+      "id": "FB07",
+      "category": "保修与服务政策类",
+      "question": "如果用户没有提前备份数据，维修过程中数据丢失由谁承担？",
+      "expect_note": "回答应提到由用户自行承担，华为概不负责。",
+      "expect": {
+        "answer_contains_any": ["用户自行承担", "华为概不负责", "由用户承担"],
+        "case_insensitive": true
+      }
+    },
+    {
+      "id": "FB08",
+      "category": "保修与服务政策类",
+      "question": "华为收到故障机并确认属于保修范围后，通常多久内完成维修？",
+      "expect_note": "回答应提到在两个自然日内完成维修。",
+      "expect": {
+        "answer_contains_any": ["两个自然日", "2个自然日", "两天内完成维修"],
+        "case_insensitive": true
+      }
+    },
+    {
+      "id": "FB09",
+      "category": "保修与服务政策类",
+      "question": "华为上门服务适用于哪些设备类型？",
+      "expect_note": "回答应覆盖笔记本、台式机、显示器、打印机。",
+      "expect": {
+        "answer_contains_all": ["笔记本", "台式机", "显示器", "打印机"],
+        "case_insensitive": true
+      }
+    },
+    {
+      "id": "FB10",
+      "category": "保修与服务政策类",
+      "question": "华为上门服务是否限制申请次数？服务区域有没有限制？",
+      "expect_note": "回答应提到不限制参与次数，且服务仅限中国大陆地区。",
+      "expect": {
+        "answer_contains_all": ["不限制参与次数", "中国大陆"],
+        "case_insensitive": true
+      }
+    },
+    {
+      "id": "FB11",
+      "category": "保修与服务政策类",
+      "question": "华为笔记本和打印机申请上门服务时，是否都可以直接在 APP 下单？",
+      "expect_note": "回答应提到笔记本和打印机仅支持拨打 950800 申请。",
+      "expect": {
+        "answer_contains_all": ["笔记本", "打印机", "950800"],
+        "answer_contains_any": ["仅支持拨打", "拨打华为消费者服务热线", "电话申请"],
+        "case_insensitive": true
+      }
+    },
+    {
+      "id": "FB12",
+      "category": "保修与服务政策类",
+      "question": "华为上门服务的远程上门费在什么情况下可以免收？",
+      "expect_note": "回答应提到上门服务权益期内，设备非人为损坏的性能故障可免收远程上门费。",
+      "expect": {
+        "answer_contains_any": ["非人为损坏", "性能故障", "免收远程上门费"],
+        "case_insensitive": true
+      }
+    },
+    {
+      "id": "FB13",
+      "category": "操作流程与排障步骤类",
+      "question": "HP 维修引导里，开始电脑维修前推荐先做什么？",
+      "expect_note": "回答应提到先扫描电脑，运行 HP PC Hardware Diagnostics 或支持工具。",
+      "expect": {
+        "answer_contains_any": ["扫描您的电脑", "HP PC Hardware Diagnostics", "支持工具", "扫描电脑"],
+        "case_insensitive": true
+      }
+    },
+    {
+      "id": "FB14",
+      "category": "操作流程与排障步骤类",
+      "question": "HP 页面里提到的常见电脑检测项目有哪些？",
+      "expect_note": "回答应至少覆盖电池/电源、内存、硬盘等检测项。",
+      "expect": {
+        "answer_contains_all": ["电池", "内存", "硬盘"],
+        "case_insensitive": true
+      }
+    },
+    {
+      "id": "FB15",
+      "category": "操作流程与排障步骤类",
+      "question": "如果问题是屏幕破裂或铰链断裂，HP 页面建议怎么处理？",
+      "expect_note": "回答应提到这类问题支持工具检测不到，需要联系 HP 开始维修。",
+      "expect": {
+        "answer_contains_any": ["联系我们", "开始维修", "支持工具检测不到", "仍需要维修"],
+        "case_insensitive": true
+      }
+    },
+    {
+      "id": "FB16",
+      "category": "操作流程与排障步骤类",
+      "question": "HP 打印机无法打印或无法扫描时，页面建议先使用什么工具排查？",
+      "expect_note": "回答应命中 HP Smart。",
+      "expect": {
+        "answer_contains_any": ["HP Smart", "获取 HP Smart"],
+        "case_insensitive": true
+      }
+    },
+    {
+      "id": "FB17",
+      "category": "操作流程与排障步骤类",
+      "question": "红米手机无法充电时，页面建议先排查哪些步骤？",
+      "expect_note": "回答应包含充电发热先停充送检、LED 闪烁充 15-30 分钟尝试开机、更换充电器或电池等思路。",
+      "expect": {
+        "answer_contains_any": ["15-30分钟", "前往小米之家", "更换标配充电器", "原装电池", "授权维修中心"],
+        "case_insensitive": true
+      }
+    },
+    {
+      "id": "FB18",
+      "category": "操作流程与排障步骤类",
+      "question": "红米手机连接 WIFI 一直提示“已断开连接”时，建议如何处理？",
+      "expect_note": "回答应命中升级系统、不保存后重新连接、手动静态 IP、重启路由器等步骤之一。",
+      "expect": {
+        "answer_contains_any": ["不保存", "静态IP", "重启路由器", "系统升级到最新版本", "便携式热点"],
+        "case_insensitive": true
+      }
+    },
+    {
+      "id": "FB19",
+      "category": "操作流程与排障步骤类",
+      "question": "红米手机无法使用数据流量上网时，排查顺序是什么？",
+      "expect_note": "回答应命中查看网络标识、重启并重开数据流量、检查网络助手限制、重置 APN 等步骤之一。",
+      "expect": {
+        "answer_contains_any": ["数据网络标识", "重启手机", "网络助手", "重置APN", "接入点名称"],
+        "case_insensitive": true
+      }
+    },
+    {
+      "id": "FB20",
+      "category": "操作流程与排障步骤类",
+      "question": "红米手机无法开机时，页面建议先确认什么？",
+      "expect_note": "回答应先命中确认电量是否充足，必要时连接充电器 15-30 分钟或更换同型号电池尝试。",
+      "expect": {
+        "answer_contains_any": ["电量", "连接充电器15-30分钟", "更换其它同型号的电池", "先将手机连接充电器"],
+        "case_insensitive": true
+      }
+    },
+    {
+      "id": "FB21",
+      "category": "操作流程与排障步骤类",
+      "question": "如果红米手机打电话时黑屏后一直无法亮起，首先应该检查什么？",
+      "expect_note": "回答应优先提到距离感应器设置、贴膜遮挡或相关检测。",
+      "expect": {
+        "answer_contains_any": ["距离感应器", "贴膜", "硬件检测", "来电时状态设置"],
+        "case_insensitive": true
+      }
+    },
+    {
+      "id": "FB22",
+      "category": "操作流程与排障步骤类",
+      "question": "红米手机忘记小米账号密码后，页面给出了哪两种找回方式？",
+      "expect_note": "回答应提到官网登录页忘记密码和 account.xiaomi.com 的人工审核修改。",
+      "expect": {
+        "answer_contains_any": ["忘记密码", "account.xiaomi.com", "人工审核修改", "登录页面"],
+        "case_insensitive": true
+      }
+    },
+    {
+      "id": "FB23",
+      "category": "操作流程与排障步骤类",
+      "question": "红米手机忘记锁屏密码，且没有绑定任何账号时，可以怎么处理？",
+      "expect_note": "回答应命中 Recovery 模式清除用户数据或 wipe data/factory reset。",
+      "expect": {
+        "answer_contains_any": ["Recovery模式", "清除用户数据", "wipe data", "factory reset"],
+        "case_insensitive": true
+      }
+    },
+    {
+      "id": "FB24",
+      "category": "操作流程与排障步骤类",
+      "question": "红米手机如何连接电脑读取存储内容？",
+      "expect_note": "回答应提到连接 USB 数据线后，可选择 USB 存储、MTP、PTP 或只充电模式。",
+      "expect": {
+        "answer_contains_any": ["USB存储", "MTP", "PTP", "只充电", "USB数据线"],
+        "case_insensitive": true
+      }
+    },
+    {
+      "id": "FB25",
+      "category": "操作流程与排障步骤类",
+      "question": "iFixit 的“维修后故障排查”这类文档，第一步最建议用户先做什么？",
+      "expect_note": "回答应命中先重新检查步骤或先尝试关机再开机。",
+      "expect": {
+        "answer_contains_any": ["关机再开机", "重新检查操作的每个步骤", "重新检查步骤", "仔细检查设备的名称和型号"],
+        "case_insensitive": true
+      }
+    },
+    {
+      "id": "FB26",
+      "category": "操作流程与排障步骤类",
+      "question": "iFixit 文档建议怎样检查接口、插座和意外损坏，来确认是不是维修过程中出了问题？",
+      "expect_note": "回答应提到重新安装接口、检查插座灰尘或弯针、检查电缆和组件是否损坏。",
+      "expect": {
+        "answer_contains_any": ["重新安装每个接口", "检查每个接口插座", "灰尘", "弯曲的针脚", "意外损坏"],
+        "case_insensitive": true
+      }
+    },
+    {
+      "id": "FB27",
+      "category": "混合问法与路由判断类",
+      "question": "我的 MateBook 想预约上门维修，应该在 APP 里申请还是打热线？",
+      "expect_note": "回答应命中华为上门服务指南，并说明笔记本需拨打 950800 申请。",
+      "expect": {
+        "answer_contains_all": ["MateBook", "950800"],
+        "answer_contains_any": ["拨打", "热线", "电话申请", "仅支持拨打"],
+        "case_insensitive": true
+      }
+    },
+    {
+      "id": "FB28",
+      "category": "混合问法与路由判断类",
+      "question": "我已经提交了华为寄修申请，但还没寄出机器，最晚拖多久会被自动关闭？",
+      "expect_note": "回答应命中寄修条款里的 20 个自然日和自动关闭，不应误答成上门服务热线。",
+      "expect": {
+        "answer_contains_any": ["20个自然日", "20 天", "自动关闭", "重新提交寄修服务申请"],
+        "case_insensitive": true
+      }
+    },
+    {
+      "id": "FB29",
+      "category": "混合问法与路由判断类",
+      "question": "红米手机充电时发热，而且现在还开不了机，我应该继续刷机还是先停充送检？",
+      "expect_note": "回答应优先命中小米排障里的先停充、拔下充电器并送检，而不是直接建议继续刷机。",
+      "expect": {
+        "answer_contains_any": ["拔下充电器", "前往小米之家", "授权维修中心检测", "先停充"],
+        "case_insensitive": true
+      }
+    },
+    {
+      "id": "FB30",
+      "category": "混合问法与路由判断类",
+      "question": "我换完屏幕后设备能亮但触摸不工作，这更应该参考保修政策，还是参考维修后排障文档？",
+      "expect_note": "回答应优先命中 iFixit 维修后排障，提到重新安装接口或检查连接。",
+      "expect": {
+        "answer_contains_any": ["维修后故障排查", "重新安装每个接口", "显示器接口", "检查连接", "iFixit"],
+        "case_insensitive": true
+      }
+    }
+  ]
+}

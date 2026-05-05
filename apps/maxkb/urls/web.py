@@ -102,6 +102,21 @@ static_dict = {
 }
 
 
+def _admin_static_urls():
+    """开发模式下每次请求扫描磁盘，避免 collectstatic 后仍使用进程启动时缓存的旧资源列表。"""
+    base = os.path.join(PROJECT_DIR, 'apps', 'static', 'admin')
+    if settings.DEBUG:
+        return get_all_files(base)
+    return static_dict.get(admin_ui_prefix, [])
+
+
+def _chat_static_urls():
+    base = os.path.join(PROJECT_DIR, 'apps', 'static', 'chat')
+    if settings.DEBUG:
+        return get_all_files(base)
+    return static_dict.get(chat_ui_prefix, [])
+
+
 def page_not_found(request, exception):
     """
     页面不存在处理
@@ -111,7 +126,7 @@ def page_not_found(request, exception):
     if request.path.startswith(chat_ui_prefix + '/api/'):
         return Result(response_status=status.HTTP_404_NOT_FOUND, code=404, message="HTTP_404_NOT_FOUND")
     if request.path.startswith(chat_ui_prefix):
-        in_ = [url for url in static_dict.get(chat_ui_prefix) if request.path.endswith(url)]
+        in_ = [url for url in _chat_static_urls() if request.path.endswith(url)]
         if len(in_) > 0:
             a = chat_ui_prefix + in_[0]
             return HttpResponseRedirect(a)
@@ -122,7 +137,7 @@ def page_not_found(request, exception):
             return HttpResponse("页面不存在", status=404)
         return HttpResponse(content, status=200)
     elif request.path.startswith(admin_ui_prefix):
-        in_ = [url for url in static_dict.get(admin_ui_prefix) if request.path.endswith(url)]
+        in_ = [url for url in _admin_static_urls() if request.path.endswith(url)]
         if len(in_) > 0:
             a = admin_ui_prefix + in_[0]
             return HttpResponseRedirect(a)

@@ -164,13 +164,19 @@ class ApplicationChatRecordQuerySerializers(serializers.Serializer):
         show_exec_dict = {'execution_details': [chat_record.details[key] for key in chat_record.details if
                                                 (True if show_exec else chat_record.details[key].get(
                                                     'type') == 'start-node')]}
-        return {
+        # 公开对话侧可能关闭「显示引用」，此时仍返回 paragraph_list，供前端脚标/悬停溯源；
+        # 底部「知识来源」大块展示仍由前端 application.show_source 控制。
+        result = {
             **ChatRecordSerializerModel(chat_record).data,
             'padding_problem_text': chat_record.details.get('problem_padding').get(
                 'padding_problem_text') if 'problem_padding' in chat_record.details else None,
-            **(show_source_dict if show_source else {}),
             **(show_exec_dict if show_exec else {})
         }
+        if show_source:
+            result.update(show_source_dict)
+        else:
+            result['paragraph_list'] = paragraph_list
+        return result
 
     def page(self, current_page: int, page_size: int, with_valid=True, show_source=None, show_exec=None):
         if with_valid:

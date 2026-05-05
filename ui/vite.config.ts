@@ -31,9 +31,17 @@ const renameHtmlPlugin = (outDir: string, entry: string) => {
   }
 }
 // https://vite.dev/config/
+/** 从 loadEnv 结果里取出标题，去掉 .env 里可能带的引号与空格 */
+function parseAppTitle(raw: string | undefined): string {
+  if (!raw) return '3C数码售后助手'
+  const s = raw.trim().replace(/^['"]|['"]$/g, '').trim()
+  return s || '3C数码售后助手'
+}
+
 export default defineConfig((conf: any) => {
   const mode = conf.mode
   const ENV = loadEnv(mode, envDir)
+  const appTitle = parseAppTitle(ENV.VITE_APP_TITLE)
   const proxyConf: Record<string, string | ProxyOptions> = {}
   proxyConf['/admin/api'] = {
     target: 'http://127.0.0.1:8080',
@@ -89,7 +97,15 @@ export default defineConfig((conf: any) => {
       vue(),
       vueJsx(),
       DefineOptions(),
-      createHtmlPlugin({template: ENV.VITE_ENTRY}),
+      createHtmlPlugin({
+        template: ENV.VITE_ENTRY,
+        // 向 admin.html / chat.html 注入变量（EJS），避免构建后仍残留 %VITE_APP_TITLE% 或旧标题
+        inject: {
+          data: {
+            VITE_APP_TITLE: appTitle,
+          },
+        },
+      }),
       renameHtmlPlugin(`dist${ENV.VITE_BASE_PATH}`, ENV.VITE_ENTRY),
     ],
     server: {

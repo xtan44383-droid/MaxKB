@@ -1,6 +1,6 @@
 <p align="center"><img src= "https://github.com/1Panel-dev/maxkb/assets/52996290/c0694996-0eed-40d8-b369-322bf2a380bf" alt="MaxKB" width="300" /></p>
-<h3 align="center">Open-source platform for building enterprise-grade agents</h3>
-<h3 align="center">强大易用的企业级智能体平台</h3>
+<h3 align="center">3C 数码售后助手（二次开发版）</h3>
+<h3 align="center">面向真实售后问答与风险控制的业务交付版本</h3>
 <p align="center"><a href="https://trendshift.io/repositories/9113" target="_blank"><img src="https://trendshift.io/api/badge/repositories/9113" alt="1Panel-dev%2FMaxKB | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a></p>
 <p align="center">
   <a href="https://www.gnu.org/licenses/gpl-3.0.html#license-text"><img src="https://img.shields.io/github/license/1Panel-dev/maxkb?color=%231890FF" alt="License: GPL v3"></a>
@@ -11,13 +11,13 @@
 </p>
 <hr/>
 
-MaxKB = Max Knowledge Brain, it is an open-source platform for building enterprise-grade agents. MaxKB integrates Retrieval-Augmented Generation (RAG) pipelines, supports robust workflows, and provides advanced MCP tool-use capabilities. MaxKB is widely applied in scenarios such as intelligent customer service, corporate internal knowledge bases, academic research, and education.
+This repository is delivered as a business-focused secondary development on top of MaxKB, targeting the 3C after-sales scenario.
 
-- **RAG Pipeline**: Supports direct uploading of documents / automatic crawling of online documents, with features for automatic text splitting, vectorization. This effectively reduces hallucinations in large models, providing a superior smart Q&A interaction experience.
-- **Agentic Workflow**: Equipped with a powerful workflow engine, function library and MCP tool-use, enabling the orchestration of AI processes to meet the needs of complex business scenarios.
-- **Seamless Integration**: Facilitates zero-coding rapid integration into third-party business systems, quickly equipping existing systems with intelligent Q&A capabilities to enhance user satisfaction.
-- **Model-Agnostic**: Supports various large models, including private models (such as DeepSeek, Llama, Qwen, etc.) and public models (like OpenAI, Claude, Gemini, MiniMax, etc.).
-- **Multi Modal**: Native support for input and output text, image, audio and video.
+- Added an after-sales mode switch at knowledge-base level for safe rollout and quick rollback.
+- Optimized document splitting for policy/SOP/manual style content to reduce broken evidence segments.
+- Added retrieval-side weighting for brand/model/SN/IMEI signals to reduce wrong-model answers.
+- Added weak-evidence refusal and high-risk commitment interception to reduce risky promises.
+- Completed OFF/ON comparative evaluation with business-focused metrics and delivery-ready docs.
 
 ## Quick start
 

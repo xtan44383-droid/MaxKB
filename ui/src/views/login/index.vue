@@ -330,7 +330,7 @@ function uuidv4() {
 }
 
 const newDefaultSlogan = computed(() => {
-  const default_login = '强大易用的企业级智能体平台'
+  const default_login = '3C 数码售后知识检索与对话，领域化二开运维台'
   if (!theme.themeInfo?.slogan || default_login == theme.themeInfo?.slogan) {
     return t('theme.defaultSlogan')
   } else {

@@ -401,7 +401,7 @@ const importKnowledgeWorkflow = (file: any) => {
               cancelButtonText: t('common.confirm'),
               confirmButtonText: t('common.professional'),
             }).then(() => {
-              window.open('https://maxkb.cn/pricing.html', '_blank')
+              /* 二开：不跳转上游商业订购页 */
             })
           }
         })

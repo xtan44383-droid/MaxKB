@@ -5,9 +5,16 @@ import getpass
 import gzip
 import json
 import os
-import pwd
 import random
-import resource
+# Windows 等平台无 pwd/resource，仅 Linux 下启用 sandbox 时需要
+try:
+    import pwd
+except ImportError:
+    pwd = None
+try:
+    import resource
+except ImportError:
+    resource = None
 import socket
 import subprocess
 import sys
@@ -87,9 +94,15 @@ class ToolExecutor:
         maxkb_logger.error(f'Exception: {e}', exc_info=True)
 
     def exec_code(self, code_str, keywords, function_name=None):
+        # 自定义工具入参统一门闸（演示库只读规则 + Markdown 中 SQL 剥离），详见 common.utils.demo_sql_gate
+        keywords = dict(keywords) if keywords else {}
+        from common.utils.demo_sql_gate import apply_tool_sql_gate
+
+        keywords = apply_tool_sql_gate(keywords)
+
         _id = str(uuid.uuid7())
         action_function = f'({function_name !a}, locals_v.get({function_name !a}))' if function_name else 'locals_v.popitem()'
-        set_run_user = f'os.setgid({pwd.getpwnam(_run_user).pw_gid});os.setuid({pwd.getpwnam(_run_user).pw_uid});' if _enable_sandbox else ''
+        set_run_user = f'os.setgid({pwd.getpwnam(_run_user).pw_gid});os.setuid({pwd.getpwnam(_run_user).pw_uid});' if (_enable_sandbox and pwd) else ''
         _exec_code = f"""
 try:
     import os, sys, json
@@ -265,7 +278,7 @@ sys.stdout.flush()
 
     def generate_mcp_server_code(self, code_str, params, name, description, tool_id):
         code = self._generate_mcp_server_code(code_str, params, name, description, tool_id)
-        set_run_user = f'os.setgid({pwd.getpwnam(_run_user).pw_gid});os.setuid({pwd.getpwnam(_run_user).pw_uid});' if _enable_sandbox else ''
+        set_run_user = f'os.setgid({pwd.getpwnam(_run_user).pw_gid});os.setuid({pwd.getpwnam(_run_user).pw_uid});' if (_enable_sandbox and pwd) else ''
         return f"""
 import os, sys, logging
 logging.basicConfig(level=logging.WARNING)
@@ -313,7 +326,8 @@ exec({dedent(code)!a})
             '_ID': _id,
         }}
         def _set_resource_limit():
-            if not _enable_sandbox or not sys.platform.startswith("linux"): return
+            if not _enable_sandbox or not sys.platform.startswith("linux") or resource is None:
+                return
             with suppress(Exception): resource.setrlimit(resource.RLIMIT_AS, (_process_limit_mem_mb * 1024 * 1024,) * 2)
             with suppress(Exception): os.sched_setaffinity(0, set(random.sample(list(os.sched_getaffinity(0)), _process_limit_cpu_cores)))
         try:

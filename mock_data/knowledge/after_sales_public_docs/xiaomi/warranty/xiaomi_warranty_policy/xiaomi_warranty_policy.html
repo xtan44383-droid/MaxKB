@@ -1,0 +1,853 @@
+<!doctype html>
+<html lang="zh-CN" xml:lang="zh-CN">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta charset="UTF-8" />
+<title></title>
+<meta name="viewport" content="width=1226" />
+<meta name="description" content="" />
+<meta name="keywords" content="小米商城" />
+<link rel="shortcut icon" href="//s01.mifile.cn/favicon.ico" type="image/x-icon" />
+<link rel="icon" href="//s01.mifile.cn/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" href="//s01.mifile.cn/css/base.min.css?v2020091001" />
+</head>
+<body>
+<div class="site-topbar">
+    <div class="container">
+        <div class="topbar-nav">
+            <a href="//www.mi.com/index.html" >小米商城</a><span class="sep">|</span><a href="https://www.miui.com/" target="_blank">MIUI</a><span class="sep">|</span><a href="//iot.mi.com" >IoT</a><span class="sep">|</span><a href="https://i.mi.com/" target="_blank">云服务</a><span class="sep">|</span><a href="https://airstar.com/home" target=&quot;_blank&quot;>天星数科</a><span class="sep">|</span><a href="https://youpin.mi.com/" target="_blank">有品</a><span class="sep">|</span><a href="https://xiaoai.mi.com/" target="_blank">小爱开放平台</a><span class="sep">|</span><a href="https://qiye.mi.com/" target="_blank">企业团购</a><span class="sep">|</span><a href="https://www.mi.com/aptitude/list/?id=41" target="_blank">资质证照</a><span class="sep">|</span><a href="https://www.mi.com/aptitude/list/" target="_blank">协议规则</a><span class="sep">|</span><a href="//www.mi.com/appdownload/" target=&quot;_blank&quot; id=&quot;J_downloadapp&quot;>下载App</a><span class="sep">|</span><a href="https://xiaomishare.mi.com/?from=micom" target=&quot;_blank&quot;>智能生活</a>
+        </div>
+        <div class="topbar-cart" id="J_miniCartTrigger">
+            <a class="cart-mini" id="J_miniCartBtn" href="//www.mi.com/buy/cart"><i class="iconfont">&#xe60c;</i>购物车<span class="cart-mini-num J_cartNum"></span></a>
+            <div class="cart-menu" id="J_miniCartMenu">
+                <div class="loading"><div class="loader"></div></div>
+            </div>
+        </div>
+        <div class="topbar-info" id="J_userInfo">
+            <a class="link" href="//order.mi.com/site/login" data-agreement="true"   data-login="true">登录</a><span class="sep">|</span><a class="link" href="https://account.xiaomi.com/pass/register" data-agreement="true" data-register="true">注册</a>        </div>
+    </div>
+</div>
+
+<div class="site-header">
+    <div class="container">
+        <div class="header-logo">
+            <a class="logo ir" href="https://www.mi.com/index.html" title="小米官网">小米官网</a>
+                    </div>
+        <div class="header-nav">
+            <ul class="nav-list J_navMainList clearfix">
+                <li id="J_navCategory" class="nav-category">
+                    <a class="link-category" href="//list.mi.com"><span class="text">全部商品分类</span></a>
+                </li>
+                            <li class="nav-item">
+                    <a class="link" href="javascript: void(0);"><span class="text">Xiaomi手机</span><span class="arrow"></span></a>
+                    <div class="item-children">
+                        <div class="container">
+                            <ul class="children-list clearfix">
+                                                            <li class="first">
+                                    <div class="figure figure-thumb">
+                                        <a href="//item.mi.com/16536.html"><img src="//c1.mifile.cn/f/i/2014/cn/placeholder-220!110x110.png" data-src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/4ef3713521fb9d7f114aa8bb152e220d.png" srcset="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/4ef3713521fb9d7f114aa8bb152e220d.png 2x" alt="Xiaomi Civi 2" width="160" height="110" /></a>
+                                    </div>
+                                    <div class="title"><a href="//item.mi.com/16536.html">Xiaomi Civi 2</a></div>
+                                    <p class="price">2399元起</p>                                                                    </li>
+                                                            <li>
+                                    <div class="figure figure-thumb">
+                                        <a href="https://www.mi.com/xiaomimixfold2"><img src="//c1.mifile.cn/f/i/2014/cn/placeholder-220!110x110.png" data-src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/581f3a690e6803add02e4c9fde98cb78.png" srcset="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/581f3a690e6803add02e4c9fde98cb78.png 2x" alt="Xiaomi MIX Fold 2" width="160" height="110" /></a>
+                                    </div>
+                                    <div class="title"><a href="https://www.mi.com/xiaomimixfold2">Xiaomi MIX Fold 2</a></div>
+                                    <p class="price">8999元起</p>                                                                    </li>
+                                                            <li>
+                                    <div class="figure figure-thumb">
+                                        <a href="https://www.mi.com/mi12s-ultra"><img src="//c1.mifile.cn/f/i/2014/cn/placeholder-220!110x110.png" data-src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/d7a15df55e98e4163390096ed05b1ef5.png" srcset="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/d7a15df55e98e4163390096ed05b1ef5.png 2x" alt="Xiaomi 12S Ultra" width="160" height="110" /></a>
+                                    </div>
+                                    <div class="title"><a href="https://www.mi.com/mi12s-ultra">Xiaomi 12S Ultra</a></div>
+                                    <p class="price">5999元起</p>                                                                    </li>
+                                                            <li>
+                                    <div class="figure figure-thumb">
+                                        <a href="https://www.mi.com/mi12s-pro"><img src="//c1.mifile.cn/f/i/2014/cn/placeholder-220!110x110.png" data-src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/b01bb7ee0f8c9865c11eeb2c483015e2.png" srcset="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/b01bb7ee0f8c9865c11eeb2c483015e2.png 2x" alt="Xiaomi 12S Pro" width="160" height="110" /></a>
+                                    </div>
+                                    <div class="title"><a href="https://www.mi.com/mi12s-pro">Xiaomi 12S Pro</a></div>
+                                    <p class="price">4699元起</p>                                                                    </li>
+                                                            <li>
+                                    <div class="figure figure-thumb">
+                                        <a href="https://www.mi.com/mi12s"><img src="//c1.mifile.cn/f/i/2014/cn/placeholder-220!110x110.png" data-src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/e1f5a30b6e9e29c7f4ad6ed26023f4de.png" srcset="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/e1f5a30b6e9e29c7f4ad6ed26023f4de.png 2x" alt="Xiaomi 12S" width="160" height="110" /></a>
+                                    </div>
+                                    <div class="title"><a href="https://www.mi.com/mi12s">Xiaomi 12S</a></div>
+                                    <p class="price">3999元起</p>                                                                    </li>
+                                                            <li>
+                                    <div class="figure figure-thumb">
+                                        <a href="https://www.mi.com/mi12pro-dimensity"><img src="//c1.mifile.cn/f/i/2014/cn/placeholder-220!110x110.png" data-src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/a811f07a4e13510b23ada8e2eca473ae.png" srcset="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/a811f07a4e13510b23ada8e2eca473ae.png 2x" alt="Xiaomi 12 Pro 天玑版" width="160" height="110" /></a>
+                                    </div>
+                                    <div class="title"><a href="https://www.mi.com/mi12pro-dimensity">Xiaomi 12 Pro 天玑版</a></div>
+                                    <p class="price">3999元起</p>                                                                    </li>
+                                                        </ul>
+                        </div>
+                    </div>
+                </li>
+                                <li class="nav-item">
+                    <a class="link" href="javascript: void(0);"><span class="text">Redmi手机</span><span class="arrow"></span></a>
+                    <div class="item-children">
+                        <div class="container">
+                            <ul class="children-list clearfix">
+                                                            <li class="first">
+                                    <div class="figure figure-thumb">
+                                        <a href="//item.mi.com/16642.html"><img src="//c1.mifile.cn/f/i/2014/cn/placeholder-220!110x110.png" data-src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/570184de014d26516f4c334f7132878a.png" srcset="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/570184de014d26516f4c334f7132878a.png 2x" alt="Redmi Note 12 5G" width="160" height="110" /></a>
+                                    </div>
+                                    <div class="title"><a href="//item.mi.com/16642.html">Redmi Note 12 5G</a></div>
+                                    <p class="price">1199元起</p>                                                                    </li>
+                                                            <li>
+                                    <div class="figure figure-thumb">
+                                        <a href="//item.mi.com/16644.html"><img src="//c1.mifile.cn/f/i/2014/cn/placeholder-220!110x110.png" data-src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/93e23b29e03f62164c5494a31dbbed25.png" srcset="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/93e23b29e03f62164c5494a31dbbed25.png 2x" alt="Redmi Note 12 Pro" width="160" height="110" /></a>
+                                    </div>
+                                    <div class="title"><a href="//item.mi.com/16644.html">Redmi Note 12 Pro</a></div>
+                                    <p class="price">1699元起</p>                                                                    </li>
+                                                            <li>
+                                    <div class="figure figure-thumb">
+                                        <a href="//item.mi.com/16646.html"><img src="//c1.mifile.cn/f/i/2014/cn/placeholder-220!110x110.png" data-src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/86122140712f0f645e42934d07d262a8.png" srcset="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/86122140712f0f645e42934d07d262a8.png 2x" alt="Redmi Note 12 Pro+" width="160" height="110" /></a>
+                                    </div>
+                                    <div class="title"><a href="//item.mi.com/16646.html">Redmi Note 12 Pro+</a></div>
+                                    <p class="price">2199元起</p>                                                                    </li>
+                                                            <li>
+                                    <div class="figure figure-thumb">
+                                        <a href="//item.mi.com/16326.html"><img src="//c1.mifile.cn/f/i/2014/cn/placeholder-220!110x110.png" data-src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/ee06a9131e93619c75c49b88c740203b.png" srcset="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/ee06a9131e93619c75c49b88c740203b.png 2x" alt="Redmi K50 至尊版" width="160" height="110" /></a>
+                                    </div>
+                                    <div class="title"><a href="//item.mi.com/16326.html">Redmi K50 至尊版</a></div>
+                                    <p class="price">2999元起</p>                                                                    </li>
+                                                            <li>
+                                    <div class="figure figure-thumb">
+                                        <a href="https://www.mi.com/redminote11t-pro"><img src="//c1.mifile.cn/f/i/2014/cn/placeholder-220!110x110.png" data-src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/1e1f915167554e99916273b5269da1b5.png" srcset="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/1e1f915167554e99916273b5269da1b5.png 2x" alt="Redmi Note 11T Pro+" width="160" height="110" /></a>
+                                    </div>
+                                    <div class="title"><a href="https://www.mi.com/redminote11t-pro">Redmi Note 11T Pro+</a></div>
+                                    <p class="price">2099元起</p>                                                                    </li>
+                                                            <li>
+                                    <div class="figure figure-thumb">
+                                        <a href="https://www.mi.com/redminote11t-pro"><img src="//c1.mifile.cn/f/i/2014/cn/placeholder-220!110x110.png" data-src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/f11d7da9517953d11e02d0b459003f19.png" srcset="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/f11d7da9517953d11e02d0b459003f19.png 2x" alt="Redmi Note 11T Pro" width="160" height="110" /></a>
+                                    </div>
+                                    <div class="title"><a href="https://www.mi.com/redminote11t-pro">Redmi Note 11T Pro</a></div>
+                                    <p class="price">1799元起</p>                                                                    </li>
+                                                        </ul>
+                        </div>
+                    </div>
+                </li>
+                                <li class="nav-item">
+                    <a class="link" href="javascript: void(0);"><span class="text">电视</span><span class="arrow"></span></a>
+                    <div class="item-children">
+                        <div class="container">
+                            <ul class="children-list clearfix">
+                                                            <li class="first">
+                                    <div class="figure figure-thumb">
+                                        <a href="//item.mi.com/15100.html"><img src="//c1.mifile.cn/f/i/2014/cn/placeholder-220!110x110.png" data-src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/6511d77270e94146c0b1f96b66d8cc58.png" srcset="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/6511d77270e94146c0b1f96b66d8cc58.png 2x" alt="Redmi智能电视X55 2022" width="160" height="110" /></a>
+                                    </div>
+                                    <div class="title"><a href="//item.mi.com/15100.html">Redmi智能电视X55 2022</a></div>
+                                    <p class="price">2999元</p>                                                                    </li>
+                                                            <li>
+                                    <div class="figure figure-thumb">
+                                        <a href="//item.mi.com/15101.html"><img src="//c1.mifile.cn/f/i/2014/cn/placeholder-220!110x110.png" data-src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/6511d77270e94146c0b1f96b66d8cc58.png" srcset="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/6511d77270e94146c0b1f96b66d8cc58.png 2x" alt="Redmi智能电视X65 2022" width="160" height="110" /></a>
+                                    </div>
+                                    <div class="title"><a href="//item.mi.com/15101.html">Redmi智能电视X65 2022</a></div>
+                                    <p class="price">3999元</p>                                                                    </li>
+                                                            <li>
+                                    <div class="figure figure-thumb">
+                                        <a href="https://www.mi.com/mitv6/65oled"><img src="//c1.mifile.cn/f/i/2014/cn/placeholder-220!110x110.png" data-src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/8871821795310769c1d3896c99b12381.png" srcset="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/8871821795310769c1d3896c99b12381.png 2x" alt="小米电视6 65”  OLED" width="160" height="110" /></a>
+                                    </div>
+                                    <div class="title"><a href="https://www.mi.com/mitv6/65oled">小米电视6 65”  OLED</a></div>
+                                    <p class="price">6999元</p>                                                                    </li>
+                                                            <li>
+                                    <div class="figure figure-thumb">
+                                        <a href="https://www.mi.com/mitv/oled77"><img src="//c1.mifile.cn/f/i/2014/cn/placeholder-220!110x110.png" data-src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0a1ae5341d2dae66cd42566c60d2d666.png" srcset="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0a1ae5341d2dae66cd42566c60d2d666.png 2x" alt="小米电视 大师  77”  OLED" width="160" height="110" /></a>
+                                    </div>
+                                    <div class="title"><a href="https://www.mi.com/mitv/oled77">小米电视 大师  77”  OLED</a></div>
+                                    <p class="price">19999元</p>                                                                    </li>
+                                                            <li>
+                                    <div class="figure figure-thumb">
+                                        <a href="https://www.mi.com/mitv-great/hyaline"><img src="//c1.mifile.cn/f/i/2014/cn/placeholder-220!110x110.png" data-src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/932b583c6eccd8aabfa0771f8a854940.jpg" srcset="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/932b583c6eccd8aabfa0771f8a854940.jpg 2x" alt="小米透明电视" width="160" height="110" /></a>
+                                    </div>
+                                    <div class="title"><a href="https://www.mi.com/mitv-great/hyaline">小米透明电视</a></div>
+                                    <p class="price">49999元</p>                                                                    </li>
+                                                            <li>
+                                    <div class="figure figure-thumb">
+                                        <a href="//item.mi.com/12049.html"><img src="//c1.mifile.cn/f/i/2014/cn/placeholder-220!110x110.png" data-src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/ea3390a20547c7298a258528e4aa69ad.png" srcset="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/ea3390a20547c7298a258528e4aa69ad.png 2x" alt="小米电视 大师 65英寸OLED" width="160" height="110" /></a>
+                                    </div>
+                                    <div class="title"><a href="//item.mi.com/12049.html">小米电视 大师 65英寸OLED</a></div>
+                                    <p class="price">9999元</p>                                                                    </li>
+                                                        </ul>
+                        </div>
+                    </div>
+                </li>
+                                <li class="nav-item">
+                    <a class="link" href="javascript: void(0);"><span class="text">笔记本</span><span class="arrow"></span></a>
+                    <div class="item-children">
+                        <div class="container">
+                            <ul class="children-list clearfix">
+                                                            <li class="first">
+                                    <div class="figure figure-thumb">
+                                        <a href="//item.mi.com/10050017.html"><img src="//c1.mifile.cn/f/i/2014/cn/placeholder-220!110x110.png" data-src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/55c17a67fff345d161ae55b9fb0d6f6a.png" srcset="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/55c17a67fff345d161ae55b9fb0d6f6a.png 2x" alt="Xiaomi Book Air 13" width="160" height="110" /></a>
+                                    </div>
+                                    <div class="title"><a href="//item.mi.com/10050017.html">Xiaomi Book Air 13</a></div>
+                                    <p class="price">5999元起</p>                                                                    </li>
+                                                            <li>
+                                    <div class="figure figure-thumb">
+                                        <a href="//item.mi.com/16523.html"><img src="//c1.mifile.cn/f/i/2014/cn/placeholder-220!110x110.png" data-src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c86a7877e4ed76f50e204875e7372428.png" srcset="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c86a7877e4ed76f50e204875e7372428.png 2x" alt="Redmi G 游戏本 锐龙版 R5" width="160" height="110" /></a>
+                                    </div>
+                                    <div class="title"><a href="//item.mi.com/16523.html">Redmi G 游戏本 锐龙版 R5</a></div>
+                                    <p class="price">7299元</p>                                                                    </li>
+                                                            <li>
+                                    <div class="figure figure-thumb">
+                                        <a href="https://www.mi.com/redmibook/prointel-g"><img src="//c1.mifile.cn/f/i/2014/cn/placeholder-220!110x110.png" data-src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c86a7877e4ed76f50e204875e7372428.png" srcset="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c86a7877e4ed76f50e204875e7372428.png 2x" alt="Redmi G Pro 游戏本 2022" width="160" height="110" /></a>
+                                    </div>
+                                    <div class="title"><a href="https://www.mi.com/redmibook/prointel-g">Redmi G Pro 游戏本 2022</a></div>
+                                    <p class="price">8999元起</p>                                                                    </li>
+                                                            <li>
+                                    <div class="figure figure-thumb">
+                                        <a href="//item.mi.com/10050001.html"><img src="//c1.mifile.cn/f/i/2014/cn/placeholder-220!110x110.png" data-src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c86a7877e4ed76f50e204875e7372428.png" srcset="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c86a7877e4ed76f50e204875e7372428.png 2x" alt="Redmi G Pro 游戏本 锐龙版 R7 " width="160" height="110" /></a>
+                                    </div>
+                                    <div class="title"><a href="//item.mi.com/10050001.html">Redmi G Pro 游戏本 锐龙版 R7 </a></div>
+                                    <p class="price">8799元</p>                                                                    </li>
+                                                            <li>
+                                    <div class="figure figure-thumb">
+                                        <a href="//item.mi.com/10000420.html"><img src="//c1.mifile.cn/f/i/2014/cn/placeholder-220!110x110.png" data-src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c926842a23c7316b17792e075be9d055.png" srcset="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c926842a23c7316b17792e075be9d055.png 2x" alt="Xiaomi Book Pro 14 锐龙版" width="160" height="110" /></a>
+                                    </div>
+                                    <div class="title"><a href="//item.mi.com/10000420.html">Xiaomi Book Pro 14 锐龙版</a></div>
+                                    <p class="price">6399元起</p>                                                                    </li>
+                                                            <li>
+                                    <div class="figure figure-thumb">
+                                        <a href="//item.mi.com/10000412.html"><img src="//c1.mifile.cn/f/i/2014/cn/placeholder-220!110x110.png" data-src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c86a7877e4ed76f50e204875e7372428.png" srcset="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c86a7877e4ed76f50e204875e7372428.png 2x" alt="Redmi G 游戏本 2022" width="160" height="110" /></a>
+                                    </div>
+                                    <div class="title"><a href="//item.mi.com/10000412.html">Redmi G 游戏本 2022</a></div>
+                                    <p class="price">7499元起</p>                                                                    </li>
+                                                        </ul>
+                        </div>
+                    </div>
+                </li>
+                                <li class="nav-item">
+                    <a class="link" href="javascript: void(0);"><span class="text">平板</span><span class="arrow"></span></a>
+                    <div class="item-children">
+                        <div class="container">
+                            <ul class="children-list clearfix">
+                                                            <li class="first">
+                                    <div class="figure figure-thumb">
+                                        <a href="//item.mi.com/16620.html"><img src="//c1.mifile.cn/f/i/2014/cn/placeholder-220!110x110.png" data-src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/a887139f3995c4cac2a167e014ffd91e.jpg" srcset="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/a887139f3995c4cac2a167e014ffd91e.jpg 2x" alt="Redmi Pad" width="160" height="110" /></a>
+                                    </div>
+                                    <div class="title"><a href="//item.mi.com/16620.html">Redmi Pad</a></div>
+                                    <p class="price">1299元起</p>                                                                    </li>
+                                                            <li>
+                                    <div class="figure figure-thumb">
+                                        <a href="https://www.mi.com/xiaomipad5pro-124"><img src="//c1.mifile.cn/f/i/2014/cn/placeholder-220!110x110.png" data-src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/1ba211a988be47d7ae5a1a448ecf0b67.jpeg" srcset="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/1ba211a988be47d7ae5a1a448ecf0b67.jpeg 2x" alt="小米平板5 Pro 12.4" width="160" height="110" /></a>
+                                    </div>
+                                    <div class="title"><a href="https://www.mi.com/xiaomipad5pro-124">小米平板5 Pro 12.4</a></div>
+                                    <p class="price">2999元起</p>                                                                    </li>
+                                                            <li>
+                                    <div class="figure figure-thumb">
+                                        <a href="https://www.mi.com/xiaomipad5"><img src="//c1.mifile.cn/f/i/2014/cn/placeholder-220!110x110.png" data-src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/33de34a4caf2834a1828dc51203dc922.png" srcset="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/33de34a4caf2834a1828dc51203dc922.png 2x" alt="小米平板5" width="160" height="110" /></a>
+                                    </div>
+                                    <div class="title"><a href="https://www.mi.com/xiaomipad5">小米平板5</a></div>
+                                    <p class="price">1999元起</p>                                                                    </li>
+                                                            <li>
+                                    <div class="figure figure-thumb">
+                                        <a href="https://www.mi.com/xiaomipad5pro5G"><img src="//c1.mifile.cn/f/i/2014/cn/placeholder-220!110x110.png" data-src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/03892b203a6413bcd8ef3f92d77df79c.gif" srcset="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/03892b203a6413bcd8ef3f92d77df79c.gif 2x" alt="小米平板5 Pro 5G" width="160" height="110" /></a>
+                                    </div>
+                                    <div class="title"><a href="https://www.mi.com/xiaomipad5pro5G">小米平板5 Pro 5G</a></div>
+                                    <p class="price">3349元</p>                                                                    </li>
+                                                            <li>
+                                    <div class="figure figure-thumb">
+                                        <a href="https://www.mi.com/xiaomipad5pro"><img src="//c1.mifile.cn/f/i/2014/cn/placeholder-220!110x110.png" data-src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/aad55902a2cc64bf0306b004adb14ef7.png" srcset="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/aad55902a2cc64bf0306b004adb14ef7.png 2x" alt="小米平板5 Pro" width="160" height="110" /></a>
+                                    </div>
+                                    <div class="title"><a href="https://www.mi.com/xiaomipad5pro">小米平板5 Pro</a></div>
+                                    <p class="price">2499元起</p>                                                                    </li>
+                                                        </ul>
+                        </div>
+                    </div>
+                </li>
+                                <li class="nav-item">
+                    <a class="link" href="javascript: void(0);"><span class="text">家电</span><span class="arrow"></span></a>
+                    <div class="item-children">
+                        <div class="container">
+                            <ul class="children-list clearfix">
+                                                            <li class="first">
+                                    <div class="figure figure-thumb">
+                                        <a href="//item.mi.com/13143.html"><img src="//c1.mifile.cn/f/i/2014/cn/placeholder-220!110x110.png" data-src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/80416c1c7040aabbafa527a6ea652948.png" srcset="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/80416c1c7040aabbafa527a6ea652948.png 2x" alt="小米空调 1.5匹新1级能效" width="160" height="110" /></a>
+                                    </div>
+                                    <div class="title"><a href="//item.mi.com/13143.html">小米空调 1.5匹新1级能效</a></div>
+                                    <p class="price">2499元</p>                                                                    </li>
+                                                            <li>
+                                    <div class="figure figure-thumb">
+                                        <a href="https://www.mi.com/mi-f2a1-cond"><img src="//c1.mifile.cn/f/i/2014/cn/placeholder-220!110x110.png" data-src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/950767dbf6e63b853d39d413e97685a8.png" srcset="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/950767dbf6e63b853d39d413e97685a8.png 2x" alt="新风空调 立式3匹" width="160" height="110" /></a>
+                                    </div>
+                                    <div class="title"><a href="https://www.mi.com/mi-f2a1-cond">新风空调 立式3匹</a></div>
+                                    <p class="price">7299元</p>                                                                    </li>
+                                                            <li>
+                                    <div class="figure figure-thumb">
+                                        <a href="//item.mi.com/12961.html"><img src="//c1.mifile.cn/f/i/2014/cn/placeholder-220!110x110.png" data-src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/65df9e92c06dcd148de5f0eb13e16ea2.png" srcset="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/65df9e92c06dcd148de5f0eb13e16ea2.png 2x" alt="米家扫拖机器人1T" width="160" height="110" /></a>
+                                    </div>
+                                    <div class="title"><a href="//item.mi.com/12961.html">米家扫拖机器人1T</a></div>
+                                    <p class="price">1999元</p>                                                                    </li>
+                                                        </ul>
+                        </div>
+                    </div>
+                </li>
+                                <li class="nav-item">
+                    <a class="link" href="javascript: void(0);"><span class="text">路由器</span><span class="arrow"></span></a>
+                    <div class="item-children">
+                        <div class="container">
+                            <ul class="children-list clearfix">
+                                                            <li class="first">
+                                    <div class="figure figure-thumb">
+                                        <a href="https://www.mi.com/rm5400"><img src="//c1.mifile.cn/f/i/2014/cn/placeholder-220!110x110.png" data-src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c1465737a8a6ac8772560dce2ef0a39f.png" srcset="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c1465737a8a6ac8772560dce2ef0a39f.png 2x" alt="Redmi 电竞路由器 AX5400" width="160" height="110" /></a>
+                                    </div>
+                                    <div class="title"><a href="https://www.mi.com/rm5400">Redmi 电竞路由器 AX5400</a></div>
+                                    <p class="price">599元</p>                                                                    </li>
+                                                            <li>
+                                    <div class="figure figure-thumb">
+                                        <a href="https://www.mi.com/r6000"><img src="//c1.mifile.cn/f/i/2014/cn/placeholder-220!110x110.png" data-src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/2a759fa795d749f0538cfd2a15890027.png" srcset="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/2a759fa795d749f0538cfd2a15890027.png 2x" alt="小米路由器AX6000" width="160" height="110" /></a>
+                                    </div>
+                                    <div class="title"><a href="https://www.mi.com/r6000">小米路由器AX6000</a></div>
+                                    <p class="price">549元</p>                                                                    </li>
+                                                            <li>
+                                    <div class="figure figure-thumb">
+                                        <a href="//item.mi.com/13877.html"><img src="//c1.mifile.cn/f/i/2014/cn/placeholder-220!110x110.png" data-src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/2815a0a208be362cba673aae9a1f9c93.png" srcset="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/2815a0a208be362cba673aae9a1f9c93.png 2x" alt="小米路由器AX9000" width="160" height="110" /></a>
+                                    </div>
+                                    <div class="title"><a href="//item.mi.com/13877.html">小米路由器AX9000</a></div>
+                                    <p class="price">1299元</p>                                                                    </li>
+                                                            <li>
+                                    <div class="figure figure-thumb">
+                                        <a href="https://www.mi.com/miwifihome"><img src="//c1.mifile.cn/f/i/2014/cn/placeholder-220!110x110.png" data-src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/2f88d17e29314286967eeb88bf86cdfc.png" srcset="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/2f88d17e29314286967eeb88bf86cdfc.png 2x" alt="Xiaomi HomeWiFi 三频 Mesh 路由器" width="160" height="110" /></a>
+                                    </div>
+                                    <div class="title"><a href="https://www.mi.com/miwifihome">Xiaomi HomeWiFi 三频 Mesh 路由器</a></div>
+                                    <p class="price">1499元</p>                                                                    </li>
+                                                            <li>
+                                    <div class="figure figure-thumb">
+                                        <a href="https://www.mi.com/miwifi4ac/"><img src="//c1.mifile.cn/f/i/2014/cn/placeholder-220!110x110.png" data-src="https://cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/026a28fc18eff2cfa4d26a799a2da9cc.jpg" srcset="https://cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/026a28fc18eff2cfa4d26a799a2da9cc.jpg 2x" alt="小米路由器4A 千兆版" width="160" height="110" /></a>
+                                    </div>
+                                    <div class="title"><a href="https://www.mi.com/miwifi4ac/">小米路由器4A 千兆版</a></div>
+                                    <p class="price">129元</p>                                                                    </li>
+                                                            <li>
+                                    <div class="figure figure-thumb">
+                                        <a href="//search.mi.com/search_路由"><img src="//c1.mifile.cn/f/i/2014/cn/placeholder-220!110x110.png" data-src="https://cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/2ddc6a2789c5f5ff78fa4ca1402417c8.png" srcset="https://cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/2ddc6a2789c5f5ff78fa4ca1402417c8.png 2x" alt="查看全部<br>小米路由器" width="160" height="110" /></a>
+                                    </div>
+                                    <div class="title"><a href="//search.mi.com/search_路由">查看全部<br>小米路由器</a></div>
+                                                                                                        </li>
+                                                        </ul>
+                        </div>
+                    </div>
+                </li>
+                                <li class="nav-item">
+                    <a class="link" href="https://www.mi.com/service/" ><span class="text">服务中心</span></a>
+                </li>
+                                <li class="nav-item">
+                    <a class="link" href="http://www.xiaomi.cn/" ><span class="text">社区</span></a>
+                </li>
+                            </ul>
+        </div>
+        <div class="header-search">
+            <form id="J_searchForm" class="search-form clearfix" action="//search.mi.com/search" method="get">
+                <label for="search" class="hide">站内搜索</label>
+                <input class="search-text" type="search" id="search" name="keyword" autocomplete="off" data-search-config="{'defaultWords':[]}" />
+                <input type="submit" class="search-btn iconfont" value="&#xe616;" />
+                <div class="search-hot-words">
+                    <a href="//item.mi.com/10000214.html">小米10</a><a href="//item.mi.com/10000223.html">Redmi K30 Pro</a><a href="https://www.mi.com/aispeaker-pro8">触屏音箱Pro 8</a>                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div class="provision">
+<div class="section">
+<h2 class="tit">维修流程</h2>
+<p align="left">产品售出之日（以实际收货日期为准）<strong>12个月内</strong>，移动电话主机出现《移动电话机商品性能故障表》所列性能故障的情况，经由小米售后服务中心检测确定，依据您的选择，可<strong>免费</strong>进行修理。 </p>
+<p>&nbsp; </p>
+<p><strong>移动电话机商品性能故障表：</strong></p>
+<p>&nbsp;</p>
+<div><table border="1" cellpadding="0" cellspacing="0" bordercolor="#CCCCCC">
+  <tr height="28">
+    <td height="28" width="103">&nbsp;名称</td>
+    <td width="496">&nbsp;性能故障</td>
+  </tr>
+  <tr height="28">
+    <td rowspan="10" height="341" width="103">&nbsp;手机主体</td>
+    <td width="496">&nbsp;说明书所列功能失效</td>
+  </tr>
+  <tr height="28">
+    <td height="28" width="496">&nbsp;屏幕无显示/错字/漏划</td>
+  </tr>
+  <tr height="28" >
+    <td height="28" width="496">&nbsp;无法开机、不能正常登录或通信</td>
+  </tr>
+  <tr height="28">
+    <td height="28" width="496">&nbsp;无振铃</td>
+  </tr>
+  <tr height="28">
+    <td height="28" width="496">&nbsp;拨号错误</td>
+  </tr>
+  <tr height="28">
+    <td height="28" width="496">&nbsp;非正常关机</td>
+  </tr>
+  <tr height="28">
+    <td height="28" width="496">&nbsp;SIM卡接触不良</td>
+  </tr>
+  <tr height="28">
+    <td height="28" width="496">&nbsp;按键控制失效</td>
+  </tr>
+  <tr height="28" >
+    <td height="28" width="496">&nbsp;无声响、单向无声或音量不正常</td>
+  </tr>
+  <tr height="28" >
+    <td height="28" width="496">&nbsp;因结构或材料因素造成的外壳裂损</td>
+  </tr>
+  <tr height="28">
+    <td height="28" width="103">&nbsp;充电器</td>
+    <td width="496">&nbsp;不工作或工作不正常、使用指定充电器无法正常充电</td>
+  </tr>
+  <tr height="28">
+    <td height="28" width="103">&nbsp;电池</td>
+    <td width="496">&nbsp;充电后手机仍不能正常工作。判断依据为电池容量不小于80%</td>
+  </tr>
+  <tr height="28">
+    <td height="28" width="103">&nbsp;移动终端卡</td>
+    <td width="496">&nbsp;不能正常工作</td>
+  </tr>
+  <tr height="28">
+    <td height="28" width="103">&nbsp;外接有线耳机</td>
+    <td width="496">&nbsp;不能正常送受话</td>
+  </tr>
+  <tr height="28">
+    <td height="28" width="103">&nbsp;数据接口卡&nbsp;</td>
+    <td width="496">&nbsp;不能正常工作</td>
+  </tr>
+</table></div>
+<p>&nbsp;</p>
+<p><strong>保修维修流程</strong></p>
+<p>第一步：当您遇到任何使用问题，请拨打400-100-5678 售后服务热线，我们首先通过电话指导您操作，确认手机故障（为了方便您操作小米手机，建议您使用其他电话拨打热线）；</p>
+<p>第二步：如果确定您机器的问题属于《移动电话机商品性能故障表》中所列性能问题，需要硬件检测时，我们会协助您填写维修检测单。填写完整后请您将机器邮寄回北京高阶维修中心处理。</p>
+<p>第三步：我们收到您的手机后，技术人员会对您的手机进行检测并确认故障问题。届时我们会及时与您联系，向您确定故障原因及维修时间；</p>
+<p>第四步：为保证手机出厂质量，维修后会严格按出厂要求重新进行质量测试，测试合格后返还给您；</p>
+<p>第五步：手机维修完成，我们会安排为您送货上门，请您注意查收。</p>
+<p>&nbsp;</p>
+
+<p><strong>以下情况不予办理免费保修</strong></p>
+
+<p>1．未经授权的维修、误用、碰撞、疏忽、滥用、进液、事故、改动、不正确的使用非本机配件，或安装软件系统所造成的商品质量问题；或撕毁、涂改标贴、机器序号、防伪标记；</p>
+<p>2．已超过三包有效期；</p>
+<p>3．因不可抗力造成的损坏；</p>
+<p>4．不符合《移动电话机商品性能故障表》所列性能故障的情况；</p>
+<p>5．因人为原因导致小米手机及其配件产生《移动电话机商品性能故障表》所列性能故障。</p>
+<p>&nbsp;</p>
+<p><strong>重要提示： </strong></p>
+<p>如果您所在地区不支持上门取货，需要您在一周内，将手机寄到指定地点。我们会根据您提供的凭证报销运费（最高上限15元/单），目前我们已开通上门取货的地区：北京、上海、广州、深圳等28个城市，我们会逐步扩大上门取货地区范围。</p>
+<p>如果您遇到的问题不在保修范围或者是人为原因导致，我们会根据问题性质进行收费维修。</p>
+<p>整个维修过程及维修记录请拨打400-100-5678 服务热线进行查询。</p>
+
+
+<h2 class="tit" style="margin-top: 60px;">维修时间流程</h2>
+<p><strong>保内维修</strong></p>
+<p>&nbsp;</p>
+<p style="margin-bottom: 70px;"><img alt="" width="710" height="125" src="//s1.mi.com/images/about/guarantee_120308_1.jpg" /><p>
+<p><strong>保外维修</strong></p>
+<p>&nbsp;</p>
+<p><img alt="" width="710" height="125" src="//s1.mi.com/images/about/guarantee_120308_2.jpg" /></p>
+<p>&nbsp;</p>
+<p >保外维修的时间，可能会受维修款项到账情况影响，故上图为正常情况下的时间进程。</p>
+<p style="margin-top: 80px;"><strong>附：保外维修部分器件价格</strong></p>
+<p>&nbsp;</p>
+<div>
+    <table border="1" cellpadding="0" cellspacing="0" bordercolor="#CCCCCC">
+        <tr height="28">
+            <td height="28" width="300">
+                &nbsp;维修物料
+            </td>
+            <td width="150">
+                &nbsp;维修物料价
+            </td>
+            <td width="150">
+                &nbsp;人工费
+            </td>
+        </tr>
+        <tr height="28">
+            <td height="28">
+                &nbsp;触摸屏（TP）
+            </td>
+            <td>
+                &nbsp;220.00 
+            </td>
+            <td>
+               &nbsp;40.00 
+            </td>
+        </tr>
+        <tr height="28">
+            <td height="28">
+                &nbsp;听筒
+            </td>
+            <td>
+                &nbsp;20.00
+            </td>
+            <td>
+                &nbsp;40.00
+            </td>
+        </tr>
+        <tr height="28">
+            <td height="28">
+                &nbsp;液晶显示屏（LCD）
+            </td>
+            <td>
+                &nbsp;310.00
+            </td>
+            <td>
+                &nbsp;40.00
+            </td>
+        </tr>
+        <tr height="28">
+            <td height="28">
+                &nbsp;摄像头
+            </td>
+            <td>
+                &nbsp;130.00
+            </td>
+            <td>
+                &nbsp;40.00
+            </td>
+        </tr>
+        <tr height="28">
+            <td height="28">
+                &nbsp;扬声器喇叭
+            </td>
+            <td>
+                &nbsp;35.00
+            </td>
+            <td>
+                &nbsp;40.00
+            </td>
+        </tr>
+        <tr height="28">
+            <td height="28">
+                &nbsp;振动器
+            </td>
+            <td>
+                &nbsp;50.00 	
+            </td>
+            <td>
+                &nbsp;40.00
+            </td>
+        </tr>
+        <tr height="28">
+            <td height="28">
+                &nbsp;次板	 
+            </td>
+            <td>
+                &nbsp;60.00 	
+            </td>
+            <td>
+                &nbsp;40.00
+            </td>
+        </tr>
+        <tr height="28">
+            <td height="28">
+                &nbsp;小板PCB	 
+            </td>
+            <td>
+                &nbsp;70.00 	
+            </td>
+            <td>
+                &nbsp;40.00
+            </td>
+        </tr>
+        <tr height="28">
+            <td height="28">
+                &nbsp;主pcba(含元件器)	 
+            </td>
+            <td>
+                &nbsp;999.00 	
+            </td>
+            <td>
+                &nbsp;40.00
+            </td>
+        </tr>
+    </table>
+    <p>&nbsp;</p>
+    <p>
+        注：
+        多个元器件同时更换只收取一次人工费用<br />
+        物料价格为更换物料的单个价格<br />
+        针对更换的物料，免费保修三个月<br />
+    </p>
+</div>
+</div>
+</div>
+
+<div class="site-footer">
+    <div class="container">
+        <div class="footer-service">
+            <ul class="list-service clearfix">
+                            <li ><a rel="nofollow" href="//www.mi.com/service/quick-repair" target="_blank"><i class="iconfont" >&#xe634;</i><span>预约维修服务</span></a></li>
+                            <li ><a rel="nofollow" href="//www.mi.com/service/exchange#back" target="_blank"><i class="iconfont" >&#xe635;</i><span>7天无理由退货</span></a></li>
+                            <li ><a rel="nofollow" href="//www.mi.com/service/exchange#back" target="_blank"><i class="iconfont" >&#xe636;</i><span>15天免费换货</span></a></li>
+                            <li id=J_footerPrice><a rel="nofollow" href="http://www.mi.com/service/buy/Postal%20policy" target="_blank"><i class="iconfont" >&#xe638;</i><span>满99元包邮</span></a></li>
+                            <li ><a rel="nofollow" href="https://www.mi.com/service/sitelist" target="_blank"><i class="iconfont" >&#xe637;</i><span>520余家售后网点</span></a></li>
+                        </ul>
+        </div>
+        <div class="footer-links clearfix">
+            
+            <dl class="col-links col-links-first">
+                <dt>帮助中心</dt>
+                
+                <dd><a rel="nofollow" href="//www.mi.com/service/account/Account%20registration/"   target="_blank">账户管理</a></dd>
+                
+                <dd><a rel="nofollow" href="//www.mi.com/service/buy/SalesTime/"   target="_blank">购物指南</a></dd>
+                
+                <dd><a rel="nofollow" href="//www.mi.com/service/order/sendprogress/"   target="_blank">订单操作</a></dd>
+                
+            </dl>
+                
+            <dl class="col-links ">
+                <dt>服务支持</dt>
+                
+                <dd><a rel="nofollow" href="//www.mi.com/service/exchange"   target="_blank">售后政策</a></dd>
+                
+                <dd><a rel="nofollow" href="//www.mi.com/service/"   target="_blank">自助服务</a></dd>
+                
+                <dd><a rel="nofollow" href="//www.mi.com/service/download/"   target="_blank">相关下载</a></dd>
+                
+            </dl>
+                
+            <dl class="col-links ">
+                <dt>线下门店</dt>
+                
+                <dd><a rel="nofollow" href="https://www.mi.com/service/mihome/list"   target="_blank">小米之家</a></dd>
+                
+                <dd><a rel="nofollow" href="https://www.mi.com/service/sitelist"   target="_blank">服务网点</a></dd>
+                
+                <dd><a rel="nofollow" href="//www.mi.com/service/family-location"   target="_blank">授权体验店</a></dd>
+                
+            </dl>
+                
+            <dl class="col-links ">
+                <dt>关于小米</dt>
+                
+                <dd><a rel="nofollow" href="//www.mi.com/about/"   target="_blank">了解小米</a></dd>
+                
+                <dd><a rel="nofollow" href="http://hr.xiaomi.com/"   target="_blank">加入小米</a></dd>
+                
+                <dd><a rel="nofollow" href="//company.mi.com/zh-cn/ir/indexContent/index.html"   target="_blank">投资者关系</a></dd>
+                
+                <dd><a rel="nofollow" href="//integrity.mi.com/"   target="_blank">廉洁举报</a></dd>
+                
+            </dl>
+                
+            <dl class="col-links ">
+                <dt>关注我们</dt>
+                
+                <dd><a rel="nofollow" href="https://weibo.com/xiaomishangcheng"   target="_blank">新浪微博</a></dd>
+                
+                <dd><a rel="nofollow" href="#J_modalWeixin" data-toggle="modal" >官方微信</a></dd>
+                
+                <dd><a rel="nofollow" href="//www.mi.com/about/contact/"   target="_blank">联系我们</a></dd>
+                
+            </dl>
+                
+            <dl class="col-links ">
+                <dt>特色服务</dt>
+                
+                <dd><a rel="nofollow" href="//www.mi.com/order/fcode"   target="_blank">F 码通道</a></dd>
+                
+                <dd><a rel="nofollow" href="//www.mi.com/order/giftcode"   target="_blank">礼物码</a></dd>
+                
+                <dd><a rel="nofollow" href="//order.mi.com/service/imei"   target="_blank">防伪 查询</a></dd>
+                
+            </dl>
+                
+            <div class="col-contact">
+                <div class="col-contact">
+    <p class="phone">400-100-5678</p> 
+    <p>9:00-18:00（仅收市话费）</p> 
+   <a rel="nofollow" class="btn btn-line-primary btn-small J_contactBtn "> <em class="iconfont-message2"></em> 人工客服 </a>
+    <div class="follow">关注小米：<a href="https://weibo.com/xiaomishangcheng" class="wb" target="_blank" ></a><a class="wx" href="javascript:void(0);" id="J_followWx" ></a>
+    <img src="//cdn.cnbj1.fds.api.mi-img.com/staticsfile/global/wx-img.png" id="J_followWxImg"> 
+    </div>            
+</div>            </div>
+        </div>
+    </div>
+</div>
+<div class="site-info">
+    <div class="container">
+        <div class="logo ir">小米官网</div>
+        <div class="info-text">
+            <p class="sites"><a href="//www.mi.com/index.html"  target="_blank">小米商城</a><span class="sep">|</span><a href="https://www.miui.com/"  target="_blank">MIUI</a><span class="sep">|</span><a href="https://home.mi.com/index.html"  target="_blank">米家</a><span class="sep">|</span><a href="http://www.miliao.com/"  target="_blank">米聊</a><span class="sep">|</span><a href="https://www.duokan.com/"  target="_blank">多看</a><span class="sep">|</span><a href="http://game.xiaomi.com/"  target="_blank">游戏</a><span class="sep">|</span><a href="http://www.miwifi.com/"  target="_blank">路由器</a><span class="sep">|</span><a href="//www.mi.com/micard/"  target="_blank">米粉卡</a><span class="sep">|</span><a href="https://b.mi.com/?client_id=180100031058&masid=17409.0358"  target="_blank">政企服务</a><span class="sep">|</span><a href="https://xiaomi.tmall.com/"  target="_blank">小米天猫店</a><span class="sep">|</span><a href="//privacy.mi.com/all/zh_CN/"  target="_blank">小米集团隐私政策</a><span class="sep">|</span><a href="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/ded8d0e4a77d.html"  target="_blank">小米商城隐私政策</a><span class="sep">|</span><a href="//www.mi.com/about/user-agreement/"  target="_blank">小米商城用户协议</a><span class="sep">|</span><a href="https://static.mi.com/feedback/"  target="_blank">问题反馈</a>            </p>
+            <p>&copy;
+<a href=" " target="_blank" title="mi.com">mi.com</a> 京ICP证110507号
+<a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow">京ICP备10046444号</a>
+<a rel="nofollow" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802020134" target="_blank">京公网安备11010802020134号 </a>
+<a href="//www.mi.com/culture-license/" target="_blank">京网文[2020]0276-042号</a> <br>
+<a href="//www.mi.com/medical/record/" target="_blank">（京）网械平台备字（2018）第00005号
+</a>
+<a href="//www.mi.com/medical/qualification/" target="_blank">互联网药品信息服务资格证 (京) -非经营性-2014-0090
+</a>
+<a href="//www.mi.com/business-license/" target="_blank">营业执照</a>
+<a href="//www.mi.com/medical/list/" target="_blank">医疗器械公告</a>
+<br>
+<a href=https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/e0c7d4cf3b7cd88de10196e30c92e020.png target="_blank">增值电信业务许可证</a>&nbsp;
+网络食品经营备案 京食药网食备202010048 &nbsp;
+<a href="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c6859168166651511897f54fa1047fe3.png" target="_blank">食品经营许可证</a>
+<br>违法和不良信息举报电话：171-5104-4404 <a href="https://www.mi.com/intellectual" target="_blank">知识产权侵权投诉</a> 本网站所列数据，除特殊说明，所有数据均出自我司实验室测试</p>
+        </div>
+        <div class="info-links">
+                    <a href="//privacy.truste.com/privacy-seal/validation?rid=4fc28a8c-6822-4980-9c4b-9fdc69b94eb8&lang=zh-cn" target="_blank"><img src="//i1.mifile.cn/f/i/17/site/truste.png" alt="TRUSTe Privacy Certification" /></a>
+                    <a href="//search.szfw.org/cert/l/CX20120926001783002010" target="_blank"><img src="//s01.mifile.cn/i/v-logo-2.png" alt="诚信网站" /></a>
+                    <a href="https://ss.knet.cn/verifyseal.dll?sn=e12033011010015771301369&ct=df&pa=461082" target="_blank"><img src="//s01.mifile.cn/i/v-logo-1.png" alt="可信网站" /></a>
+                    <a href="http://www.315online.com.cn/member/315140007.html" target="_blank"><img src="//s01.mifile.cn/i/v-logo-3.png" alt="网上交易保障中心" /></a>
+                    <a href="https://www.mi.com/service/buy/commitment/" target="_blank"><img src="//i8.mifile.cn/b2c-mimall-media/ba10428a4f9495ac310fd0b5e0cf8370.png" alt="诚信经营 放心消费" /></a>
+        
+        </div>
+    </div>
+</div>
+
+<div id="J_modalWeixin" class="modal fade modal-hide modal-weixin" data-width="480" data-height="520">
+        <div class="modal-hd">
+            <a class="close" data-dismiss="modal"><i class="iconfont">&#xe602;</i></a>
+            <span class="title">小米手机官方微信二维码</span>
+        </div>
+        <div class="modal-bd">
+            <img alt="" src="//i1.mifile.cn/f/i/17/site/weixin.jpg" width="680" height="340" />
+        </div>
+    </div>
+<!-- .modal-weixin END -->
+<div class="modal modal-hide modal-bigtap-queue" id="J_bigtapQueue">
+    <div class="modal-body">
+        <span class="close" data-dismiss="modal" aria-hidden="true">退出排队</span>
+        <div class="con">
+            <div class="title">正在排队，请稍候喔！</div>
+            <div class="queue-tip-box">
+                <p class="queue-tip">当前人数较多，请您耐心等待，排队期间请不要关闭页面。</p>
+                <p class="queue-tip">时常来官网看看，最新产品和活动信息都会在这里发布。</p>
+                <p class="queue-tip">下载小米商城 App 玩玩吧！产品开售信息抢先知道。</p>
+                <p class="queue-tip">发现了让你眼前一亮的小米产品，别忘了分享给朋友！</p>
+                <p class="queue-tip">产品开售前会有预售信息，关注官网首页就不会错过。</p>
+            </div>
+        </div>
+
+        <div class="queue-posters">
+            <div class="poster poster-3"></div>
+            <div class="poster poster-2"></div>
+            <div class="poster poster-1"></div>
+            <div class="poster poster-4"></div>
+            <div class="poster poster-5"></div>
+        </div>
+    </div>
+</div>
+<!-- .xm-dm-queue END -->
+<div id="J_bigtapError" class="modal modal-hide modal-bigtap-error">
+    <span class="close" data-dismiss="modal" aria-hidden="true"><i class="iconfont">&#xe602;</i></span>
+    <div class="modal-body">
+        <h3>抱歉，网络拥堵无法连接服务器</h3>
+        <p  class="error-tip">由于访问人数太多导致服务器压力山大，请您稍后再重试。</p>
+        <p >
+            <a class="btn btn-primary" id="J_bigtapRetry">重试</a>
+        </p>
+    </div>
+</div>
+
+
+<div id="J_bigtapModeBox" class="modal fade modal-hide modal-bigtap-mode">
+    <span class="close" data-dismiss="modal" ><i class="iconfont">&#xe602;</i></span>
+    <div class="modal-body">
+        <h3 class="title">为防黄牛，请您输入下面的验证码</h3>
+         <p class="desc">在防黄牛的路上，我们一直在努力，也知道做的还不够。<br>
+所以，这次劳烦您多输一次验证码，我们一起防黄牛。</p>
+        <div class="mode-loading" id="J_bigtapModeLoading">
+            <img src="//i1.mifile.cn/f/i/2014/cn/loading.gif" alt="" width="32" height="32">
+            <a  id="J_bigtapModeReload" class="reload  hide" href="javascript:void(0);">网络错误，点击重新获取验证码！</a>
+        </div>
+        <div class="mode-action hide" id="J_bigtapModeAction">
+            <div class="mode-con" id="J_bigtapModeContent"></div>
+            <input type="text" name="bigtapmode" class="input-text" id="J_bigtapModeInput" placeholder="请输入正确的验证码">
+            <p class="tip" id="J_bigtapModeTip"></p>
+            <a class="btn  btn-gray" id="J_bigtapModeSubmit">确认</a>
+        </div>
+    </div>
+</div>
+<!-- .xm-dm-error END -->
+<div id="J_modal-globalSites" class="modal fade modal-hide modal-globalSites" data-width="640">
+   <div class="modal-hd">
+        <a class="close" data-dismiss="modal"><i class="iconfont">&#xe602;</i></a>
+        <span class="title">Select Region</span>
+    </div>
+    <div class="modal-bd">
+        <h3>Welcome to Mi.com</h3>
+        <p class="modal-globalSites-tips">Please select your country or region</p>
+        <p class="modal-globalSites-links clearfix">
+           
+            <a href="//www.mi.com/hk/">Hong Kong</a>
+            <a href="//www.mi.com/tw/">Taiwan</a>
+            <a href="//www.mi.com/sg/">Singapore</a>
+            <a href="//www.mi.com/my/">Malaysia</a>
+            <a href="//www.mi.com/ph/">Philippines</a>
+            <a href="//www.mi.com/in/">India</a>
+            <a href="//www.mi.com/id/">Indonesia</a>
+            <a href="//www.mi.com/global/">Global Home</a>
+            <a href="//www.mi.com/mena/">MENA</a>
+            <a href="//www.mi.com/pl/">Poland</a>
+            <a href="//www.mi.com/ua/">Ukraine</a>
+            <a href="//www.mi.com/ru/">Russia</a>
+            <a href="//www.mi.com/vn/">Vietnam</a>
+            <a href="//www.mi.com/mx/">Mexico</a>
+            <a href="//www.mi.com/kr/">Korea</a>
+            <a href="//www.mi.com/eg/">Egypt</a>
+            <a href="//www.mi.com/th/">Thailand</a>
+            <a href="//www.mi.com/es/">Spain</a>
+            <a href="//www.mi.com/us/">United States</a>
+            <a href="//www.mi.com/it/">Italy</a>
+            <a href="//www.mi.com/fr/index.html">France</a>
+            <a href="//www.mi.com/bd/">Bangladesh</a>
+            <a href="//www.mi.com/uk/">United Kingdom</a>
+            <a href="//www.mi.com/cl/">Chile</a>
+            <a href="//www.mi.com/np/">Nepal</a>
+            <a href="//www.mi.com/lk/">Sri Lanka</a>
+            <a href="//www.mi.com/tr/">Turkey</a>
+            <a href="//www.mi.com/nl/">Netherlands</a>
+            <a href="//www.mi.com/br/">Brazil</a>
+        </p>
+    </div>
+</div>
+<!-- .modal-globalSites END -->
+
+<script src="//s01.mifile.cn/js/base.min.js?v2020091001"></script>
+<script>
+(function() {
+    MI.namespace('GLOBAL_CONFIG');
+    MI.GLOBAL_CONFIG = {
+        orderSite: 'http://order.mi.com',
+        wwwSite: 'https://www.mi.com',
+        cartSite: '//cart.mi.com',
+        itemSite: '//item.mi.com',
+        assetsSite: '//s01.mifile.cn',
+        listSite: '//list.mi.com',
+        searchSite: '//search.mi.com',
+        mySite: '//my.mi.com',
+        damiaoSite: 'http://tp.hd.mi.com/',
+        damiaoGoodsId:[],
+        logoutUrl: 'http://order.mi.com/site/logout',
+        staticSite: '//static.mi.com',
+        quickLoginUrl: 'https://account.xiaomi.com/pass/static/login.html',
+        pcWwwMiComSite: '//www.mi.com',
+    };
+    MI.setLoginInfo.orderUrl = MI.GLOBAL_CONFIG.orderSite + '/user/order';
+    MI.setLoginInfo.logoutUrl = MI.GLOBAL_CONFIG.logoutUrl;
+    MI.setLoginInfo.init(MI.GLOBAL_CONFIG);
+    MI.miniCart.init();
+    MI.updateMiniCart();
+})();
+</script>
+
+
+<script>
+var _msq = _msq || [];
+_msq.push(['setDomainId', 100]);
+_msq.push(['trackPageView']);
+(function() {
+    var ms = document.createElement('script');
+    ms.type = 'text/javascript';
+    ms.async = true;
+    ms.src = '//s1.mi.com/stat/18/xmst.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(ms, s);
+})();
+</script>
+</body>
+</html>

@@ -161,7 +161,7 @@
           />
           <img
             v-else
-            src="/MaxKB.gif"
+            src="/after-sales-favicon.svg"
             height="50px"
             style="width: 40px; height: 40px; display: block"
           />

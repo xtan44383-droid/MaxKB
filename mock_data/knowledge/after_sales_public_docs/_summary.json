@@ -1,0 +1,76 @@
+[
+  {
+    "url": "https://support.hp.com/cn-zh/help/repair",
+    "status": "ok",
+    "title": "惠普打印机和笔记本电脑维修 | 惠普® 支持",
+    "slug": "hp_repair_service_guide",
+    "path": "mock_data/knowledge/after_sales_public_docs/hp/warranty/hp_repair_service_guide/hp_repair_service_guide.md",
+    "images": 30
+  },
+  {
+    "url": "https://support.hp.com/cn-zh/document/ish_9187618-9372078-16",
+    "status": "error",
+    "error": "HTTPSConnectionPool(host='support.hp.com', port=443): Read timed out. (read timeout=20)"
+  },
+  {
+    "url": "https://support.hp.com/cn-zh/document/ish_2376260-3084186-16",
+    "status": "error",
+    "error": "HTTPSConnectionPool(host='support.hp.com', port=443): Read timed out. (read timeout=20)"
+  },
+  {
+    "url": "https://consumer.huawei.com/cn/support/content/zh-cn15888511/",
+    "status": "ok",
+    "title": "华为笔记本/台式机/显示器/打印机上门服务指南 | 华为官网",
+    "slug": "huawei_on_site_service_guide",
+    "path": "mock_data/knowledge/after_sales_public_docs/huawei/warranty/huawei_on_site_service_guide/huawei_on_site_service_guide.md",
+    "images": 5
+  },
+  {
+    "url": "https://consumer.huawei.com/cn/support/legal/express-repair-provisions/",
+    "status": "ok",
+    "title": "华为寄修服务条款-华为寄修服务免责声明-华为官网",
+    "slug": "huawei_express_repair_terms",
+    "path": "mock_data/knowledge/after_sales_public_docs/huawei/warranty/huawei_express_repair_terms/huawei_express_repair_terms.md",
+    "images": 0
+  },
+  {
+    "url": "https://consumer.huawei.com/cn/support/content/knowledgelist/zh-cn-vol15939876/",
+    "status": "ok",
+    "title": "华为激光打印机报错代码合集 | 知识合集",
+    "slug": "huawei_printer_error_codes",
+    "path": "mock_data/knowledge/after_sales_public_docs/huawei/error_code/huawei_printer_error_codes/huawei_printer_error_codes.md",
+    "images": 4
+  },
+  {
+    "url": "https://www.mi.com/c/service/help/index.html",
+    "status": "ok",
+    "title": "小米手机服务支持-小米商城",
+    "slug": "xiaomi_service_help_center",
+    "path": "mock_data/knowledge/after_sales_public_docs/xiaomi/faq/xiaomi_service_help_center/xiaomi_service_help_center.md",
+    "images": 44
+  },
+  {
+    "url": "https://order.mi.com/service/guarantee",
+    "status": "ok",
+    "title": "未命名文档",
+    "slug": "xiaomi_warranty_policy",
+    "path": "mock_data/knowledge/after_sales_public_docs/xiaomi/warranty/xiaomi_warranty_policy/xiaomi_warranty_policy.md",
+    "images": 45
+  },
+  {
+    "url": "https://www.mi.com/service/miphone/troubleshoot/hongmi",
+    "status": "ok",
+    "title": "排除故障——小米手机官网",
+    "slug": "xiaomi_redmi_troubleshooting",
+    "path": "mock_data/knowledge/after_sales_public_docs/xiaomi/sop/xiaomi_redmi_troubleshooting/xiaomi_redmi_troubleshooting.md",
+    "images": 0
+  },
+  {
+    "url": "https://zh.ifixit.com/Wiki/Troubleshooting_Problems_After_a_Repair",
+    "status": "ok",
+    "title": "维修后故障排查",
+    "slug": "ifixit_repair_troubleshooting",
+    "path": "mock_data/knowledge/after_sales_public_docs/ifixit/sop/ifixit_repair_troubleshooting/ifixit_repair_troubleshooting.md",
+    "images": 4
+  }
+]

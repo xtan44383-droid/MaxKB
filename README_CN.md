@@ -1,3 +1,51 @@
+<p align="center"><img src= "https://github.com/1Panel-dev/maxkb/assets/52996290/c0694996-0eed-40d8-b369-322bf2a380bf" alt="MaxKB" width="260" /></p>
+<h3 align="center">3C 数码售后助手（二开版）</h3>
+<h3 align="center">在 MaxKB 基础上完成的业务化落地项目</h3>
+
+本仓库不是从零重写平台，而是基于 MaxKB 做的二次开发，目标是把 3C 售后问答做成可上线、可控风险、可验证效果的版本。
+
+原版 MaxKB 项目地址：
+- https://github.com/1Panel-dev/maxkb
+
+## 这次二开做了什么
+
+- 增加售后模式开关：按知识库控制是否启用售后策略，便于灰度上线和回滚
+- 优化知识处理：针对售后政策、SOP、产品说明书等内容优化切分，减少关键信息被切散
+- 提升检索准确性：回答时更重视品牌、型号、SN/IMEI 等关键信息，降低答错型号概率
+- 加强风险控制：证据不足时引导补充信息，不直接给高风险承诺
+- 完成改造前后对照评测：用同口径数据对比 OFF/ON，确认业务价值提升
+
+## 业务结果（简版）
+
+- 改造前（baseline）首轮 292 题被服务调用异常严重影响，结果不能代表真实业务能力
+- 改造后（200 题对照）在业务关键项上表现更好：
+  - 回答可参考性提升
+  - 高风险问题合规率提升
+  - 平均响应速度提升
+
+详细数据与过程见：
+- `docs/after_sales_assistant/17_对照实验报告.md`
+- `docs/after_sales_assistant/18_项目说明_面试版.md`
+- `docs/after_sales_assistant/19_V1项目总结.md`
+
+## 快速启动
+
+```bash
+docker run -d --name=maxkb --restart=always -p 8080:8080 -v ~/.maxkb:/opt/maxkb 1panel/maxkb
+```
+
+访问地址：
+- http://127.0.0.1:8080
+
+默认账号：
+- 用户名：admin
+- 密码：MaxKB@123..
+
+## 说明
+
+- 如果你想看原版平台完整介绍，请直接查看上面的原版项目链接
+- 本 README 仅保留与本次二开交付直接相关的内容
+
 <p align="center"><img src= "https://github.com/1Panel-dev/maxkb/assets/52996290/c0694996-0eed-40d8-b369-322bf2a380bf" alt="MaxKB" width="300" /></p>
 <h3 align="center">强大易用的企业级智能体平台</h3>
 <p align="center">

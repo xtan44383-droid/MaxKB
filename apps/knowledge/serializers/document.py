@@ -92,6 +92,97 @@ def convert_uuid_to_str(obj):
         return obj
 
 
+AFTER_SALES_DOC_TYPE_PATTERNS = [
+    ("brand_model", ["品牌", "型号", "sku", "版本", "spec", "参数"]),
+    ("warranty_policy", ["保修", "拒保", "三包", "人为损坏", "进液"]),
+    ("return_exchange", ["退货", "换货", "退款", "七天", "15天", "凭证"]),
+    ("fault_sop", ["故障", "排查", "sop", "步骤", "诊断"]),
+    ("service_channel", ["维修", "网点", "寄修", "到店", "时效", "费用"]),
+    ("faq_risk", ["faq", "常见问题", "能不能", "是否可以", "免费维修"]),
+]
+
+
+AFTER_SALES_BRANDS = [
+    "华为", "小米", "苹果", "联想", "vivo", "oppo", "荣耀", "三星", "戴尔", "惠普", "thinkpad"
+]
+
+
+def extract_after_sales_meta(file_name: str, paragraphs: List[Dict]) -> Dict:
+    text_sample = " ".join([(p or {}).get("content", "")[:220] for p in (paragraphs or [])[:10]])
+    sample = f"{file_name or ''} {text_sample}"
+    lower_sample = sample.lower()
+    brand_list = [brand for brand in AFTER_SALES_BRANDS if brand.lower() in lower_sample]
+    model_tokens = list({
+        token.upper()
+        for token in re.findall(r"[A-Za-z]{1,4}[-]?[A-Za-z0-9]{2,12}", sample)
+        if len(token) >= 4
+    })
+    return {
+        "after_sales_brands": brand_list[:3],
+        "after_sales_model_tokens": model_tokens[:8],
+    }
+
+
+def detect_after_sales_doc_type(file_name: str, paragraphs: List[Dict]) -> str:
+    lower_name = (file_name or "").lower()
+    merged_text = " ".join([(p or {}).get("content", "")[:200] for p in (paragraphs or [])[:10]]).lower()
+    sample = f"{lower_name} {merged_text}"
+    for doc_type, keywords in AFTER_SALES_DOC_TYPE_PATTERNS:
+        if any(keyword in sample for keyword in keywords):
+            return doc_type
+    return "fallback"
+
+
+def _is_list_or_table_line(line: str) -> bool:
+    stripped = (line or "").strip()
+    if len(stripped) == 0:
+        return False
+    return (
+        stripped.startswith(("-", "*", "+", "|", "1.", "2.", "3.", "4.", "5."))
+        or "：" in stripped
+        or ":" in stripped
+    )
+
+
+def merge_fragile_paragraphs(paragraphs: List[Dict], target_limit: int) -> List[Dict]:
+    if not paragraphs:
+        return []
+    result = []
+    current = None
+    for paragraph in paragraphs:
+        content = (paragraph or {}).get("content", "")
+        if current is None:
+            current = dict(paragraph)
+            continue
+        current_content = current.get("content", "")
+        can_merge = (
+            len(current_content) < max(200, target_limit // 3)
+            or _is_list_or_table_line(current_content.split("\n")[-1])
+            or _is_list_or_table_line(content.split("\n")[0])
+        )
+        if can_merge and len(current_content) + len(content) <= max(target_limit, 1200):
+            current["content"] = f"{current_content}\n{content}".strip()
+        else:
+            result.append(current)
+            current = dict(paragraph)
+    if current is not None:
+        result.append(current)
+    return result
+
+
+def get_after_sales_split_limit(doc_type: str, fallback_limit: int) -> int:
+    mapping = {
+        "brand_model": 1400,
+        "warranty_policy": 1800,
+        "return_exchange": 1800,
+        "fault_sop": 1600,
+        "service_channel": 1600,
+        "faq_risk": 1200,
+        "fallback": fallback_limit,
+    }
+    return mapping.get(doc_type, fallback_limit)
+
+
 class BatchCancelInstanceSerializer(serializers.Serializer):
     id_list = serializers.ListField(required=True, child=serializers.UUIDField(required=True), label=_('id list'))
     type = serializers.IntegerField(required=True, label=_('task type'))
@@ -1044,13 +1135,17 @@ class DocumentSerializers(serializers.Serializer):
             DocumentSplitRequest(data=instance).is_valid(raise_exception=True)
 
             file_list = instance.get("file")
+            knowledge = QuerySet(Knowledge).filter(id=self.data.get('knowledge_id')).first()
+            # 本 fork 为数码售后专用：通用知识库（BASE）导入一律走售后分块，不读知识库 meta 开关
+            after_sales_mode = bool(knowledge and knowledge.type == KnowledgeType.BASE)
             return reduce(
                 lambda x, y: [*x, *y],
                 [self.file_to_paragraph(
                     f,
                     instance.get("patterns", None),
                     instance.get("with_filter", None),
-                    instance.get("limit", 4096)
+                    instance.get("limit", 4096),
+                    after_sales_mode
                 ) for f in file_list],
                 []
             )
@@ -1069,7 +1164,7 @@ class DocumentSerializers(serializers.Serializer):
                     file.source_id = self.data.get('knowledge_id')
                     file.save(file_bytes)
 
-        def file_to_paragraph(self, file, pattern_list: List, with_filter: bool, limit: int):
+        def file_to_paragraph(self, file, pattern_list: List, with_filter: bool, limit: int, after_sales_mode: bool = False):
             # 保存源文件
             file_id = uuid.uuid7()
             raw_file = File(
@@ -1086,6 +1181,7 @@ class DocumentSerializers(serializers.Serializer):
             for split_handle in split_handles:
                 if split_handle.support(file, get_buffer):
                     result = split_handle.handle(file, pattern_list, with_filter, limit, get_buffer, self.save_image)
+                    result = self._post_process_split_result(file.name, result, limit, after_sales_mode)
                     if isinstance(result, list):
                         for item in result:
                             item['source_file_id'] = file_id
@@ -1093,12 +1189,35 @@ class DocumentSerializers(serializers.Serializer):
                     result['source_file_id'] = file_id
                     return [result]
             result = default_split_handle.handle(file, pattern_list, with_filter, limit, get_buffer, self.save_image)
+            result = self._post_process_split_result(file.name, result, limit, after_sales_mode)
             if isinstance(result, list):
                 for item in result:
                     item['source_file_id'] = file_id
                 return result
             result['source_file_id'] = file_id
             return [result]
+
+        @staticmethod
+        def _post_process_split_result(file_name: str, result, limit: int, after_sales_mode: bool):
+            if not after_sales_mode:
+                return result
+            result_list = result if isinstance(result, list) else [result]
+            for item in result_list:
+                paragraphs = item.get('paragraphs') if isinstance(item, dict) else None
+                if not paragraphs:
+                    continue
+                doc_type = detect_after_sales_doc_type(file_name, paragraphs)
+                extracted_meta = extract_after_sales_meta(file_name, paragraphs)
+                item_meta = item.get('meta') if item.get('meta') is not None else {}
+                item['meta'] = {
+                    **item_meta,
+                    'after_sales_doc_type': doc_type,
+                    'after_sales_mode': True,
+                    **extracted_meta
+                }
+                target_limit = get_after_sales_split_limit(doc_type, limit)
+                item['paragraphs'] = merge_fragile_paragraphs(paragraphs, target_limit)
+            return result if isinstance(result, list) else result_list[0]
 
     class SplitPattern(serializers.Serializer):
         workspace_id = serializers.CharField(required=False, label=_('workspace id'), allow_null=True)

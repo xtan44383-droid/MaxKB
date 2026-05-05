@@ -1,0 +1,2736 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zh" xmlns:fb="http://ogp.me/ns/fb#">
+   <head>
+      
+   <link rel="preconnect" href="https://assets.cdn.ifixit.com" crossorigin>
+   <link rel="preconnect" href="https://guide-images.cdn.ifixit.com" crossorigin>
+   <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+
+   <link rel="preload"
+      href="https://assets.cdn.ifixit.com/Assets/translations/zh-translations.js?14309"
+      as="script"
+      fetchpriority="high"
+         >
+   <link rel="preload"
+      href="https://assets.cdn.ifixit.com/Assets/scripts/runtime.js.3707e1a5328c9a5d9df0.js"
+      as="script"
+      fetchpriority="high"
+         >
+
+      
+               <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('set', 'isEmployee', false);
+   (function() {
+      function hasConsent() {
+         var ifixitConsent = null;
+         var piwikConsent = null;
+
+         try {
+            document.cookie.split(';').forEach(function(cookie) {
+               var parts = cookie.split('=');
+               var name = parts[0].trim();
+               var value = parts[1];
+
+               if (name === 'ifixit_consent') {
+                  var cookieObject = JSON.parse(decodeURIComponent(value));
+                  if (cookieObject && typeof cookieObject.isConsented === 'number') {
+                     ifixitConsent = cookieObject.isConsented === 1;
+                  }
+               }
+
+               if (name === 'ppms_privacy_6bf6bc54-82ca-4321-8620-b12d5c9b57b6') {
+                  var cookieObject = JSON.parse(decodeURIComponent(value));
+                  if (cookieObject && cookieObject.consents) {
+                     piwikConsent = Object.values(cookieObject.consents).every(function(consent) {
+                        return consent.status == 1;
+                     });
+                  }
+               }
+            });
+         } catch (e) {
+            console.error("Error parsing consent cookie", e);
+         }
+         return ifixitConsent !== null ? ifixitConsent : piwikConsent;
+      }
+
+      var needsConsent = false;
+      var consentResult = hasConsent();
+      var cookiesOk = consentResult !== null ? consentResult : !needsConsent;
+      var consent = cookiesOk ? 'granted' : 'denied';
+      console.log("GTAG Consent", consent);
+      gtag('consent', 'default', {
+         'ad_storage': consent,
+         'ad_user_data': consent,
+         'ad_personalization': consent,
+         'analytics_storage': consent,
+      });
+      gtag('event', 'consent_default', { consentValue: consent });
+   })()
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-59NVBFN');</script>
+<!-- End Google Tag Manager -->            <!-- ActiveCampaign Tracking Code -->
+<script>
+   (function(e,t,o,n,p,r,i){e.visitorGlobalObjectAlias=n;e[e.visitorGlobalObjectAlias]=e[e.visitorGlobalObjectAlias]||function(){(e[e.visitorGlobalObjectAlias].q=e[e.visitorGlobalObjectAlias].q||[]).push(arguments)};e[e.visitorGlobalObjectAlias].l=(new Date).getTime();r=t.createElement("script");r.src=o;r.async=true;i=t.getElementsByTagName("script")[0];i.parentNode.insertBefore(r,i)})(window,document,"https://diffuser-cdn.app-us1.com/diffuser/diffuser.js","vgo");
+   vgo('setAccount', 1000565048);
+
+   vgo('setTrackByDefault', false);
+
+   function hasConsent() {
+      var ifixitConsent = null;
+      var piwikConsent = null;
+
+      try {
+         document.cookie.split(';').forEach(function(cookie) {
+            var parts = cookie.split('=');
+            var name = parts[0].trim();
+            var value = parts[1];
+
+            if (name === 'ifixit_consent') {
+               var cookieObject = JSON.parse(decodeURIComponent(value));
+               if (cookieObject && typeof cookieObject.isConsented === 'number') {
+                  ifixitConsent = cookieObject.isConsented === 1;
+               }
+            }
+
+            if (name === 'ppms_privacy_6bf6bc54-82ca-4321-8620-b12d5c9b57b6') {
+               var cookieObject = JSON.parse(decodeURIComponent(value));
+               if (cookieObject && cookieObject.consents) {
+                  piwikConsent = Object.values(cookieObject.consents).every(function(consent) {
+                     return consent.status == 1;
+                  });
+               }
+            }
+         });
+      } catch (e) {
+         console.error("Error parsing consent cookie", e);
+      }
+
+      return ifixitConsent !== null ? ifixitConsent : piwikConsent;
+   }
+
+   // Check if consent is needed based on region
+   var needsConsent = false;
+   var consentResult = hasConsent();
+   var cookiesOk = consentResult !== null ? consentResult : !needsConsent;
+
+   if (cookiesOk) {
+      vgo('process', 'allowTracking');
+      vgo('setEmail', '');
+   }
+
+    vgo('process');
+</script>
+<!-- End ActiveCampaign Tracking Code -->
+      <title>维修后故障排查 - iFixit</title>
+
+      <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="想要免费的分步维修说明、使用指南、电路图、社区支持和其他的DIY资源？这很简单！我们将向您展示怎样做到。" />
+      <meta name="title" content="维修后故障排查 - iFixit" />
+      <meta name="keywords" content="维修后故障排查, Troubleshooting Problems After a Repair, iFixit, Mac, MacBook, iPod, iPhone, Repair, Parts, XBox, PlayStation, Game Boy, Nintendo DSi, tools" />
+
+         <meta name="robots" content="index, follow, max-image-preview:large" />
+
+               <link id="canonical-link" rel="canonical" href="https://zh.ifixit.com/Wiki/Troubleshooting_Problems_After_a_Repair" />
+      
+                  <link rel="alternate" hreflang="de" href="https://de.ifixit.com/Wiki/Troubleshooting_Problems_After_a_Repair" />
+      <link rel="alternate" hreflang="en" href="https://www.ifixit.com/Wiki/Troubleshooting_Problems_After_a_Repair" />
+      <link rel="alternate" hreflang="es" href="https://es.ifixit.com/Wiki/Troubleshooting_Problems_After_a_Repair" />
+      <link rel="alternate" hreflang="fr" href="https://fr.ifixit.com/Wiki/Troubleshooting_Problems_After_a_Repair" />
+      <link rel="alternate" hreflang="it" href="https://it.ifixit.com/Wiki/Troubleshooting_Problems_After_a_Repair" />
+      <link rel="alternate" hreflang="ja" href="https://jp.ifixit.com/Wiki/Troubleshooting_Problems_After_a_Repair" />
+      <link rel="alternate" hreflang="ko" href="https://ko.ifixit.com/Wiki/Troubleshooting_Problems_After_a_Repair" />
+      <link rel="alternate" hreflang="nl" href="https://nl.ifixit.com/Wiki/Troubleshooting_Problems_After_a_Repair" />
+      <link rel="alternate" hreflang="tr" href="https://tr.ifixit.com/Wiki/Troubleshooting_Problems_After_a_Repair" />
+      <link rel="alternate" hreflang="zh" href="https://zh.ifixit.com/Wiki/Troubleshooting_Problems_After_a_Repair" />
+      <link rel="alternate" hreflang="x-default" href="https://www.ifixit.com/Wiki/Troubleshooting_Problems_After_a_Repair" />
+
+            
+                                                                  <meta property="og:type" content="website" />
+                                                                     <meta property="og:image" content="https://guide-images.cdn.ifixit.com/igi/3yWoAUbQlIyM3ReV.medium" />
+                                                                     <meta property="og:description" content="“救命啊！我完成了指南，但还是没修好！”" />
+                                                                     <meta property="og:url" content="https://zh.ifixit.com/Wiki/Troubleshooting_Problems_After_a_Repair" />
+                                                                     <meta property="og:title" content="维修后故障排查" />
+                                                                     <meta property="og:site_name" content="iFixit" />
+                              
+            <meta name="verify-v1" content="jw37yaG9O4vmztqkH8xsZEeQtGHqzC3GZXfwk5xUCeM=" />
+
+            
+               <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1"/>
+      
+               <link rel="stylesheet" type="text/css" media="print" href="https://assets.cdn.ifixit.com/Assets/Admin/ifixit/Shared-print-4vKZnU54L24ZnG6tuvAwTw.css" />
+      
+      
+            
+            
+            
+      
+               <script>
+   var deferCss = {
+      hidden: true,
+      timeout: null,
+      supportsPreload: function() {
+         try {
+            return document.createElement('link').relList.supports('preload');
+         } catch (e) {
+            return false;
+         }
+      },
+      fallbackNoPreload: function() {
+         if (deferCss.supportsPreload()) {
+            return;
+         }
+         var applyFallback = function() {
+            var links = document.querySelectorAll('.cssPreload');
+            if (!links.length) {
+               return;
+            }
+            for (var i = 0; i < links.length; ++i) {
+               var link = links[i];
+               link.onload = null;
+               link.rel = 'stylesheet';
+               link.className = 'cssReady';
+            }
+            deferCss.applyCssWhenDomLoaded();
+         };
+         if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', applyFallback);
+         } else {
+            applyFallback();
+         }
+      },
+      unhide: function() {
+         if (deferCss.hidden) {
+            var hider = document.getElementById('cssHide');
+            hider && hider.parentElement.removeChild(hider);
+
+            var criticalCss = document.getElementById('criticalCss');
+            criticalCss && criticalCss.parentElement.removeChild(criticalCss);
+
+            deferCss.hidden = false;
+         }
+      },
+      applyAllCss: function() {
+         if (!deferCss.hidden) {
+            return;
+         }
+         clearTimeout(deferCss.timeout);
+         var links = document.querySelectorAll('.cssReady, .cssPreload');
+         var link;
+         for (var i = 0; i < links.length; ++i) {
+            link = links[i];
+                        link.onload = null;
+            link.rel = 'stylesheet';
+         }
+         deferCss.unhide();
+      },
+      cssLoaded: function(link, success) {
+         link.className = success ? "cssReady" : "cssFailed";
+         if (!success) {
+            console.error(link.href + " failed to load");
+         }
+         var stillWaiting = document.querySelector('.cssPreload');
+         if (!stillWaiting) {
+            deferCss.applyCssWhenDomLoaded();
+         }
+      },
+      applyCssWhenDomLoaded: function() {
+         // Loading hasn't finished yet
+         if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function() { deferCss.applyAllCss(); });
+         } else {
+            // `DOMContentLoaded` has already fired
+            deferCss.applyAllCss();
+         }
+      },
+      setTimeout: function(timeout) {
+         deferCss.timeout = setTimeout(function() {
+            console.warn("Deferred CSS took too long to load. Displaying anyway...");
+            deferCss.applyCssWhenDomLoaded();
+         }, timeout);
+      }
+   };
+   deferCss.fallbackNoPreload();
+                  deferCss.setTimeout(25000);
+         </script>
+      
+      
+   <noscript>
+      
+   </noscript>
+         <link type="text/css" href="https://assets.cdn.ifixit.com/Assets/Guide/ifixit/guide-all-oZ2Sj6FaW8SjfkKT9PosZg.css"
+               rel="preload" as="style" onload="deferCss.cssLoaded(this, true)"
+         onerror="this.onerror = this.onload = null; deferCss.cssLoaded(this, false);"
+         class="cssPreload"
+         />
+   <link type="text/css" href="https://assets.cdn.ifixit.com/Assets/Admin/ifixit/font-awesome-yMF965gfPyQcdUoRNuZl_Q.css"
+               rel="preload" as="style" onload="deferCss.cssLoaded(this, true)"
+         onerror="this.onerror = this.onload = null; deferCss.cssLoaded(this, false);"
+         class="cssPreload"
+         />
+   <link type="text/css" href="https://assets.cdn.ifixit.com/Assets/Guide/ifixit/module-all-dLyhgX2PHurPycSSCsqncg.css"
+               rel="preload" as="style" onload="deferCss.cssLoaded(this, true)"
+         onerror="this.onerror = this.onload = null; deferCss.cssLoaded(this, false);"
+         class="cssPreload"
+         />
+   <link type="text/css" href="https://assets.cdn.ifixit.com/Assets/Guide/ifixit/core-MOKrpbqISKNncJN1jmwygQ.css"
+               rel="preload" as="style" onload="deferCss.cssLoaded(this, true)"
+         onerror="this.onerror = this.onload = null; deferCss.cssLoaded(this, false);"
+         class="cssPreload"
+         />
+   <link type="text/css" href="https://assets.cdn.ifixit.com/Assets/Admin/ifixit/tailwind-cli-aWsfcpyj3qgJ4ktSg1zjrg.css"
+               rel="preload" as="style" onload="deferCss.cssLoaded(this, true)"
+         onerror="this.onerror = this.onload = null; deferCss.cssLoaded(this, false);"
+         class="cssPreload"
+         />
+   <link type="text/css" href="https://assets.cdn.ifixit.com/Assets/Admin/ifixit/header_footer_old-VC712dr_vw0iGnTq-LG9Bw.css"
+               rel="preload" as="style" onload="deferCss.cssLoaded(this, true)"
+         onerror="this.onerror = this.onload = null; deferCss.cssLoaded(this, false);"
+         class="cssPreload"
+         />
+   <link type="text/css" href="https://assets.cdn.ifixit.com/Assets/Guide/ifixit/prosemirror-all-a7PtRlWO-sy-zy7EZW8yTg.css"
+               rel="preload" as="style" onload="deferCss.cssLoaded(this, true)"
+         onerror="this.onerror = this.onload = null; deferCss.cssLoaded(this, false);"
+         class="cssPreload"
+         />
+   <link type="text/css" href="https://assets.cdn.ifixit.com/Assets/Admin/ifixit/Shared-i18n_formatting-DU8KwhEfZiWffZmgLzYBgg.css"
+               rel="preload" as="style" onload="deferCss.cssLoaded(this, true)"
+         onerror="this.onerror = this.onload = null; deferCss.cssLoaded(this, false);"
+         class="cssPreload"
+         />
+   <link type="text/css" href="https://assets.cdn.ifixit.com/Assets/Guide/ifixit/Guide-View-v2-credit_author_team-54AiaAw1ZyVuSi2lV9FJiA.css"
+               rel="preload" as="style" onload="deferCss.cssLoaded(this, true)"
+         onerror="this.onerror = this.onload = null; deferCss.cssLoaded(this, false);"
+         class="cssPreload"
+         />
+   <link type="text/css" href="https://assets.cdn.ifixit.com/Assets/Guide/ifixit/Wiki-common--Wc994D-hxlP_OpxmptoRQ.css"
+               rel="preload" as="style" onload="deferCss.cssLoaded(this, true)"
+         onerror="this.onerror = this.onload = null; deferCss.cssLoaded(this, false);"
+         class="cssPreload"
+         />
+   <link type="text/css" href="https://assets.cdn.ifixit.com/Assets/Guide/ifixit/FrameModules-translation_credit-HJRmcfqTHgCwXKiO91hRcA.css"
+               rel="preload" as="style" onload="deferCss.cssLoaded(this, true)"
+         onerror="this.onerror = this.onload = null; deferCss.cssLoaded(this, false);"
+         class="cssPreload"
+         />
+
+   <noscript>
+         <link type="text/css" href="https://assets.cdn.ifixit.com/Assets/Guide/ifixit/guide-all-oZ2Sj6FaW8SjfkKT9PosZg.css"
+               rel="stylesheet"
+         />
+   <link type="text/css" href="https://assets.cdn.ifixit.com/Assets/Admin/ifixit/font-awesome-yMF965gfPyQcdUoRNuZl_Q.css"
+               rel="stylesheet"
+         />
+   <link type="text/css" href="https://assets.cdn.ifixit.com/Assets/Guide/ifixit/module-all-dLyhgX2PHurPycSSCsqncg.css"
+               rel="stylesheet"
+         />
+   <link type="text/css" href="https://assets.cdn.ifixit.com/Assets/Guide/ifixit/core-MOKrpbqISKNncJN1jmwygQ.css"
+               rel="stylesheet"
+         />
+   <link type="text/css" href="https://assets.cdn.ifixit.com/Assets/Admin/ifixit/tailwind-cli-aWsfcpyj3qgJ4ktSg1zjrg.css"
+               rel="stylesheet"
+         />
+   <link type="text/css" href="https://assets.cdn.ifixit.com/Assets/Admin/ifixit/header_footer_old-VC712dr_vw0iGnTq-LG9Bw.css"
+               rel="stylesheet"
+         />
+   <link type="text/css" href="https://assets.cdn.ifixit.com/Assets/Guide/ifixit/prosemirror-all-a7PtRlWO-sy-zy7EZW8yTg.css"
+               rel="stylesheet"
+         />
+   <link type="text/css" href="https://assets.cdn.ifixit.com/Assets/Admin/ifixit/Shared-i18n_formatting-DU8KwhEfZiWffZmgLzYBgg.css"
+               rel="stylesheet"
+         />
+   <link type="text/css" href="https://assets.cdn.ifixit.com/Assets/Guide/ifixit/Guide-View-v2-credit_author_team-54AiaAw1ZyVuSi2lV9FJiA.css"
+               rel="stylesheet"
+         />
+   <link type="text/css" href="https://assets.cdn.ifixit.com/Assets/Guide/ifixit/Wiki-common--Wc994D-hxlP_OpxmptoRQ.css"
+               rel="stylesheet"
+         />
+   <link type="text/css" href="https://assets.cdn.ifixit.com/Assets/Guide/ifixit/FrameModules-translation_credit-HJRmcfqTHgCwXKiO91hRcA.css"
+               rel="stylesheet"
+         />
+
+   </noscript>
+
+      <script>
+   </script>
+
+
+      
+
+            
+                           
+   
+   <!-- Google tag (gtag.js) -->
+   <script>
+      // Capture browser state IMMEDIATELY before any async operations
+      // These values may change during XHR delay (SPA navigation, dynamic titles)
+      window.__ga4_initial_state = {
+         page_referrer: document.referrer || '',
+         page_location: window.location.href,
+         page_title: document.title
+      };
+   </script>
+   <script async src="https://www.googletagmanager.com/gtag/js?id=G-5ZXNWJ73GK"></script>
+   <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+            const ga4Params = {};
+      const userProperties = {"preferred_store":"ifixit-us","preferred_store_locale":"en-us","preferred_language":"ZH","on_mobile_app":"false","customer_type":"regular","content_contributor_type":"Employee"};
+      const urlParams = new URLSearchParams(window.location.search);
+      const mobileClientId = urlParams.get('_ga');
+      if (mobileClientId) {
+         ga4Params.client_id = mobileClientId;
+      }
+
+               gtag('config', 'G-5ZXNWJ73GK', ga4Params);
+            gtag('set', 'user_properties', userProperties);
+   </script>
+   <!-- End Google tag (gtag.js) -->
+                  
+      <script type="text/javascript">
+         window.fbq=window.fbq||function(){};
+      </script>                     <link rel="apple-touch-icon" sizes="57x57" href="https://assets.cdn.ifixit.com/static/icons/ifixit/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="https://assets.cdn.ifixit.com/static/icons/ifixit/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="https://assets.cdn.ifixit.com/static/icons/ifixit/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="https://assets.cdn.ifixit.com/static/icons/ifixit/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="https://assets.cdn.ifixit.com/static/icons/ifixit/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="https://assets.cdn.ifixit.com/static/icons/ifixit/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="https://assets.cdn.ifixit.com/static/icons/ifixit/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="https://assets.cdn.ifixit.com/static/icons/ifixit/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://assets.cdn.ifixit.com/static/icons/ifixit/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="https://assets.cdn.ifixit.com/static/icons/ifixit/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="https://assets.cdn.ifixit.com/static/icons/ifixit/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="https://assets.cdn.ifixit.com/static/icons/ifixit/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="https://assets.cdn.ifixit.com/static/icons/ifixit/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="https://assets.cdn.ifixit.com/static/icons/ifixit/manifest.json">
+<link rel="mask-icon" href="https://assets.cdn.ifixit.com/static/icons/ifixit/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="apple-mobile-web-app-title" content="ifixit">
+<meta name="application-name" content="ifixit">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="https://assets.cdn.ifixit.com/static/icons/ifixit/mstile-144x144.png">
+<meta name="theme-color" content="#ffffff">
+   
+      <script defer type="text/javascript" src="https://assets.cdn.ifixit.com/Assets/scripts/runtime.js.3707e1a5328c9a5d9df0.js"></script>
+<script nomodule src="/v3/polyfill.min.js?flags=gated&amp;features=Array.prototype.flat,Array.prototype.flatMap,default,es2022,fetch,IntersectionObserver,Intl.RelativeTimeFormat,Intl.RelativeTimeFormat.~locale.en,NodeList.prototype.forEach,Number.isInteger,Object.entries,Object.fromEntries,Promise.prototype.finally,queueMicrotask,ResizeObserver,String.prototype.matchAll,WeakMap,WeakSet"></script>
+
+   <script defer type="text/javascript" src="https://assets.cdn.ifixit.com/Assets/translations/zh-translations.js?14309"></script>
+
+   <link rel="stylesheet" href="https://assets.cdn.ifixit.com/Assets/scripts/109.c4af77411422e530e83e.css">
+   <link rel="stylesheet" href="https://assets.cdn.ifixit.com/Assets/scripts/guidepage.js.87c6b5c8e5e4cba6f693.css">
+   <link rel="stylesheet" href="https://assets.cdn.ifixit.com/Assets/scripts/tiptap-editor.js.c58abcd0b4ebf461bc47.css">
+
+
+   <script defer type="text/javascript" src="https://assets.cdn.ifixit.com/Assets/scripts/994.299cc6a96a89da10f675.js"></script>
+   <script defer type="text/javascript" src="https://assets.cdn.ifixit.com/Assets/scripts/8044.4966fa7a242931fad7cf.js"></script>
+   <script defer type="text/javascript" src="https://assets.cdn.ifixit.com/Assets/scripts/7587.f7dcbe10b82790b795e3.js"></script>
+   <script defer type="text/javascript" src="https://assets.cdn.ifixit.com/Assets/scripts/1839.bd8c989d7693338809e2.js"></script>
+   <script defer type="text/javascript" src="https://assets.cdn.ifixit.com/Assets/scripts/9330.5c6ac827b1650166e1a4.js"></script>
+   <script defer type="text/javascript" src="https://assets.cdn.ifixit.com/Assets/scripts/5370.8533247842efb9993dee.js"></script>
+   <script defer type="text/javascript" src="https://assets.cdn.ifixit.com/Assets/scripts/572.2c602655f3e34842df77.js"></script>
+   <script defer type="text/javascript" src="https://assets.cdn.ifixit.com/Assets/scripts/7702.f44a8025b3c8688ab478.js"></script>
+   <script defer type="text/javascript" src="https://assets.cdn.ifixit.com/Assets/scripts/1218.2ee87cb322bd6f1ccda6.js"></script>
+   <script defer type="text/javascript" src="https://assets.cdn.ifixit.com/Assets/scripts/2554.7781d3a62c5eb3c4c5c1.js"></script>
+   <script defer type="text/javascript" src="https://assets.cdn.ifixit.com/Assets/scripts/212.d105591a61d8ba009f1a.js"></script>
+   <script defer type="text/javascript" src="https://assets.cdn.ifixit.com/Assets/scripts/7261.68b1b6ee681b5ad2624d.js"></script>
+   <script defer type="text/javascript" src="https://assets.cdn.ifixit.com/Assets/scripts/1655.6111b0279708f3fee3f6.js"></script>
+   <script defer type="text/javascript" src="https://assets.cdn.ifixit.com/Assets/scripts/6404.d6deeea39ef9b500bf6d.js"></script>
+   <script defer type="text/javascript" src="https://assets.cdn.ifixit.com/Assets/scripts/609.484b723904c7c91afcf9.js"></script>
+   <script defer type="text/javascript" src="https://assets.cdn.ifixit.com/Assets/scripts/7861.061fa61f9c3b8588e29a.js"></script>
+   <script defer type="text/javascript" src="https://assets.cdn.ifixit.com/Assets/scripts/596.d6a5f91cf4837c4a7ad5.js"></script>
+   <script defer type="text/javascript" src="https://assets.cdn.ifixit.com/Assets/scripts/4629.595338fe80231112b436.js"></script>
+   <script defer type="text/javascript" src="https://assets.cdn.ifixit.com/Assets/scripts/6958.1e9d82c90ecbec8501dd.js"></script>
+   <script defer type="text/javascript" src="https://assets.cdn.ifixit.com/Assets/scripts/5391.1ae4acecc150120a756a.js"></script>
+   <script defer type="text/javascript" src="https://assets.cdn.ifixit.com/Assets/scripts/2733.9d42a60a495111e103c2.js"></script>
+   <script defer type="text/javascript" src="https://assets.cdn.ifixit.com/Assets/scripts/shared-auth.5d09fe993961157f71f2.js"></script>
+   <script defer type="text/javascript" src="https://assets.cdn.ifixit.com/Assets/scripts/7287.1fcbf66ddb30d3411186.js"></script>
+   <script defer type="text/javascript" src="https://assets.cdn.ifixit.com/Assets/scripts/2305.62abb1c305c00400b438.js"></script>
+   <script defer type="text/javascript" src="https://assets.cdn.ifixit.com/Assets/scripts/5300.cabc4dd203cb1b3f8f34.js"></script>
+   <script defer type="text/javascript" src="https://assets.cdn.ifixit.com/Assets/scripts/4982.3bb0388ad696796bc1ce.js"></script>
+   <script defer type="text/javascript" src="https://assets.cdn.ifixit.com/Assets/scripts/5543.bab6df04afc323148e16.js"></script>
+   <script defer type="text/javascript" src="https://assets.cdn.ifixit.com/Assets/scripts/3086.db96f0c6baf1d4290434.js"></script>
+   <script defer type="text/javascript" src="https://assets.cdn.ifixit.com/Assets/scripts/4337.16756d81d4bdaed2ea19.js"></script>
+   <script defer type="text/javascript" src="https://assets.cdn.ifixit.com/Assets/scripts/8931.a4bff4fac19aeab5c2b7.js"></script>
+   <script defer type="text/javascript" src="https://assets.cdn.ifixit.com/Assets/scripts/814.59706f5b3daefc4cb413.js"></script>
+   <script defer type="text/javascript" src="https://assets.cdn.ifixit.com/Assets/scripts/9770.4ce200550a932750239c.js"></script>
+   <script defer type="text/javascript" src="https://assets.cdn.ifixit.com/Assets/scripts/4981.e938c71c7bc763b3fcf0.js"></script>
+   <script defer type="text/javascript" src="https://assets.cdn.ifixit.com/Assets/scripts/4730.f2ee169d90250c79cef4.js"></script>
+   <script defer type="text/javascript" src="https://assets.cdn.ifixit.com/Assets/scripts/4498.fa2eaa527d46711a94a1.js"></script>
+   <script defer type="text/javascript" src="https://assets.cdn.ifixit.com/Assets/scripts/1078.37cc7a98622beeeabaf8.js"></script>
+   <script defer type="text/javascript" src="https://assets.cdn.ifixit.com/Assets/scripts/3314.15b766ced4353671d0c8.js"></script>
+   <script defer type="text/javascript" src="https://assets.cdn.ifixit.com/Assets/scripts/3952.97e83a11dc3632718d33.js"></script>
+   <script defer type="text/javascript" src="https://assets.cdn.ifixit.com/Assets/scripts/guidepage.js.c778099d1b9e9b8abebd.js"></script>
+   <script defer type="text/javascript" src="https://assets.cdn.ifixit.com/Assets/scripts/table-of-contents.js.0be6f7754dd73150e14a.js"></script>
+   <script defer type="text/javascript" src="https://assets.cdn.ifixit.com/Assets/scripts/consent-banner.js.24989912b8b5ece2d577.js"></script>
+   <script defer type="text/javascript" src="https://assets.cdn.ifixit.com/Assets/scripts/error-capture.js.09d5bdd273803258abe5.js"></script>
+   <script defer type="text/javascript" src="https://assets.cdn.ifixit.com/Assets/scripts/7972.804fd8740dbb1dc6d13f.js"></script>
+   <script defer type="text/javascript" src="https://assets.cdn.ifixit.com/Assets/scripts/3000.be522a6336c6941d1a1b.js"></script>
+   <script defer type="text/javascript" src="https://assets.cdn.ifixit.com/Assets/scripts/3917.2e094e442ed4804a3779.js"></script>
+   <script defer type="text/javascript" src="https://assets.cdn.ifixit.com/Assets/scripts/tiptap-editor.js.a4e523658d49658868d9.js"></script>
+   <script defer type="text/javascript" src="https://assets.cdn.ifixit.com/Assets/scripts/wikipages-wiki-view.js.203ccfd109493c56b587.js"></script>
+   <script defer type="text/javascript" src="https://assets.cdn.ifixit.com/Assets/scripts/save-topic.js.62935540f25d7736a0b8.js"></script>
+
+
+      
+            <style id="criticalCss">
+         .skip-to-content {
+  .skip-to-content:active,
+  .skip-to-content:focus {
+    background-color: #000;
+    color: #fff;
+    font-size: 36px;
+    height: auto;
+    left: 0;
+    margin: 5px;
+    overflow: auto;
+    padding: 5px;
+    text-align: center;
+    top: 0;
+    width: auto;
+    z-index: 999;
+  }
+}
+.skip-to-content {
+  .skip-to-content:active,
+  .skip-to-content:focus {
+    background-color: #000;
+    color: #fff;
+    font-size: 36px;
+    height: auto;
+    left: 0;
+    margin: 5px;
+    overflow: auto;
+    padding: 5px;
+    text-align: center;
+    top: 0;
+    width: auto;
+    z-index: 999;
+  }
+}
+.articleContainer p,
+.renderedText p {
+  color: #212426;
+  line-height: 1.55em;
+}
+.skip-to-content {
+  .skip-to-content:active,
+  .skip-to-content:focus {
+    background-color: #000;
+    color: #fff;
+    font-size: 36px;
+    height: auto;
+    left: 0;
+    margin: 5px;
+    overflow: auto;
+    padding: 5px;
+    text-align: center;
+    top: 0;
+    width: auto;
+    z-index: 999;
+  }
+}
+.skip-to-content {
+  .skip-to-content:active,
+  .skip-to-content:focus {
+    background-color: #000;
+    color: #fff;
+    font-size: 36px;
+    height: auto;
+    left: 0;
+    margin: 5px;
+    overflow: auto;
+    padding: 5px;
+    text-align: center;
+    top: 0;
+    width: auto;
+    z-index: 999;
+  }
+}
+.skip-to-content {
+  .skip-to-content:active,
+  .skip-to-content:focus {
+    background-color: #000;
+    color: #fff;
+    font-size: 36px;
+    height: auto;
+    left: 0;
+    margin: 5px;
+    overflow: auto;
+    padding: 5px;
+    text-align: center;
+    top: 0;
+    width: auto;
+    z-index: 999;
+  }
+}
+#sidebar-wiki-toc .toc li li a {
+  padding-left: 36px;
+}
+.fa-graduation-cap:before {
+  content: "\e908";
+}
+.fa-fw {
+  text-align: center;
+  width: 1.28571429em;
+}
+.fa-graduation-cap:before {
+  content: "\f19d";
+}
+.articleContainer h2,
+.articleContainer h3,
+.renderedText h2,
+.renderedText h3 {
+  clear: both;
+  color: #212426;
+  font-weight: 600;
+  margin: 30px 0 0;
+}
+.articleContainer h3,
+.renderedText h3 {
+  font-size: 20px;
+}
+.articleContainer p + ul,
+.renderedText p + ul {
+  margin-bottom: 20px;
+}
+.flags {
+  margin-bottom: 24px;
+}
+.flag {
+  border-bottom: 1px solid #e5e7eb;
+  border-left: none;
+  border-right: none;
+  margin: 0;
+  overflow: hidden;
+  padding: 4px;
+}
+.flag:first-of-type {
+  border-top: 1px solid #e5e7eb;
+}
+.flag h3 {
+  font-size: 18px;
+}
+.flag p {
+  font-size: 14px;
+}
+.flag h3,
+.flag p {
+  margin: 0;
+}
+.flag .flag-content {
+  display: inline;
+  float: left;
+  margin: 6px 0;
+  width: 90%;
+}
+@media only screen and (min-width: 576px) and (max-width: 1000px) {
+  .flag .flag-content {
+    width: 85%;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .flag .flag-content {
+    width: 80%;
+  }
+}
+.flag i {
+  align-self: center;
+  color: #f59e0b;
+  display: flex;
+  float: left;
+  font-size: 40px;
+  justify-content: center;
+  margin: 6px 8px 6px 0;
+}
+.skip-to-content {
+  .skip-to-content:active,
+  .skip-to-content:focus {
+    background-color: #000;
+    color: #fff;
+    font-size: 36px;
+    height: auto;
+    left: 0;
+    margin: 5px;
+    overflow: auto;
+    padding: 5px;
+    text-align: center;
+    top: 0;
+    width: auto;
+    z-index: 999;
+  }
+}
+.skip-to-content {
+  .skip-to-content:active,
+  .skip-to-content:focus {
+    background-color: #000;
+    color: #fff;
+    font-size: 36px;
+    height: auto;
+    left: 0;
+    margin: 5px;
+    overflow: auto;
+    padding: 5px;
+    text-align: center;
+    top: 0;
+    width: auto;
+    z-index: 999;
+  }
+}
+.skip-to-content {
+  .skip-to-content:active,
+  .skip-to-content:focus {
+    background-color: #000;
+    color: #fff;
+    font-size: 36px;
+    height: auto;
+    left: 0;
+    margin: 5px;
+    overflow: auto;
+    padding: 5px;
+    text-align: center;
+    top: 0;
+    width: auto;
+    z-index: 999;
+  }
+}
+:where(#main) {
+  max-width: 100%;
+}
+:root {
+  --main-container-width: 1280px;
+  --overflow-x: var(--overflow-x);
+}
+:where(svg[class*="fa-"], i[class*="fa-"]).fa-xl {
+  font-size: 24px;
+}
+.hidden,
+[hidden] {
+  display: none !important;
+}
+#banner {
+  margin-block: 24px;
+}
+@media only screen and (max-width: 1280px) {
+  #banner {
+    margin-inline: 12px;
+  }
+}
+#page {
+  flex: 1;
+  overflow-x: var(--overflow-x);
+  position: relative;
+}
+#page-sidebar {
+  bottom: 0;
+  display: block;
+  left: 0;
+  position: absolute;
+  top: 0;
+  visibility: hidden;
+}
+@media only screen and (min-width: 1201px) {
+  #page-sidebar {
+    visibility: visible;
+    width: 270px;
+  }
+  #page-sidebar:before {
+    bottom: 0;
+    content: "";
+    display: block;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+  }
+  #page-sidebar .sticky {
+    position: sticky;
+    top: 0;
+    transform: translateZ(0);
+    width: 265px;
+    z-index: 2;
+  }
+  #page-sidebar {
+    left: 0;
+  }
+  #page-sidebar + #main {
+    background-color: #f9fafb;
+    border-left: 1px solid #e5e7eb;
+    margin-left: 270px;
+    margin-right: 0;
+    width: auto;
+  }
+}
+@media only screen and (min-width: 1265px) {
+  #page:has(#page-sidebar) {
+    display: flex;
+  }
+  #page-sidebar {
+    position: sticky;
+  }
+  #page-sidebar + #main {
+    margin: initial;
+    max-width: calc(100vw - 280px);
+    padding-left: 20px;
+    width: 1280px;
+  }
+  @supports (width: calc(0px)) {
+    #page-sidebar + #main:after {
+      background-color: #f9fafb;
+      bottom: 0;
+      content: "";
+      display: block;
+      position: fixed;
+      right: 0;
+      top: 0;
+      width: calc(50vw - 775px);
+      z-index: -9;
+    }
+  }
+}
+@media only screen and (min-width: 1265px) and (min-width: 1565px) {
+  #page:has(#page-sidebar) {
+    margin-inline: auto;
+  }
+}
+#contentFloat {
+  padding-bottom: 24px;
+}
+#contentFloat:not(:has(.component-HomePageHero, .wp-embed, [class^="full-"])) {
+  padding-inline: 16px;
+}
+@media (min-width: 768px) {
+  #contentFloat:not(:has(.component-HomePageHero, .wp-embed, [class^="full-"])) {
+    padding-inline: 20px;
+  }
+}
+@media (min-width: 1028px) {
+  #contentFloat:not(:has(.component-HomePageHero, .wp-embed, [class^="full-"])) {
+    padding-inline: 32px;
+  }
+}
+#contentFloat .content-container {
+  display: flex;
+  gap: 24px;
+}
+@media only screen and (max-width: 1000px) {
+  #contentFloat .content-container {
+    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+  }
+}
+.fullWidth #contentFloat {
+  width: 100%;
+}
+@media only screen and (max-width: 1000px) {
+  .responsive #contentFloat {
+    width: 100%;
+  }
+}
+#topContent:not(:has(.component-HomePageHero, .wp-embed, [class^="full-"])) {
+  padding-inline: 16px;
+}
+@media (min-width: 768px) {
+  #topContent:not(:has(.component-HomePageHero, .wp-embed, [class^="full-"])) {
+    padding-inline: 20px;
+  }
+}
+@media (min-width: 1028px) {
+  #topContent:not(:has(.component-HomePageHero, .wp-embed, [class^="full-"])) {
+    padding-inline: 32px;
+  }
+}
+#content {
+  flex: 1;
+  max-width: 100%;
+}
+.fullWidth #content {
+  width: 100%;
+}
+#background {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 0;
+}
+:where(#main) {
+  margin-inline: auto;
+  width: var(--main-container-width);
+}
+@media only screen and (max-width: 1000px) {
+  .responsive #content,
+  .responsive #main,
+  .responsive #mainBody {
+    margin: auto !important;
+    width: 100%;
+  }
+}
+#mainBody {
+  border-radius: 8px;
+  border-radius: 0;
+  box-shadow: none;
+  min-height: 300px;
+  padding-top: 0.1px;
+  position: relative;
+  text-align: left;
+  text-align: start;
+}
+.throbber {
+  animation: a 0.8s linear infinite;
+  border: 8px solid hsla(0, 0%, 100%, 0.2);
+  border-radius: 50px;
+  border-top-color: #fff;
+  height: 50px;
+  margin: 0 auto 20px;
+  width: 50px;
+}
+@keyframes a {
+  0% {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+@media only screen and (max-width: 575px) {
+  .hidden-mobile {
+    display: none !important;
+  }
+}
+@media only screen and (min-width: 1001px) {
+  .hidden-desktop {
+    display: none !important;
+  }
+}
+.visible-mobile-tablet {
+  display: none;
+}
+@media only screen and (max-width: 1000px) {
+  .visible-mobile-tablet {
+    display: block !important;
+  }
+}
+.fa-svg-icon > svg {
+  fill: currentColor;
+}
+.clearer {
+  clear: both;
+  font-size: 0;
+  height: 0;
+  line-height: 0;
+  margin: 0;
+  padding: 0;
+}
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:after,
+.clearfix:before {
+  content: "";
+  display: table;
+  line-height: 0;
+}
+.clearfix:after {
+  clear: both;
+}
+.container,
+.row {
+  position: relative;
+}
+.row {
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+.column {
+  flex: 1 1;
+  max-width: 100%;
+}
+@media only screen and (max-width: 1000px) {
+  .responsive input[type] {
+    font-size: 16px;
+  }
+}
+.modalBox {
+  -webkit-overflow-scrolling: touch;
+  border: 0;
+  border-radius: 0;
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  padding: 30px 15px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 100000;
+}
+.modalContentBox {
+  height: auto !important;
+  margin: 0 auto;
+  max-width: 872px;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  text-align: center;
+}
+.modalBox > .throbber {
+  margin-top: 200px;
+}
+#notifications {
+  background-color: #fdf7e6;
+  border-bottom: 2px solid #f9cd46;
+  color: #6f5504;
+  position: relative;
+  width: 100%;
+  z-index: 1100;
+}
+#notifications .close {
+  font-size: 16px;
+  position: absolute;
+  right: 5px;
+  top: 25%;
+}
+:where(input.button, button.button, span.button, a.button, .button[role="button"]) {
+  -webkit-appearance: none;
+  background-color: #fff;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  color: #212426;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 16px;
+  position: relative;
+  text-align: center;
+}
+:where(input.button, button.button, span.button, a.button, .button[role="button"]) {
+  text-decoration: none;
+}
+.videoBox {
+  height: 0;
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  width: auto !important;
+}
+.videoBox,
+.videoFrame {
+  max-width: 100%;
+}
+@media only screen and (max-width: 575px) {
+  .videoFrame {
+    width: auto !important;
+  }
+}
+.play-btn {
+  background-color: transparent;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 68 48"><path fill="%23f00" fill-opacity="0.8" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="%23fff"></path></svg>');
+  filter: grayscale(100%);
+  height: 48px;
+  left: 50%;
+  opacity: 1;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  width: 68px;
+}
+.play-btn,
+.youtube-player {
+  border: none;
+  position: absolute;
+}
+.youtube-player {
+  background-position: 50%;
+  background-size: cover;
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+.toc > .header {
+  display: none;
+}
+#sidebar-wiki-toc {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-height: 100%;
+}
+#sidebar-wiki-toc .toc {
+  -ms-overflow-style: none;
+  flex: 1;
+  overflow-y: auto;
+}
+#sidebar-wiki-toc .toc > ul {
+  padding-bottom: 30px;
+}
+#sidebar-wiki-toc .toc-title {
+  border: 0;
+  margin: 20px 20px 16px;
+  padding: 0 0 2px;
+}
+#sidebar-wiki-toc .toc-title a {
+  color: #6b7280;
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none !important;
+  text-transform: uppercase;
+}
+#sidebar-wiki-toc ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+#sidebar-wiki-toc .toc a {
+  border-left: 4px solid transparent;
+  color: #4b5563;
+  display: block;
+  margin-top: -2px;
+  padding: 3px 30px 4px 26px;
+  position: relative;
+  text-align: left;
+}
+#sidebar-wiki-toc .toc a.scrolled {
+  background-color: #fff;
+  border-left: 4px solid #0071ce;
+  z-index: 1;
+}
+#sidebar-wiki-toc li:first-child a {
+  margin-top: 0;
+}
+#sidebar-wiki-toc .toc > ul > li > a {
+  color: #212426;
+  font-weight: 700;
+  margin-top: 6px;
+  padding-bottom: 6px;
+  padding-top: 6px;
+}
+.content-dropdown-default {
+  position: relative;
+}
+.content-dropdown-default .content-dropdown-list {
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25);
+  display: none;
+  list-style-type: none;
+  overflow: hidden;
+  padding: 10px 0;
+  position: absolute;
+  right: 0;
+  top: 50px;
+  z-index: 2;
+}
+@media only screen and (max-width: 575px) {
+  .content-dropdown-default .content-dropdown-list {
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
+    overflow: visible;
+    position: relative;
+    top: 0;
+    width: auto;
+  }
+}
+.content-dropdown-default .content-dropdown-list a {
+  background-color: transparent;
+  border: 0;
+  border-radius: 0;
+  height: 32px;
+  line-height: 32px;
+  padding: 0;
+  text-align: left;
+  text-decoration: none;
+  width: 100%;
+}
+.page-navigation-container {
+  margin-block: 0;
+  margin-inline: auto;
+  position: relative;
+}
+@media only screen and (max-width: 1000px) {
+  .page-navigation-container {
+    width: auto;
+  }
+}
+.page-navigation-bar {
+  -ms-flex-pack: end;
+  background-color: #e5e7eb;
+  border-radius: 0;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  height: 50px;
+  -ms-justify-content: flex-end;
+  justify-content: flex-end;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+@media only screen and (max-width: 1000px) {
+  .page-navigation-bar {
+    border-radius: 0;
+  }
+}
+.page-navigation-bar .page-navigation-link > a {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.page-navigation-bar .page-navigation-link:last-child > a {
+  border-bottom-right-radius: 4px;
+  padding-right: 5px;
+}
+@media only screen and (max-width: 575px) {
+  .page-navigation-bar .page-navigation-link:last-child > a {
+    border-radius: 0;
+  }
+}
+.page-navigation-container .page-navigation-bar .page-navigation-link a {
+  line-height: 50px;
+}
+.page-navigation-container .page-navigation-link a {
+  color: #4b5563;
+  display: inline-block;
+  padding-right: 20px;
+  white-space: nowrap;
+}
+@media only screen and (max-width: 575px) {
+  .page-navigation-container .page-navigation-link a {
+    padding: 0 5px;
+  }
+}
+.page-navigation-container .page-navigation-link [class*="svg-icon"] {
+  color: #6b7280;
+  margin: 0 10px;
+  vertical-align: middle;
+}
+.page-navigation-container .page-navigation-link [class*="svg-icon"] svg {
+  bottom: 0.1em;
+  position: relative;
+  vertical-align: middle;
+}
+.page-navigation-container .page-navigation-link #dropdown-icon {
+  margin: 0 8px 0 16px;
+}
+.breadcrumbs-container {
+  display: flex;
+  flex: 1 1 auto;
+  min-width: 0;
+  position: relative;
+}
+.breadcrumbs-container .react-component {
+  flex-basis: 100%;
+  min-width: 0;
+}
+@font-face {
+  font-display: swap;
+  font-family: icomoon;
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://assets.cdn.ifixit.com/static/fonts/ifixit/v2.0.2/icomoon.woff2?20210215=)
+      format("woff2"),
+    url(https://assets.cdn.ifixit.com/static/fonts/ifixit/v2.0.2/icomoon.woff?20210215=)
+      format("woff"),
+    url(https://assets.cdn.ifixit.com/static/fonts/ifixit/v2.0.2/icomoon.ttf?20160111=)
+      format("truetype"),
+    url(https://assets.cdn.ifixit.com/static/fonts/ifixit/v2.0.2/icomoon.svg?20160111=#icomoon)
+      format("svg");
+}
+[data-icon]:before {
+  speak: none;
+  content: attr(data-icon);
+  font-family: icomoon;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 1;
+  text-transform: none;
+}
+.fa {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  font: normal normal normal 14px/1 icomoon;
+  font-size: inherit;
+  text-rendering: auto;
+}
+.fa-times:before {
+  content: "\f00d";
+}
+.fa-chevron-right:before {
+  content: "\f054";
+}
+.fa-arrow-right:before {
+  content: "\f061";
+}
+.fa-chevron-down:before {
+  content: "\f078";
+}
+.fa-caret-down:before {
+  content: "\f0d7";
+}
+.modalContentBox {
+  max-width: 983px;
+}
+:root {
+  --header-bg-color: #fff;
+}
+.credit-author-team-container h4 a {
+  font-weight: 700;
+}
+.credit-author-team-container a {
+  color: inherit;
+}
+.credit-author-team-container div.team-container h4 a {
+  color: #d4d7dd;
+}
+.container {
+  padding: 20px;
+}
+@media only screen and (max-width: 575px) {
+  .container {
+    padding: 20px 12px;
+  }
+}
+.headerContainer {
+  -ms-align-items: baseline;
+  align-items: baseline;
+  border-bottom: 1px solid #e2e2e2;
+  display: flex;
+  margin: 32px 0 12px;
+}
+@media only screen and (max-width: 575px) {
+  .headerContainer {
+    border-bottom: none;
+  }
+}
+.headerContainer .header {
+  border-bottom: none !important;
+  margin: 0 !important;
+}
+.headerContainer .selfLink {
+  color: #6b7280;
+  -ms-flex-basis: 20px;
+  flex-basis: 20px;
+  margin: 0 0 0 -20px;
+}
+.headerContainer .selfLink [class*="svg-icon"] {
+  visibility: hidden;
+}
+.articleContainer {
+  padding-block: 0;
+}
+.articleContainer ul {
+  list-style: revert;
+}
+#content > .wiki {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1080px;
+}
+.articleContainer h2,
+.renderedText h2 {
+  border: 0;
+  clear: both;
+  color: #212426;
+  font-size: 26px;
+  font-weight: 600;
+  font-weight: 700;
+  margin: 30px 0 0;
+  margin-bottom: 0;
+  margin-top: 80px;
+}
+.articleContainer li,
+.articleContainer p,
+.renderedText li,
+.renderedText p {
+  color: #212426;
+  line-height: 1.55em;
+}
+.articleContainer p:not(:last-child),
+.renderedText p:not(:last-child) {
+  margin-bottom: 12px;
+}
+.articleContainer ul,
+.renderedText ul {
+  margin: 0 0 12px 3%;
+  padding: 0;
+}
+.articleContainer li,
+.renderedText li {
+  position: relative;
+}
+.articleContainer .imageBox img,
+.articleContainer .videoFrame,
+.renderedText .imageBox img,
+.renderedText .videoFrame {
+  border: 1px solid #e5e7eb;
+  border-radius: 0;
+  height: auto;
+  margin-bottom: 8px;
+  margin-top: 8px;
+  max-width: 100%;
+  padding: 1px;
+}
+.articleContainer .videoFrame p,
+.renderedText .videoFrame p {
+  margin: 4px 4px 0;
+  padding: 4px;
+}
+.articleContainer .imageBox_left,
+.renderedText .imageBox_left {
+  clear: left;
+  float: left;
+  margin-right: 30px;
+}
+.articleContainer .videoBox_center,
+.renderedText .videoBox_center {
+  clear: both;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media only screen and (max-width: 575px) {
+  .articleContainer .imageBox_left,
+  .renderedText .imageBox_left {
+    float: none;
+  }
+}
+.articleContainer [class*="imageBox_"],
+.articleContainer [class*="videoBox_"],
+.renderedText [class*="imageBox_"],
+.renderedText [class*="videoBox_"] {
+  position: relative;
+  width: fit-content;
+}
+#bodyTop {
+  overflow: visible !important;
+}
+#banner {
+  margin: 32px 0;
+}
+@media only screen and (min-width: 576px) and (max-width: 1000px) {
+  #banner {
+    margin-top: 12px;
+  }
+}
+@media only screen and (max-width: 575px) {
+  #banner {
+    margin: 0;
+  }
+}
+#banner-wrap {
+  margin: 0;
+}
+@media only screen and (min-width: 1001px) and (max-width: 1200px) {
+  #banner-wrap {
+    border-radius: 4px;
+    min-height: 213px;
+  }
+}
+.banner-content {
+  display: flex;
+}
+@media only screen and (min-width: 1001px) {
+  .banner-content {
+    border-radius: 8px;
+  }
+}
+.banner-bucket {
+  float: left;
+  position: relative;
+}
+@media only screen and (max-width: 575px) {
+  .banner-bucket .action-buttons,
+  .banner-bucket .banner-text {
+    margin: 16px;
+  }
+}
+.banner-small-photo {
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  margin: 8px 0 0 32px;
+  overflow: hidden;
+  width: 252px;
+}
+@media only screen and (max-width: 767px) {
+  .banner-small-photo {
+    display: none;
+  }
+}
+.banner-small-photo img {
+  height: auto;
+  vertical-align: top;
+  width: 100%;
+}
+.banner-summary {
+  padding-inline: 32px;
+  width: 100%;
+}
+@media only screen and (max-width: 575px) {
+  .banner-summary {
+    padding: 0;
+  }
+}
+.banner-title {
+  font-size: 40px;
+  font-weight: 600 !important;
+  margin: 0;
+  overflow-wrap: anywhere;
+  padding: 0;
+}
+.banner-blurb {
+  line-height: 20px;
+  max-width: 70ch;
+}
+.wiki-author {
+  line-height: 20px;
+  margin-block: 8px;
+}
+.wiki-author a {
+  color: #0071ce;
+}
+.banner-content .action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+}
+:root {
+  --background: var(--color-gray-50);
+  --foreground: var(--color-gray-950);
+  --card: var(--color-white);
+  --card-foreground: var(--color-gray-950);
+  --popover: var(--color-white);
+  --popover-foreground: var(--color-gray-950);
+  --primary: var(--color-brand-500);
+  --primary-foreground: var(--color-white);
+  --secondary: var(--color-gray-200);
+  --secondary-foreground: var(--color-gray-950);
+  --muted: var(--color-gray-100);
+  --muted-foreground: var(--color-gray-500);
+  --accent: var(--color-gray-200);
+  --accent-foreground: var(--color-gray-950);
+  --destructive: var(--color-red-600);
+  --destructive-foreground: var(--color-white);
+  --border: var(--color-gray-300);
+  --input: var(--color-gray-300);
+  --ring: var(--color-gray-400);
+  --chart-1: var(--color-orange-600);
+  --chart-2: var(--color-teal-600);
+  --chart-3: var(--color-cyan-900);
+  --chart-4: var(--color-amber-400);
+  --chart-5: var(--color-amber-500);
+  --sidebar: var(--color-gray-50);
+  --sidebar-foreground: var(--color-gray-950);
+  --sidebar-primary: var(--color-gray-900);
+  --sidebar-primary-foreground: var(--color-gray-50);
+  --sidebar-accent: var(--color-gray-100);
+  --sidebar-accent-foreground: var(--color-gray-900);
+  --sidebar-border: var(--color-gray-200);
+  --sidebar-ring: var(--color-gray-400);
+}
+.skip-to-content {
+  height: 1px;
+  left: -999px;
+  overflow: hidden;
+  position: absolute;
+  top: auto;
+  width: 1px;
+  z-index: -999;
+  .skip-to-content:active,
+  .skip-to-content:focus {
+    background-color: #000;
+    color: #fff;
+    font-size: 36px;
+    height: auto;
+    left: 0;
+    margin: 5px;
+    overflow: auto;
+    padding: 5px;
+    text-align: center;
+    top: 0;
+    width: auto;
+    z-index: 999;
+  }
+}
+* {
+  box-sizing: border-box;
+}
+body,
+html {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Noto Sans, Helvetica,
+    Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  text-rendering: optimizeSpeed;
+}
+
+/*! File: Shared/prosemirror.less */
+
+/*! File: Shared/prosemirror.less */
+
+/*! File: Shared/prosemirror.less */
+.ProseMirror-menubar-wrapper .ProseMirror {
+  background: #fff;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  color: #1f2937;
+  line-height: 1.2;
+  margin-top: 8px;
+  min-height: 120px;
+  outline: 0 solid transparent;
+  padding: 12px 16px;
+}
+.ProseMirror-menubar-wrapper .ProseMirror .widget-container {
+  display: inline-block;
+  left: 20%;
+  min-width: fit-content;
+  min-width: 350px;
+  position: absolute;
+  user-select: none;
+  width: 60%;
+  z-index: 10;
+}
+.ProseMirror-menubar-wrapper
+  .ProseMirror
+  .widget-container
+  .prosemirror-link-editor {
+  background-color: #f9fafb;
+  border: 1px solid #a8b4c4;
+  border-radius: 2px;
+  box-shadow: 0 -5px 15px 10px rgba(0, 3, 6, 0.07);
+  margin-top: -115px;
+  padding: 10px;
+}
+.ProseMirror-menubar-wrapper .ProseMirror .widget-container input {
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  bottom: 0.75em;
+  color: rgba(0, 3, 6, 0.74);
+  font-size: 12px;
+  left: -133px;
+  padding: 5px;
+  visibility: hidden;
+  width: 100%;
+}
+.ProseMirror-menubar-wrapper
+  .ProseMirror
+  .widget-container
+  .link-edit-buttongroup {
+  -ms-flex-pack: end;
+  display: flex;
+  flex-direction: row;
+  -ms-justify-content: flex-end;
+  justify-content: flex-end;
+}
+.ProseMirror-menubar-wrapper
+  .ProseMirror
+  .widget-container
+  .link-edit-buttongroup
+  .link-edit-button {
+  margin: 15px 5px 5px;
+  white-space: nowrap;
+}
+.ProseMirror-menubar {
+  align-items: center;
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 16px;
+  left: 0;
+  line-height: 0px;
+  outline-style: none;
+  overflow: visible;
+  padding: 6px 8px;
+  position: relative;
+  right: 0;
+  top: 0;
+  z-index: 10;
+}
+.ProseMirror-menubar .ProseMirror-menuseparator {
+  border: 1px solid #e5e7eb;
+  display: inline-block;
+  height: 24px;
+  margin: 0 8px;
+}
+.ProseMirror-menuitem {
+  display: inline-block;
+  line-height: 0px;
+  margin: 0 8px;
+}
+.ProseMirror-icon {
+  cursor: pointer;
+  display: inline-block;
+  line-height: 0px;
+  position: relative;
+}
+.ProseMirror-icon .tooltiptext {
+  background-color: #000;
+  border-radius: 4px;
+  border-style: none;
+  bottom: 120%;
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Noto Sans, Helvetica,
+    Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+  font-size: 16px;
+  left: -1px;
+  opacity: 0;
+  padding: 5px 10px;
+  pointer-events: none;
+  position: absolute;
+  text-align: center;
+  white-space: nowrap;
+}
+@media only screen and (max-width: 575px) {
+  .ProseMirror-icon .tooltiptext {
+    display: none;
+  }
+}
+.ProseMirror-icon .tooltiptext:after {
+  border: 6px solid transparent;
+  border-top-color: #000;
+  content: " ";
+  left: 15px;
+  margin-left: -6px;
+  position: absolute;
+  top: 100%;
+}
+.ProseMirror-icon .flipped-tooltip {
+  bottom: -220%;
+}
+.ProseMirror-icon .flipped-tooltip:after {
+  border-color: transparent transparent #000;
+  top: -35%;
+}
+@media only screen and (hover: hover) {
+  .ProseMirror-icon:hover .tooltiptext {
+    opacity: 1;
+    transition: opacity 0.2s ease 0.2s;
+  }
+}
+.ProseMirror-icon svg {
+  height: 1em;
+}
+.ProseMirror-icon span {
+  vertical-align: text-top;
+}
+.ProseMirror-icon-reverse > svg {
+  transform: scaleX(-1);
+}
+.ProseMirror-icon,
+.ProseMirror-menu-dropdown {
+  color: #6b7280;
+}
+.menubar-header {
+  color: #212426;
+  font-size: 26px;
+  font-weight: 700;
+}
+.menubar-subheader {
+  color: #4b5563;
+  font-size: 20px;
+  font-weight: 600;
+}
+.menubar-code {
+  font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, monospace;
+}
+.tooltiptext {
+  color: #6b7280;
+  font-size: 16px;
+  font-weight: 400;
+}
+.ProseMirror-menu-disabled {
+  color: #d1d5db;
+}
+.ProseMirror-menu-disabled.ProseMirror-icon {
+  cursor: default;
+}
+.ProseMirror-menu-active {
+  background-color: rgba(0, 3, 6, 0.07);
+  border-radius: 4px;
+}
+.prosemirror {
+  outline-style: none;
+  position: relative;
+}
+.ProseMirror-textblock-dropdown {
+  min-width: 3em;
+}
+.ProseMirror-menu {
+  line-height: 1;
+  margin: 0 -4px;
+}
+.ProseMirror-tooltip .ProseMirror-menu {
+  white-space: pre;
+  width: fit-content;
+}
+.ProseMirror-menu-dropdown,
+.ProseMirror-menu-dropdown-menu {
+  font-size: 90%;
+  white-space: nowrap;
+}
+.ProseMirror-menu-dropdown {
+  cursor: pointer;
+  display: flex;
+  padding-right: 16px;
+  position: relative;
+}
+.ProseMirror-menu-dropdown svg {
+  margin-right: 4px;
+}
+.ProseMirror-menu-dropdown:after {
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid;
+  content: "";
+  position: absolute;
+  right: 4px;
+  top: 38%;
+}
+.ProseMirror-menu-dropdown-wrap {
+  display: inline-block;
+  position: relative;
+}
+.ProseMirror-menu-dropdown-menu,
+.ProseMirror-menu-submenu {
+  background: #fff;
+  border: 1px solid #aaa;
+  color: #666;
+  padding: 2px;
+  position: absolute;
+}
+.ProseMirror-menu-dropdown-menu {
+  min-width: 6em;
+  z-index: 15;
+}
+.ProseMirror-menu-dropdown-item {
+  cursor: pointer;
+  padding: 2px 8px 2px 4px;
+}
+@media only screen and (hover: hover) {
+  .ProseMirror-menu-dropdown-item:hover {
+    background: #f2f2f2;
+  }
+}
+.ProseMirror-menu-submenu-wrap {
+  margin-right: -4px;
+  position: relative;
+}
+.ProseMirror-menu-submenu-label:after {
+  border-bottom: 4px solid transparent;
+  border-left: 4px solid;
+  border-top: 4px solid transparent;
+  color: rgba(0, 0, 0, 0.6);
+  content: "";
+  position: absolute;
+  right: 4px;
+  top: 46%;
+}
+.ProseMirror-menu-submenu {
+  display: none;
+  left: 100%;
+  min-width: 4em;
+  top: -3px;
+}
+.ProseMirror-menu-submenu-wrap-active .ProseMirror-menu-submenu,
+.ProseMirror-menu-submenu-wrap:hover .ProseMirror-menu-submenu {
+  display: block;
+}
+.ProseMirror {
+  word-wrap: break-word;
+  font-variant-ligatures: none;
+  position: relative;
+  white-space: pre-wrap;
+}
+.ProseMirror ol,
+.ProseMirror ul {
+  padding-left: 30px;
+}
+.ProseMirror blockquote {
+  border-left: 3px solid #eee;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 1em;
+}
+.ProseMirror-hideselection ::selection {
+  background: transparent;
+}
+.ProseMirror-hideselection ::-moz-selection {
+  background: transparent;
+}
+.ProseMirror-selectednode {
+  outline: 2px solid #8cf;
+}
+li.ProseMirror-selectednode {
+  outline: none;
+}
+li.ProseMirror-selectednode:after {
+  border: 2px solid #8cf;
+  bottom: -2px;
+  content: "";
+  left: -32px;
+  pointer-events: none;
+  position: absolute;
+  right: -2px;
+  top: -2px;
+}
+.ProseMirror-example-setup-style hr {
+  border: none;
+  margin: 1em 0;
+  padding: 2px 10px;
+}
+.ProseMirror-example-setup-style hr:after {
+  background-color: silver;
+  content: "";
+  display: block;
+  height: 1px;
+  line-height: 2px;
+}
+.ProseMirror-example-setup-style img {
+  cursor: default;
+}
+.ProseMirror-prompt {
+  background: #fff;
+  border: 1px solid silver;
+  border-radius: 3px;
+  box-shadow: -0.5px 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 5px 10px 5px 15px;
+  position: fixed;
+  z-index: 11;
+}
+.ProseMirror-prompt h5 {
+  color: #444;
+  font-size: 100%;
+  font-weight: 400;
+  margin: 0;
+}
+.ProseMirror-prompt input[type="text"],
+.ProseMirror-prompt textarea {
+  background: #eee;
+  border: none;
+  outline: none;
+}
+.ProseMirror-prompt input[type="text"] {
+  padding: 0 4px;
+}
+.ProseMirror-prompt-close {
+  background: transparent;
+  border: none;
+  color: #666;
+  left: 2px;
+  padding: 0;
+  position: absolute;
+  top: 1px;
+}
+.ProseMirror-prompt-close:after {
+  content: "✕";
+  font-size: 12px;
+}
+.ProseMirror-invalid {
+  background: #ffc;
+  border: 1px solid #cc7;
+  border-radius: 4px;
+  min-width: 10em;
+  padding: 5px 10px;
+  position: absolute;
+}
+.ProseMirror-prompt-buttons {
+  display: none;
+  margin-top: 5px;
+}
+      </style>
+   </head>
+
+   <body  class="page-background-gradient zh responsive translating fullWidth full-page-background user-wiki"                  data-reactroot>
+
+      <!-- https://accessibility.oit.ncsu.edu/it-accessibility-at-nc-state/developers/accessibility-handbook/mouse-and-keyboard-events/skip-to-main-content/ -->
+
+<style>
+    .skip-to-content {
+    left: -999px;
+    position: absolute;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    z-index: -999;
+
+    .skip-to-content:focus,
+    .skip-to-content:active {
+        color: white;
+        background-color: black;
+        left: 0;
+        top: 0;
+        width: auto;
+        height: auto;
+        overflow: auto;
+        padding: 5px;
+        margin: 5px;
+        text-align: center;
+        font-size: 36px;
+        z-index: 999;
+    }
+    }
+</style>
+
+<a href="#content" class="skip-to-content ">
+    跳转到主内容</a>
+
+                           <div id="notifications" style="display:none;">
+   <div class="close"><i class="fa fa-times " ></i></div>
+   </div>
+               
+               <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-59NVBFN"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->            <link rel='preconnect dns-prefetch' href='https://api.config-security.com/' crossorigin />
+<link rel='preconnect dns-prefetch' href='https://conf.config-security.com/' crossorigin />
+<script>
+/* >> TriplePixel :: start*/
+window.TriplePixelData={TripleName:"ifixit-us.myshopify.com",ver:"2.17",plat:"SHOPIFY",isHeadless:true},function(W,H,A,L,E,_,B,N){function O(U,T,P,H,R){void 0===R&&(R=!1),H=new XMLHttpRequest,P?(H.open("POST",U,!0),H.setRequestHeader("Content-Type","text/plain")):H.open("GET",U,!0),H.send(JSON.stringify(P||{})),H.onreadystatechange=function(){4===H.readyState&&200===H.status?(R=H.responseText,U.includes("/first")?eval(R):P||(N[B]=R)):(299<H.status||H.status<200)&&T&&!R&&(R=!0,O(U,T-1,P))}}if(N=window,!N[H+"sn"]){N[H+"sn"]=1,L=function(){return Date.now().toString(36)+"_"+Math.random().toString(36)};try{A.setItem(H,1+(0|A.getItem(H)||0)),(E=JSON.parse(A.getItem(H+"U")||"[]")).push({u:location.href,r:document.referrer,t:Date.now(),id:L()}),A.setItem(H+"U",JSON.stringify(E))}catch(e){}var i,m,p;A.getItem('"!nC`')||(_=A,A=N,A[H]||(E=A[H]=function(t,e,a){return void 0===a&&(a=[]),"State"==t?E.s:(W=L(),(E._q=E._q||[]).push([W,t,e].concat(a)),W)},E.s="Installed",E._q=[],E.ch=W,B="configSecurityConfModel",N[B]=1,O("https://conf.config-security.com/model",5),i=L(),m=A[atob("c2NyZWVu")],_.setItem("di_pmt_wt",i),p={id:i,action:"profile",avatar:_.getItem("auth-security_rand_salt_"),time:m[atob("d2lkdGg=")]+":"+m[atob("aGVpZ2h0")],host:A.TriplePixelData.TripleName,plat:A.TriplePixelData.plat,url:window.location.href.slice(0,500),ref:document.referrer,ver:A.TriplePixelData.ver},O("https://api.config-security.com/event",5,p),O("https://api.config-security.com/first?host=ifixit-us.myshopify.com&plat=SHOPIFY",5)))}}("","TriplePixel",localStorage);
+/* << TriplePixel :: end*/
+</script>
+      <div id="background">
+      <div class="react-component component-PopupModal"
+      data-reactroot
+   data-name="PopupModal"
+   data-props="[]">
+      </div>
+      <div class="react-component component-Header"
+      data-reactroot
+   data-name="Header"
+   data-props="{&quot;isOnCart&quot;:false,&quot;links&quot;:[{&quot;title&quot;:&quot;\u4fee\u590d\u4f60\u7684\u7269\u54c1&quot;,&quot;url&quot;:&quot;\/Guide&quot;,&quot;sublinks&quot;:[{&quot;title&quot;:&quot;\u7ef4\u4fee\u6307\u5357&quot;,&quot;description&quot;:&quot;\u901a\u8fc7\u6211\u4eec\u7684\u5206\u6b65\u9aa4\u6307\u5357\u4e86\u89e3\u5982\u4f55\u89e3\u51b3\u4efb\u4f55\u95ee\u9898\u3002&quot;,&quot;url&quot;:&quot;\/Guide&quot;},{&quot;title&quot;:&quot;\u5e94\u7528\u7a0b\u5e8f&quot;,&quot;description&quot;:&quot;\u4f60\u7684\u53e3\u888b\u7ef4\u4fee\u52a9\u624b&quot;,&quot;url&quot;:&quot;https:\/\/www.ifixit.com\/go\/app&quot;},{&quot;title&quot;:&quot;\u4fee\u590d\u673a\u5668\u4eba&quot;,&quot;description&quot;:&quot;\u53cb\u597d\u7684\u4eba\u5de5\u667a\u80fd\u7ef4\u4fee\u52a9\u624b&quot;,&quot;url&quot;:&quot;https:\/\/www.ifixit.com\/go\/fixbot&quot;},{&quot;title&quot;:&quot;\u53ef\u4fee\u590d\u6027&quot;,&quot;description&quot;:&quot;\u4e86\u89e3\u4e3a\u4ec0\u4e48\u53ef\u4fee\u590d\u4ea7\u54c1\u6709\u610f\u4e49\u3002&quot;,&quot;url&quot;:&quot;\/repairability&quot;},{&quot;title&quot;:&quot;\u62c6\u200b\u89e3&quot;,&quot;description&quot;:&quot;\u6700\u65b0\u7535\u5b50\u8bbe\u5907\u5185\u90e8\uff0c\u5148\u7779\u4e3a\u5feb\u3002&quot;,&quot;url&quot;:&quot;\/Teardown&quot;}]},{&quot;title&quot;:&quot;\u793e\u533a&quot;,&quot;url&quot;:&quot;\/Community&quot;,&quot;sublinks&quot;:[{&quot;title&quot;:&quot;\u8bba\u575b&quot;,&quot;description&quot;:&quot;\u5206\u4eab\u89e3\u51b3\u65b9\u6848\u5e76\u83b7\u5f97\u670b\u53cb\u7684\u5e2e\u52a9\u3002&quot;,&quot;url&quot;:&quot;\/Answers&quot;},{&quot;title&quot;:&quot;\u5bfb\u627e\u60a8\u7684\u793e\u533a&quot;,&quot;description&quot;:&quot;\u67e5\u627e\u56e2\u961f\u3001\u6d3b\u52a8\u548c\u540c\u884c\u4fee\u7406\u5de5\u3002&quot;,&quot;url&quot;:&quot;\/Community&quot;},{&quot;title&quot;:&quot;\u4f38\u51fa\u63f4\u624b&quot;,&quot;description&quot;:&quot;\u5e2e\u52a9\u6240\u6709\u4eba\u514d\u8d39\u83b7\u53d6\u7ef4\u4fee\u77e5\u8bc6\u3002&quot;,&quot;url&quot;:&quot;\/Participate&quot;},{&quot;title&quot;:&quot;\u7ef4\u4fee\u7684\u6743\u5229&quot;,&quot;description&quot;:&quot;\u4e86\u89e3\u7ef4\u4fee\u6743\u5229\u8fd0\u52a8\u4ee5\u53ca\u5982\u4f55\u6210\u4e3a\u5021\u5bfc\u8005\u3002&quot;,&quot;url&quot;:&quot;\/Right-to-Repair&quot;}]},{&quot;title&quot;:&quot;\u5546\u5e97&quot;,&quot;url&quot;:&quot;https:\/\/www.ifixit.com\/Store&quot;,&quot;hasStoreDropdown&quot;:true,&quot;sublinks&quot;:[{&quot;title&quot;:&quot;iFixit \u7cbe\u9009&quot;,&quot;description&quot;:&quot;\u6211\u4eec\u7ec8\u751f\u4fdd\u8bc1\u7684\u4f18\u8d28\u96f6\u4ef6\u548c\u5de5\u5177\u3002&quot;,&quot;url&quot;:&quot;https:\/\/www.ifixit.com\/Store&quot;},{&quot;title&quot;:&quot;\u5de5\u5177&quot;,&quot;description&quot;:&quot;\u8d2d\u4e70\u6211\u4eec\u7cbe\u9009\u7684\u7cbe\u5bc6\u5de5\u5177\u3002&quot;,&quot;url&quot;:&quot;https:\/\/www.ifixit.com\/Tools&quot;},{&quot;title&quot;:&quot;\u914d\u4ef6&quot;,&quot;description&quot;:&quot;\u83b7\u5f97\u6211\u4eec\u6709\u8d28\u91cf\u627f\u8bfa\u7684\u914d\u4ef6\u3002&quot;,&quot;url&quot;:&quot;https:\/\/www.ifixit.com\/Parts&quot;},{&quot;title&quot;:&quot;iPhone \u7535\u6c60&quot;,&quot;description&quot;:&quot;\u7535\u6c60\u7ecf\u8fc7\u6d4b\u8bd5\uff0c\u8d28\u91cf\u6709\u4fdd\u8bc1\uff0c\u8fd8\u63d0\u4f9b\u4e00\u5957\u6240\u9700\u7684\u5de5\u5177\u3002&quot;,&quot;url&quot;:&quot;https:\/\/www.ifixit.com\/Parts\/iPhone\/Batteries&quot;}]}],&quot;stores&quot;:[{&quot;name&quot;:&quot;United States&quot;,&quot;storeCode&quot;:&quot;us&quot;,&quot;localeCode&quot;:&quot;en-us&quot;,&quot;currency&quot;:&quot;USD&quot;,&quot;isDisplayStore&quot;:true},{&quot;name&quot;:&quot;Canada&quot;,&quot;storeCode&quot;:&quot;ca&quot;,&quot;localeCode&quot;:&quot;en-ca&quot;,&quot;currency&quot;:&quot;CAD&quot;,&quot;isDisplayStore&quot;:false},{&quot;name&quot;:&quot;Canada&quot;,&quot;storeCode&quot;:&quot;ca&quot;,&quot;localeCode&quot;:&quot;fr-ca&quot;,&quot;currency&quot;:&quot;CAD&quot;,&quot;isDisplayStore&quot;:false},{&quot;name&quot;:&quot;Australia&quot;,&quot;storeCode&quot;:&quot;au&quot;,&quot;localeCode&quot;:&quot;en-au&quot;,&quot;currency&quot;:&quot;AUD&quot;,&quot;isDisplayStore&quot;:false},{&quot;name&quot;:&quot;United Kingdom&quot;,&quot;storeCode&quot;:&quot;uk&quot;,&quot;localeCode&quot;:&quot;en-gb&quot;,&quot;currency&quot;:&quot;GBP&quot;,&quot;isDisplayStore&quot;:false},{&quot;name&quot;:&quot;Europe&quot;,&quot;storeCode&quot;:&quot;eu&quot;,&quot;localeCode&quot;:&quot;en-eu&quot;,&quot;currency&quot;:&quot;EUR&quot;,&quot;isDisplayStore&quot;:false},{&quot;name&quot;:&quot;France&quot;,&quot;storeCode&quot;:&quot;fr&quot;,&quot;localeCode&quot;:&quot;fr-fr&quot;,&quot;currency&quot;:&quot;EUR&quot;,&quot;isDisplayStore&quot;:false},{&quot;name&quot;:&quot;Deutschland&quot;,&quot;storeCode&quot;:&quot;de&quot;,&quot;localeCode&quot;:&quot;de-de&quot;,&quot;currency&quot;:&quot;EUR&quot;,&quot;isDisplayStore&quot;:false},{&quot;name&quot;:&quot;Italia&quot;,&quot;storeCode&quot;:&quot;eu&quot;,&quot;localeCode&quot;:&quot;it-it&quot;,&quot;currency&quot;:&quot;EUR&quot;,&quot;isDisplayStore&quot;:false}],&quot;dropdowns&quot;:{&quot;languageDropdown&quot;:{&quot;languages&quot;:[{&quot;name&quot;:&quot;German&quot;,&quot;autoglottonym&quot;:&quot;Deutsch&quot;,&quot;currency&quot;:&quot;DEM&quot;,&quot;locale&quot;:&quot;de_DE&quot;,&quot;png16&quot;:&quot;https:\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/b\/ba\/Flag_of_Germany.svg\/16px-Flag_of_Germany.svg.png&quot;,&quot;png32&quot;:&quot;https:\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/b\/ba\/Flag_of_Germany.svg\/32px-Flag_of_Germany.svg.png&quot;,&quot;isoCode&quot;:&quot;DE&quot;,&quot;isSelected&quot;:false},{&quot;name&quot;:&quot;English&quot;,&quot;autoglottonym&quot;:&quot;English&quot;,&quot;currency&quot;:&quot;USD&quot;,&quot;locale&quot;:&quot;en_US&quot;,&quot;png16&quot;:&quot;https:\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/a\/a4\/Flag_of_the_United_States.svg\/16px-Flag_of_the_United_States.svg.png&quot;,&quot;png32&quot;:&quot;https:\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/a\/a4\/Flag_of_the_United_States.svg\/32px-Flag_of_the_United_States.svg.png&quot;,&quot;isoCode&quot;:&quot;EN&quot;,&quot;isSelected&quot;:false},{&quot;name&quot;:&quot;Spanish&quot;,&quot;autoglottonym&quot;:&quot;Espa\u00f1ol&quot;,&quot;currency&quot;:&quot;MXN&quot;,&quot;locale&quot;:&quot;es_MX&quot;,&quot;png16&quot;:&quot;https:\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/f\/fc\/Flag_of_Mexico.svg\/16px-Flag_of_Mexico.svg.png&quot;,&quot;png32&quot;:&quot;https:\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/f\/fc\/Flag_of_Mexico.svg\/32px-Flag_of_Mexico.svg.png&quot;,&quot;isoCode&quot;:&quot;ES&quot;,&quot;isSelected&quot;:false},{&quot;name&quot;:&quot;French&quot;,&quot;autoglottonym&quot;:&quot;Fran\u00e7ais&quot;,&quot;currency&quot;:&quot;EUR&quot;,&quot;locale&quot;:&quot;fr_FR&quot;,&quot;png16&quot;:&quot;https:\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/c\/c3\/Flag_of_France.svg\/16px-Flag_of_France.svg.png&quot;,&quot;png32&quot;:&quot;https:\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/c\/c3\/Flag_of_France.svg\/32px-Flag_of_France.svg.png&quot;,&quot;isoCode&quot;:&quot;FR&quot;,&quot;isSelected&quot;:false},{&quot;name&quot;:&quot;Italian&quot;,&quot;autoglottonym&quot;:&quot;Italiano&quot;,&quot;currency&quot;:&quot;EUR&quot;,&quot;locale&quot;:&quot;it_IT&quot;,&quot;png16&quot;:&quot;https:\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/0\/03\/Flag_of_Italy.svg\/16px-Flag_of_Italy.svg.png&quot;,&quot;png32&quot;:&quot;https:\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/0\/03\/Flag_of_Italy.svg\/32px-Flag_of_Italy.svg.png&quot;,&quot;isoCode&quot;:&quot;IT&quot;,&quot;isSelected&quot;:false},{&quot;name&quot;:&quot;Dutch&quot;,&quot;autoglottonym&quot;:&quot;Nederlands&quot;,&quot;currency&quot;:&quot;EUR&quot;,&quot;locale&quot;:&quot;nl_NL&quot;,&quot;png16&quot;:&quot;https:\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/2\/20\/Flag_of_the_Netherlands.svg\/16px-Flag_of_the_Netherlands.svg.png&quot;,&quot;png32&quot;:&quot;https:\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/2\/20\/Flag_of_the_Netherlands.svg\/32px-Flag_of_the_Netherlands.svg.png&quot;,&quot;isoCode&quot;:&quot;NL&quot;,&quot;isSelected&quot;:false},{&quot;name&quot;:&quot;Portuguese&quot;,&quot;autoglottonym&quot;:&quot;Portugu\u00eas&quot;,&quot;currency&quot;:&quot;PP&quot;,&quot;locale&quot;:&quot;pt_BR&quot;,&quot;png16&quot;:&quot;https:\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/0\/05\/Flag_of_Brazil.svg\/16px-Flag_of_Brazil.svg.png&quot;,&quot;png32&quot;:&quot;https:\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/0\/05\/Flag_of_Brazil.svg\/32px-Flag_of_Brazil.svg.png&quot;,&quot;isoCode&quot;:&quot;PT&quot;,&quot;isSelected&quot;:false},{&quot;name&quot;:&quot;Russian&quot;,&quot;autoglottonym&quot;:&quot;P\u0443\u0441\u0441\u043a\u0438\u0439&quot;,&quot;currency&quot;:&quot;RUR&quot;,&quot;locale&quot;:&quot;ru_RU&quot;,&quot;png16&quot;:&quot;https:\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/f\/f3\/Flag_of_Russia.svg\/16px-Flag_of_Russia.svg.png&quot;,&quot;png32&quot;:&quot;https:\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/f\/f3\/Flag_of_Russia.svg\/32px-Flag_of_Russia.svg.png&quot;,&quot;isoCode&quot;:&quot;RU&quot;,&quot;isSelected&quot;:false},{&quot;name&quot;:&quot;Turkish&quot;,&quot;autoglottonym&quot;:&quot;T\u00fcrk\u00e7e&quot;,&quot;currency&quot;:&quot;TRY&quot;,&quot;locale&quot;:&quot;tr_TR&quot;,&quot;png16&quot;:&quot;https:\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/b\/b4\/Flag_of_Turkey.svg\/16px-Flag_of_Turkey.svg.png&quot;,&quot;png32&quot;:&quot;https:\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/b\/b4\/Flag_of_Turkey.svg\/32px-Flag_of_Turkey.svg.png&quot;,&quot;isoCode&quot;:&quot;TR&quot;,&quot;isSelected&quot;:false},{&quot;name&quot;:&quot;Chinese&quot;,&quot;autoglottonym&quot;:&quot;\u4e2d\u6587&quot;,&quot;currency&quot;:&quot;HKD&quot;,&quot;locale&quot;:&quot;zh_CN&quot;,&quot;png16&quot;:&quot;https:\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/f\/fa\/Flag_of_the_People%27s_Republic_of_China.svg\/16px-Flag_of_the_People%27s_Republic_of_China.svg.png&quot;,&quot;png32&quot;:&quot;https:\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/f\/fa\/Flag_of_the_People%27s_Republic_of_China.svg\/32px-Flag_of_the_People%27s_Republic_of_China.svg.png&quot;,&quot;isSelected&quot;:true,&quot;isoCode&quot;:&quot;ZH&quot;},{&quot;name&quot;:&quot;Japanese&quot;,&quot;autoglottonym&quot;:&quot;\u65e5\u672c\u8a9e&quot;,&quot;currency&quot;:&quot;JPY&quot;,&quot;locale&quot;:&quot;ja_JP&quot;,&quot;png16&quot;:&quot;https:\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/9\/9e\/Flag_of_Japan.svg\/16px-Flag_of_Japan.svg.png&quot;,&quot;png32&quot;:&quot;https:\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/9\/9e\/Flag_of_Japan.svg\/32px-Flag_of_Japan.svg.png&quot;,&quot;isoCode&quot;:&quot;JP&quot;,&quot;isSelected&quot;:false},{&quot;name&quot;:&quot;Korean&quot;,&quot;autoglottonym&quot;:&quot;\ud55c\uad6d\uc5b4&quot;,&quot;currency&quot;:&quot;KRW&quot;,&quot;locale&quot;:&quot;ko_KR&quot;,&quot;png16&quot;:&quot;https:\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/0\/09\/Flag_of_South_Korea.svg\/16px-Flag_of_South_Korea.svg.png&quot;,&quot;png32&quot;:&quot;https:\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/0\/09\/Flag_of_South_Korea.svg\/32px-Flag_of_South_Korea.svg.png&quot;,&quot;isoCode&quot;:&quot;KO&quot;,&quot;isSelected&quot;:false}],&quot;translationPreferencesUrl&quot;:&quot;\/api\/2.0\/user\/setLanguagePreferences&quot;},&quot;userInfo&quot;:null,&quot;shopifyStore&quot;:{&quot;country&quot;:&quot;US&quot;,&quot;currencyCode&quot;:&quot;USD&quot;,&quot;language&quot;:&quot;EN&quot;,&quot;storeCode&quot;:&quot;us&quot;,&quot;shopDomain&quot;:&quot;ifixit-us.myshopify.com&quot;,&quot;storefrontAccessToken&quot;:&quot;db3099692534a56ecec7b974a329d302&quot;,&quot;cartUrl&quot;:&quot;https:\/\/www.ifixit.com\/cart&quot;,&quot;storeUrl&quot;:&quot;https:\/\/www.ifixit.com\/Store&quot;},&quot;cartDrawer&quot;:{&quot;locale&quot;:&quot;en-us&quot;},&quot;user&quot;:{&quot;priceTiers&quot;:null}},&quot;hideHeader&quot;:false,&quot;isPro&quot;:false}">
+   <style>
+   
+* {
+   -webkit-box-sizing: border-box;
+   box-sizing: border-box;
+}
+
+html,
+body {
+   margin: 0;
+   padding: 0;
+   text-rendering: optimizeSpeed;
+   position: relative;
+   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+}
+
+.header-wrapper {
+   display: -webkit-box;
+   display: -ms-flexbox;
+   display: flex;
+   -webkit-box-pack: center;
+   -ms-flex-pack: center;
+   justify-content: center;
+   height: 68px;
+   background: #11161A;
+}
+
+.header-container {
+   display: -webkit-box;
+   display: -ms-flexbox;
+   display: flex;
+   height: 100%;
+   width: 1400px;
+   padding: 0 12px;
+}
+
+.header-left {
+   display: -webkit-box;
+   display: -ms-flexbox;
+   display: flex;
+   -webkit-box-align: center;
+   -ms-flex-align: center;
+   align-items: center;
+   -webkit-transition: all 0.25s;
+   -o-transition: all 0.25s;
+   transition: all 0.25s;
+}
+
+.header-space {
+   -webkit-box-flex: 1;
+   -ms-flex: 1;
+   flex: 1;
+   -webkit-box-pack: end;
+   -ms-flex-pack: end;
+   justify-content: flex-end;
+}
+
+.logo-container {
+   display: -webkit-box;
+   display: -ms-flexbox;
+   display: flex;
+   margin-inline: 16px;
+}
+
+.headings-container {
+   display: -webkit-box;
+   display: -ms-flexbox;
+   display: flex;
+   -webkit-box-align: stretch;
+   -ms-flex-align: stretch;
+   align-items: stretch;
+   height: 100%;
+}
+
+.headings-container a.heading {
+   -webkit-box-align: center;
+   -ms-flex-align: center;
+   align-items: center;
+   display: -webkit-box;
+   display: -ms-flexbox;
+   display: flex;
+   padding: 0 24px;
+   color: white;
+   font-size: 14px;
+   font-weight: 600;
+   text-decoration: none;
+   margin: 0;
+}
+
+.menu-icon {
+   display: none;
+}
+
+@media only screen and (max-width: 374px) {
+   .logo-container {
+      margin-inline: 12px;
+   }
+}
+
+@media only screen and (max-width: 999px) {
+   .header-container {
+      padding-left: 12px;
+   }
+
+   .headings-container {
+      display: none;
+   }
+
+   .menu-icon {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-negative: 0;
+      flex-shrink: 0;
+      padding: 6px;
+   }
+}
+
+@media only screen and (min-width: 1440px) {
+   .header-container {
+      padding: 0;
+   }
+}
+</style>
+   <div class="header-wrapper">
+      <div class="header-container">
+         <div class="header-left">
+            <div class="menu-icon">
+               <span class="svg-container" style="width: 24px; height: 24px; display: inline-flex;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D2DADF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="4" y1="12" x2="20" y2="12" class="middle"></line><line x1="4" y1="6" x2="20" y2="6" class="top"></line><line x1="4" y1="18" x2="20" y2="18" class="bottom"></line></svg></span>            </div>
+            <div class="logo-container">
+                                 <span class="svg-container" style="width: 118px; height: 36px; display: inline-flex;"><svg
+   width="118"
+   height="36"
+   viewBox="0 0 118 36"
+   fill="none"
+   xmlns="http://www.w3.org/2000/svg"
+   focusable="false"
+   style="display: block"
+>
+   <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M108.185 13.1401H104.585C103.636 13.1401 102.858 12.3534 102.858 11.3942C102.858 10.4357 103.636 9.64859 104.585 9.64859H115.53C116.479 9.64859 117.257 10.4357 117.257 11.3942C117.257 12.3534 116.479 13.1401 115.53 13.1401H111.93V25.1143C111.93 26.1717 111.103 27.0077 110.057 27.0077C109.012 27.0077 108.185 26.1717 108.185 25.1143V13.1401Z"
+      fill="white"
+   />
+   <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M96.2178 11.3942C96.2178 10.3372 97.0448 9.50126 98.0906 9.50126C99.1364 9.50126 99.9634 10.3372 99.9634 11.3942V25.1143C99.9634 26.1717 99.1364 27.0077 98.0906 27.0077C97.0448 27.0077 96.2178 26.1717 96.2178 25.1143V11.3942Z"
+      fill="white"
+   />
+   <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M86.7676 18.3556L92.1018 12.9633C92.8473 12.2101 92.8473 10.9884 92.1018 10.2348C91.3566 9.48139 90.1478 9.48139 89.4027 10.2348L84.0685 15.6271L78.7343 10.2348C77.989 9.48139 76.7807 9.48139 76.0352 10.2348C75.2897 10.9884 75.2897 12.2099 76.0352 12.9633L81.3694 18.3556L76.0352 23.7477C75.2897 24.5011 75.2897 25.7228 76.0352 26.4764C76.4079 26.8532 76.8962 27.0414 77.3849 27.0414C77.8731 27.0414 78.3618 26.8532 78.7343 26.4764L84.0685 21.0841L89.4025 26.4764C89.7755 26.8532 90.2635 27.0414 90.7522 27.0414C91.2406 27.0414 91.7293 26.8532 92.1018 26.4764C92.8471 25.7228 92.8471 24.5011 92.1018 23.7477L86.7676 18.3556Z"
+      fill="white"
+   />
+   <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M68.1737 11.3942C68.1737 10.3372 69.0006 9.50126 70.0462 9.50126C71.0923 9.50126 71.9193 10.3372 71.9193 11.3942V25.1143C71.9193 26.1717 71.0923 27.0077 70.0462 27.0077C69.0006 27.0077 68.1737 26.1717 68.1737 25.1143V11.3942Z"
+      fill="white"
+   />
+   <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M52.0474 11.542C52.0474 10.4846 52.8746 9.64859 53.9206 9.64859H63.4551C64.4038 9.64859 65.1577 10.4109 65.1577 11.3697C65.1577 12.3287 64.4038 13.091 63.4551 13.091H55.7934V16.7544H62.3607C63.3091 16.7544 64.0628 17.5167 64.0628 18.4755C64.0628 19.4347 63.3091 20.1966 62.3607 20.1966H55.7934V25.1143C55.7934 26.1717 54.9662 27.0077 53.9206 27.0077C52.8746 27.0077 52.0474 26.1717 52.0474 25.1143V11.542Z"
+      fill="white"
+   />
+   <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M44.0456 11.3942C44.0456 10.3372 44.8726 9.50126 45.9182 9.50126C46.9642 9.50126 47.791 10.3372 47.791 11.3942V25.1143C47.791 26.1717 46.9642 27.0077 45.9182 27.0077C44.8726 27.0077 44.0456 26.1717 44.0456 25.1143V11.3942Z"
+      fill="white"
+   />
+   <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M22.7682 18.7576L26.2886 23.4561C26.5805 23.8461 26.5971 24.4944 26.3252 24.8986L26.1472 25.1625C25.8763 25.5659 25.3313 26.1268 24.9369 26.4092L24.5136 26.7101C24.1199 26.9919 23.4821 26.9816 23.0977 26.6865L18.4482 23.1233C18.0638 22.8282 17.4338 22.8282 17.0491 23.1233L12.3999 26.6865C12.015 26.9816 11.3739 26.9961 10.9773 26.7202L10.67 26.507C10.2731 26.2295 9.72042 25.6753 9.44417 25.2755L9.17896 24.8911C8.90271 24.4919 8.91463 23.8461 9.20524 23.4561L12.7305 18.7554C13.0211 18.3652 13.0211 17.7294 12.7305 17.3397L9.20524 12.6376C8.91463 12.2476 8.90359 11.6041 9.18205 11.2052L9.48171 10.7772C9.75906 10.3783 10.314 9.8274 10.7132 9.55372L10.9749 9.3738C11.3739 9.09878 12.015 9.11686 12.3999 9.41063L17.0491 12.974C17.4338 13.2689 18.0638 13.2689 18.4482 12.974L23.0977 9.41063C23.4821 9.11686 24.1364 9.07757 24.5533 9.3258L25.0396 9.61622C25.4563 9.86423 25.988 10.4172 26.2223 10.8442L26.3937 11.1569C26.6269 11.5829 26.5805 12.251 26.2886 12.641L22.7682 17.3419C22.4763 17.7317 22.4763 18.3688 22.7682 18.7576ZM17.8061 -2.79848e-09C7.97194 -2.79848e-09 -1.14211e-09 8.05854 -1.14211e-09 17.9989C-1.14211e-09 27.9404 7.97194 36 17.8061 36C27.6404 36 35.6124 27.9404 35.6124 17.9989C35.6124 8.05854 27.6404 -2.79848e-09 17.8061 -2.79848e-09Z"
+      fill="#1975F1"
+   />
+</svg></span>                           </div>
+         </div>
+         <div class="headings-container">
+            <a href="/Guide" class="heading">修复你的物品</a>
+            <a href="/Community" class="heading">社区</a>
+            <a href="/Store" class="heading">商店</a>
+         </div>
+         <div class="header-space"></div>
+      </div>
+   </div>
+   </div>
+      <div class="react-component component-ConsentBanner"
+      data-reactroot
+   data-name="ConsentBanner"
+   data-props="{&quot;isTest&quot;:false,&quot;flagEnabled&quot;:false,&quot;privacyPolicyUrl&quot;:&quot;https:\/\/zh.ifixit.com\/Info\/Privacy&quot;,&quot;needsConsent&quot;:false,&quot;gpcEnabled&quot;:false,&quot;piwikSiteId&quot;:&quot;6bf6bc54-82ca-4321-8620-b12d5c9b57b6&quot;,&quot;shopifyConfig&quot;:{&quot;checkout&quot;:&quot;store.ifixit.com&quot;,&quot;storefront&quot;:&quot;ifixit.com&quot;,&quot;accessToken&quot;:&quot;db3099692534a56ecec7b974a329d302&quot;}}">
+      </div>
+               
+   <div id="page" class=" invisible">
+      
+               
+         
+                     <div id="page-sidebar">
+               <div id="sidebar-wiki-toc" class="sticky ">
+      <div class="toc-title"><a href="#main">维修后故障排查</a></div>
+      <div class="toc"><div class="header">目录</div>
+<ul><li><a href="#Section_" class="muted">检查</a></li><li><a href="#Section__1" class="muted">检查有缺陷的部件</a></li><li><a href="#Section__2" class="muted">搜索我们的答案社区</a></li><li><a href="#Section__3" class="muted">寻求帮助</a></li><li><a href="#Section__4" class="muted">更多资源</a></li></ul></div>   </div>            </div>
+               
+      <div id="main" >
+
+         
+         
+         <div id="mainBody"
+                           itemscope itemtype="http://schema.org/WebPage"
+                     >
+            <!-- MAIN BODY -->
+            
+                        
+                                       <div id="bodyTop" class="fullWidth clearfix">
+               
+
+<div class="page-navigation-container js-page-navigation row
+   ">
+   <div class="column full-width js-content-dropdown-container content-dropdown-default">
+      <ul class="row page-navigation-bar">
+                                                   
+<li class="page-navigation-link
+   ">
+         <a  href="/Wiki/Edit/Troubleshooting_Problems_After_a_Repair"        class=""
+                      id="edit-nav-link"
+                     >
+                     <span class="hidden-mobile">翻译</span><span style="display:inline-flex; width:16px; height:16px;" alt="编辑"  class="fa-svg-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M36.4 360.9L13.4 439 1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1L73 498.6l78.1-23c10.4-3 20.1-8 28.6-14.5l.3 .2 .5-.8c1.4-1.1 2.7-2.2 4-3.3c1.4-1.2 2.7-2.5 4-3.8L492.7 149.3c21.9-21.9 24.6-55.6 8.2-80.5c-2.3-3.5-5.1-6.9-8.2-10L453.3 19.3c-25-25-65.5-25-90.5 0L58.6 323.5c-2.5 2.5-4.9 5.2-7.1 8l-.8 .5 .2 .3c-6.5 8.5-11.4 18.2-14.5 28.6zM383 191L197.4 376.6l-49.6-12.4-12.4-49.6L321 129 383 191zM97 358.9l7.7 31c2.1 8.6 8.9 15.3 17.5 17.5l31 7.7-7.4 11.2c-2.6 1.4-5.3 2.6-8.1 3.4l-23.4 6.9L59.4 452.6l16.1-54.8 6.9-23.4c.8-2.8 2-5.6 3.4-8.1L97 358.9zM315.3 218.7c6.2-6.2 6.2-16.4 0-22.6s-16.4-6.2-22.6 0l-96 96c-6.2 6.2-6.2 16.4 0 22.6s16.4 6.2 22.6 0l96-96z"/></svg></span>               </a>
+   </li>
+                              
+<li class="page-navigation-link
+   ">
+         <a        class="js-content-dropdown-toggle content-dropdown-toggle"
+                           >
+                     <span class="hidden-mobile">更多选项</span><span style="display:inline-flex; width:24px; height:24px;" alt="更多选项"  class="fa-svg-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M432 256a48 48 0 1 1 -96 0 48 48 0 1 1 96 0zm-160 0a48 48 0 1 1 -96 0 48 48 0 1 1 96 0zM64 304a48 48 0 1 1 0-96 48 48 0 1 1 0 96z"/></svg></span>               </a>
+   </li>
+               </ul>
+               <ul class="content-dropdown-list">
+                           
+<li class="page-navigation-link
+   ">
+         <a  href="/Wiki/History/Troubleshooting_Problems_After_a_Repair"        class=""
+               rel="ugc"
+                      id="history-nav-link"
+                     >
+                     <span style="display:inline-flex; width:16px; height:16px;"  id="dropdown-icon" class="fa-svg-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M48 106.7V56c0-13.3-10.7-24-24-24S0 42.7 0 56V168c0 13.3 10.7 24 24 24H136c13.3 0 24-10.7 24-24s-10.7-24-24-24H80.7c37-57.8 101.7-96 175.3-96c114.9 0 208 93.1 208 208s-93.1 208-208 208c-42.5 0-81.9-12.7-114.7-34.5c-11-7.3-25.9-4.3-33.3 6.7s-4.3 25.9 6.7 33.3C155.2 496.4 203.8 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C170.3 0 94.4 42.1 48 106.7zM256 128c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span>            历史               </a>
+   </li>
+                     </ul>
+         </div>
+</div>
+               </div>
+            
+            <div class="statuses">
+</div>
+
+                           <div id="banner"><div class="statuses">
+</div>
+
+<div class="actionbar-portal"></div>
+
+<div id="banner-wrap" >
+   <div class="banner-content">
+      <div class="banner-bucket">
+         <div class="banner-small-photo">
+            <img
+               src="https://guide-images.cdn.ifixit.com/igi/3yWoAUbQlIyM3ReV.standard"
+               srcset="https://guide-images.cdn.ifixit.com/igi/3yWoAUbQlIyM3ReV.medium 2x"
+               width="252"
+               height="189"
+               alt="维修后故障排查"
+            >
+                     </div>
+      </div>
+      <div class="banner-bucket banner-summary">
+                  <div class="banner-text">
+            <h1 class="banner-title" itemprop="headline">
+               维修后故障排查            </h1>
+            <p class="banner-blurb">
+               <span class="topicHeaderText originalText" itemprop="description">
+                  “救命啊！我完成了指南，但还是没修好！”               </span>
+            </p>
+                           <div class="wiki-author">
+                  作者:                  <span>
+                     <a class="main" href="/User/668072/Jeff+Suovanen">Jeff Suovanen</a>
+                                                                  <a class="others" href="/Wiki/History/Troubleshooting_Problems_After_a_Repair" rel="ugc">(和另外一个贡献者)</a>
+                                       </span>
+               </div>
+               <div itemprop="author" itemscope itemtype="http://schema.org/Person">
+                  <meta itemprop="url" content="https://zh.ifixit.com/User/668072/Jeff+Suovanen">
+                  <meta itemprop="name" content="Jeff Suovanen">
+                  <meta itemprop="image" content="https://guide-images.cdn.ifixit.com/igi/uYn4Ihpxm4PJCBrU.standard">
+               </div>
+                     </div>
+         <div class="action-buttons">
+                                             </div>
+      </div>
+   </div>
+</div></div>
+            
+                           <div id="topContent">
+               
+               <div id="mobile-wiki-toc" class="hidden-desktop">
+      <div class="react-component component-Toc"
+      data-reactroot
+   data-name="Toc"
+   data-props="[]">
+   <style>
+         #mobile-skeleton-toc {
+            background: white;
+            box-shadow: 0px 1px 4px rgba(16, 22, 26, 0.1), 0px 1px 2px rgba(16, 22, 26, 0.1);
+            height: 83px;
+         }
+      </style>
+      <div id="mobile-skeleton-toc"></div>   </div>
+</div>
+         </div>
+
+                        <div id="contentFloat">
+               
+               <div class="content-container">
+                                                      
+                  <div id="content" class="page-wiki">
+                                             
+                                                   
+      <div class="container articleContainer wiki">
+         
+
+                                                                              
+   <meta itemprop="name" content="Troubleshooting Problems After a Repair">
+
+   <div id="Wiki_Details">
+      <div id="wikiRenderedText" class="wikiRenderedText renderedText originalText" itemprop="text">
+         <p>我们都经历过类似的情况：指南中的操作应该可以修好设备，但是完成后却仍存在问题，而且又不知道问题出在哪里。<a href="https://i.pinimg.com/originals/a0/2e/ca/a02eca8ae25ae78d92d5a81e19a6ad7c.gif" rel="nofollow noopener noreferrer">很慌张</a>。但首先请深呼吸一下，让我们再确认一下。</p>
+
+<div class="clearer"></div><div class="headerContainer"><a class="selfLink" href="#Section_" title="链接到该区域" aria-hidden="true"><span style="display:inline-flex; width:16px; height:16px;"   class="fa-svg-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Pro 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M580.3 267.2c56.2-56.2 56.2-147.3 0-203.5C526.8 10.2 440.9 7.3 383.9 57.2l-6.1 5.4c-10 8.7-11 23.9-2.3 33.9s23.9 11 33.9 2.3l6.1-5.4c38-33.2 95.2-31.3 130.9 4.4c37.4 37.4 37.4 98.1 0 135.6L433.1 346.6c-37.4 37.4-98.2 37.4-135.6 0c-35.7-35.7-37.6-92.9-4.4-130.9l4.7-5.4c8.7-10 7.7-25.1-2.3-33.9s-25.1-7.7-33.9 2.3l-4.7 5.4c-49.8 57-46.9 142.9 6.6 196.4c56.2 56.2 147.3 56.2 203.5 0L580.3 267.2zM59.7 244.8C3.5 301 3.5 392.1 59.7 448.2c53.6 53.6 139.5 56.4 196.5 6.5l6.1-5.4c10-8.7 11-23.9 2.3-33.9s-23.9-11-33.9-2.3l-6.1 5.4c-38 33.2-95.2 31.3-130.9-4.4c-37.4-37.4-37.4-98.1 0-135.6L207 165.4c37.4-37.4 98.1-37.4 135.6 0c35.7 35.7 37.6 92.9 4.4 130.9l-5.4 6.1c-8.7 10-7.7 25.1 2.3 33.9s25.1 7.7 33.9-2.3l5.4-6.1c49.9-57 47-142.9-6.5-196.5c-56.2-56.2-147.3-56.2-203.5 0L59.7 244.8z"/></svg></span></a><h3 id="Section_" class="header"><strong>检查</strong></h3></div>
+
+<p>当你重新检查操作的每个步骤时，许多问题会神奇地解决。它就在那里 “<a href="https://www.youtube.com/watch?v=DPqdyoTpyEs">你试过关机再开机吗？</a>” ——听上去太简单了但是很多时候就能解决问题。在进行更复杂的故障排除之前，请尝试此操作。</p>
+
+<p><strong>对于初学者，请仔细检查设备的名称和型号，并确保你已收到兼容的更换配件</strong>。例如，iPhone 6与 iPhone 6s 或6 Plus 不同，且配件不兼容。检查更换配件，确保其与你卸下的旧配件相匹配。</p>
+
+<div class="imageBox imageBox_center"><img src="https://guide-images.cdn.ifixit.com/igi/R4T4HelVV4iQAHQV.medium" width="576" height="444" class="hasMenu hasLarge" alt="Block Image" onclick="window.open(&quot;https:\/\/guide-images.cdn.ifixit.com\/igi\/R4T4HelVV4iQAHQV.huge&quot;, '', 'width=1557,height=1200')" /></div>
+
+<p><strong>接下来，第二次检查维修指南步骤</strong>，仔细阅读和验证每一步。（切记关闭电源并断开电池）当你工作时：</p>
+
+<ul><li><strong>阅读评论</strong> 寻找可能出错的线索。</li><li><strong>重新安装每个接口</strong>，断开连接并重新连接它以确保它连接。特别注意看起来可能与你的问题有关的任何连接。例如，如果问题是屏幕没有画面或者花屏，请重新安装显示器接口。</li><li><strong>仔细检查每个接口插座</strong>是否有灰尘，弯曲的针脚或其它问题。如果插座或接口看起来很脏，请用一些压缩空气将其冲洗干净。如果需要，请用异丙醇（浓度高于90％）仔细清洁，然后风干。</li><li><strong>检查是否有意外损坏</strong> —— 仔细检查电缆和组件，确保没有任何东西被夹住或撕裂。注意任何暴露的铜线或裸线。</li><li><strong>检查其它任何看起来有异常的东西</strong>。是否有任何遗漏或错位的组件？你剩下零件了吗？你是否跳过任何​​步骤，或忽略了警告？你是否用螺丝刀或任何其他导电金属工具撬动你的设备？如果一切正常，请重新组装设备，重新连接电池，然后测试以确定问题是否已解决。</li></ul>
+
+<div class="clearer"></div><div class="headerContainer"><a class="selfLink" href="#Section__1" title="链接到该区域" aria-hidden="true"><span style="display:inline-flex; width:16px; height:16px;"   class="fa-svg-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Pro 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M580.3 267.2c56.2-56.2 56.2-147.3 0-203.5C526.8 10.2 440.9 7.3 383.9 57.2l-6.1 5.4c-10 8.7-11 23.9-2.3 33.9s23.9 11 33.9 2.3l6.1-5.4c38-33.2 95.2-31.3 130.9 4.4c37.4 37.4 37.4 98.1 0 135.6L433.1 346.6c-37.4 37.4-98.2 37.4-135.6 0c-35.7-35.7-37.6-92.9-4.4-130.9l4.7-5.4c8.7-10 7.7-25.1-2.3-33.9s-25.1-7.7-33.9 2.3l-4.7 5.4c-49.8 57-46.9 142.9 6.6 196.4c56.2 56.2 147.3 56.2 203.5 0L580.3 267.2zM59.7 244.8C3.5 301 3.5 392.1 59.7 448.2c53.6 53.6 139.5 56.4 196.5 6.5l6.1-5.4c10-8.7 11-23.9 2.3-33.9s-23.9-11-33.9-2.3l-6.1 5.4c-38 33.2-95.2 31.3-130.9-4.4c-37.4-37.4-37.4-98.1 0-135.6L207 165.4c37.4-37.4 98.1-37.4 135.6 0c35.7 35.7 37.6 92.9 4.4 130.9l-5.4 6.1c-8.7 10-7.7 25.1 2.3 33.9s25.1 7.7 33.9-2.3l5.4-6.1c49.9-57 47-142.9-6.5-196.5c-56.2-56.2-147.3-56.2-203.5 0L59.7 244.8z"/></svg></span></a><h3 id="Section__1" class="header"><strong>检查有缺陷的部件</strong></h3></div>
+
+<p>如果设备在维修后运行情况还不如维修之前，请尝试重新连接旧配件——包括旧屏幕、旧电池、以及一切在维修中更换过的部件——看看是否能解决你的问题。（不要忘记在工作时断开电池。）如果你的问题清除，并且你确定你收到了特定型号的正确部件，则可能意味着你的更换部件出现问题。</p>
+
+<p>如果你从iFixit购买了零件，<a href="https://help.ifixit.com/category/133-contact-ifixit-customer-support">联系客户支持</a>，我们可以快速验证问题并尽可能为你更换任何有缺陷的零件。如果你在其他地方购买了零件，则需要与供应商进行分类。（但是，如果你想支持我们为所有内容提供免费维修指南的使命，请考虑从iFixit <a href="https://www.ifixit.com/Quality">购买你的下一个配件或工具</a>。）</p>
+
+<p>可悲的是，如果即便是换回旧零件，问题仍然存在，而且是维修之前所没有的问题，则说明可能是在维修过程中对内部元件造成了损坏。也许电缆被拉得太紧，或者你的撬具工具的任意插入损坏了电路板上的东西。iFixit的<a href="/Info/Warranty#Section_User_Error">保修</a>不包括意外损坏，但我们已经创建了一些很好的资源来帮助你识别问题并找出下一步该做什么。不要放弃！</p>
+
+<p>仔细检查一切是否有损坏，并拍下你发现的任何东西。通常可以通过更换附件来固定损坏的电缆。修复电路板损坏通常需要专业人员进行微观焊接帮助，但这是可以修复的。</p>
+
+<div class="clearer"></div><div class="headerContainer"><a class="selfLink" href="#Section__2" title="链接到该区域" aria-hidden="true"><span style="display:inline-flex; width:16px; height:16px;"   class="fa-svg-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Pro 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M580.3 267.2c56.2-56.2 56.2-147.3 0-203.5C526.8 10.2 440.9 7.3 383.9 57.2l-6.1 5.4c-10 8.7-11 23.9-2.3 33.9s23.9 11 33.9 2.3l6.1-5.4c38-33.2 95.2-31.3 130.9 4.4c37.4 37.4 37.4 98.1 0 135.6L433.1 346.6c-37.4 37.4-98.2 37.4-135.6 0c-35.7-35.7-37.6-92.9-4.4-130.9l4.7-5.4c8.7-10 7.7-25.1-2.3-33.9s-25.1-7.7-33.9 2.3l-4.7 5.4c-49.8 57-46.9 142.9 6.6 196.4c56.2 56.2 147.3 56.2 203.5 0L580.3 267.2zM59.7 244.8C3.5 301 3.5 392.1 59.7 448.2c53.6 53.6 139.5 56.4 196.5 6.5l6.1-5.4c10-8.7 11-23.9 2.3-33.9s-23.9-11-33.9-2.3l-6.1 5.4c-38 33.2-95.2 31.3-130.9-4.4c-37.4-37.4-37.4-98.1 0-135.6L207 165.4c37.4-37.4 98.1-37.4 135.6 0c35.7 35.7 37.6 92.9 4.4 130.9l-5.4 6.1c-8.7 10-7.7 25.1 2.3 33.9s25.1 7.7 33.9-2.3l5.4-6.1c49.9-57 47-142.9-6.5-196.5c-56.2-56.2-147.3-56.2-203.5 0L59.7 244.8z"/></svg></span></a><h3 id="Section__2" class="header"><strong>搜索我们的答案社区</strong></h3></div>
+
+<p>无论你遇到什么问题，你可能并不孤单。访问我们的<a href="https://www.ifixit.com/answers">论坛</a>并在搜索框中输入你的问题（例如，“iPhone 7无法启动”）。然后，看看我们的社区其他人提出了哪些解决方案。如果你的初始搜索不是非常有用，请重新搜索你的搜索，然后重试。</p>
+
+<div class="clearer"></div><div class="headerContainer"><a class="selfLink" href="#Section__3" title="链接到该区域" aria-hidden="true"><span style="display:inline-flex; width:16px; height:16px;"   class="fa-svg-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Pro 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M580.3 267.2c56.2-56.2 56.2-147.3 0-203.5C526.8 10.2 440.9 7.3 383.9 57.2l-6.1 5.4c-10 8.7-11 23.9-2.3 33.9s23.9 11 33.9 2.3l6.1-5.4c38-33.2 95.2-31.3 130.9 4.4c37.4 37.4 37.4 98.1 0 135.6L433.1 346.6c-37.4 37.4-98.2 37.4-135.6 0c-35.7-35.7-37.6-92.9-4.4-130.9l4.7-5.4c8.7-10 7.7-25.1-2.3-33.9s-25.1-7.7-33.9 2.3l-4.7 5.4c-49.8 57-46.9 142.9 6.6 196.4c56.2 56.2 147.3 56.2 203.5 0L580.3 267.2zM59.7 244.8C3.5 301 3.5 392.1 59.7 448.2c53.6 53.6 139.5 56.4 196.5 6.5l6.1-5.4c10-8.7 11-23.9 2.3-33.9s-23.9-11-33.9-2.3l-6.1 5.4c-38 33.2-95.2 31.3-130.9-4.4c-37.4-37.4-37.4-98.1 0-135.6L207 165.4c37.4-37.4 98.1-37.4 135.6 0c35.7 35.7 37.6 92.9 4.4 130.9l-5.4 6.1c-8.7 10-7.7 25.1 2.3 33.9s25.1 7.7 33.9-2.3l5.4-6.1c49.9-57 47-142.9-6.5-196.5c-56.2-56.2-147.3-56.2-203.5 0L59.7 244.8z"/></svg></span></a><h3 id="Section__3" class="header"><strong>寻求帮助</strong></h3></div>
+
+<p>如果问题仍未解决，请在我们的答案论坛中尝试<a href="https://www.ifixit.com/Answers/Ask">提出新问题</a>并尽可能地解释情况。请务必提供设备的确切名称和/或型号。列出你目前为止尝试过的所有内容，并张贴你发现的任何损坏的图片。我们的专家社区可以提供下一步该做什么的建议，或者如果你觉得处理不了，可以帮助你找到维修专业人员。祝你们好运！</p>
+
+<div class="clearer"></div><div class="headerContainer"><a class="selfLink" href="#Section__4" title="链接到该区域" aria-hidden="true"><span style="display:inline-flex; width:16px; height:16px;"   class="fa-svg-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Pro 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M580.3 267.2c56.2-56.2 56.2-147.3 0-203.5C526.8 10.2 440.9 7.3 383.9 57.2l-6.1 5.4c-10 8.7-11 23.9-2.3 33.9s23.9 11 33.9 2.3l6.1-5.4c38-33.2 95.2-31.3 130.9 4.4c37.4 37.4 37.4 98.1 0 135.6L433.1 346.6c-37.4 37.4-98.2 37.4-135.6 0c-35.7-35.7-37.6-92.9-4.4-130.9l4.7-5.4c8.7-10 7.7-25.1-2.3-33.9s-25.1-7.7-33.9 2.3l-4.7 5.4c-49.8 57-46.9 142.9 6.6 196.4c56.2 56.2 147.3 56.2 203.5 0L580.3 267.2zM59.7 244.8C3.5 301 3.5 392.1 59.7 448.2c53.6 53.6 139.5 56.4 196.5 6.5l6.1-5.4c10-8.7 11-23.9 2.3-33.9s-23.9-11-33.9-2.3l-6.1 5.4c-38 33.2-95.2 31.3-130.9-4.4c-37.4-37.4-37.4-98.1 0-135.6L207 165.4c37.4-37.4 98.1-37.4 135.6 0c35.7 35.7 37.6 92.9 4.4 130.9l-5.4 6.1c-8.7 10-7.7 25.1 2.3 33.9s25.1 7.7 33.9-2.3l5.4-6.1c49.9-57 47-142.9-6.5-196.5c-56.2-56.2-147.3-56.2-203.5 0L59.7 244.8z"/></svg></span></a><h3 id="Section__4" class="header"><strong>更多资源</strong></h3></div>
+
+<ul><li><a href="/Wiki/Tips_for_First-Time_iPhone_Fixers">给 iPhone DIY 维修新手的建议</a></li><li><a href="/Guide/%E8%AE%A4%E8%AF%86%E5%92%8C%E6%96%AD%E5%BC%80%E7%BA%BF%E7%BC%86%E8%BF%9E%E6%8E%A5%E5%A4%B4/25629">识别并断开线缆接口</a></li><li><a href="/Guide/%E8%9E%BA%E4%B8%9D%E5%88%80%E6%9C%80%E4%BD%B3%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/25630">螺丝刀操作技巧</a></li><li><a href="/Guide/%E5%A6%82%E4%BD%95%E5%8D%B8%E4%B8%8B%E6%BB%91%E4%B8%9D%E7%9A%84%E8%9E%BA%E4%B8%9D/13213">如何拧下滑丝的螺丝</a></li><li><a href="https://www.ifixit.com/Guide">维修指南</a></li><li><a href="/Wiki/Troubleshoot">疑难解答页面</a> </li><li><a href="https://www.ifixit.com/answers">问答社区</a></li><li><a href="https://help.ifixit.com/">iFixit 支持</a><br /></li></ul>      </div>
+   </div>
+
+      <div class="clearer"></div>
+
+      </div>
+                     <div itemprop="author" itemscope itemtype="http://schema.org/Person">
+                        <meta itemprop="url" content="https://zh.ifixit.com/User/668072/Jeff+Suovanen">
+            <meta itemprop="name" content="Jeff Suovanen">
+            <meta itemprop="image" content="https://guide-images.cdn.ifixit.com/igi/uYn4Ihpxm4PJCBrU.standard">
+         </div>
+      
+
+
+
+      <div class="translation-credit-container row">
+   <div class="heading" >
+      <div class="special-thanks">
+         <p>由衷感谢以下译者：</p>
+      </div>
+      <div class="translation-info">
+         <div class="progress-bar">
+            <span style="width: 100%"></span>
+         </div>
+         <div class="translation-info-section">
+            <span title="语言: English" class="lang-iso-card">en</span>            <i class="fa fa-arrow-right " ></i>            <span title="语言: 中文" class="lang-iso-card">zh</span>         </div>
+         <div class="translation-info-section">
+            <p class="percentage">100%</p>
+         </div>
+      </div>
+   </div>
+   <div class="author-container">
+               <div class="author-profile">
+            <a href="/User/1403735/Yuting+Zhao">
+               <div class="author-photo">
+                                    <img alt="" src="https://guide-images.cdn.ifixit.com/igi/JfAo5CkydCHyXvJd.thumbnail">
+               </div>
+               <p>Yuting Zhao</p>
+               <div class="progress-bar">
+                  <span style="width: 80%"></span>
+               </div>
+            </a>
+         </div>
+               <div class="author-profile">
+            <a href="/User/1811468/Ennis">
+               <div class="author-photo">
+                                    <img alt="" src="https://guide-images.cdn.ifixit.com/igi/cO5GDDLXbAOupDIb.thumbnail">
+               </div>
+               <p>Ennis</p>
+               <div class="progress-bar">
+                  <span style="width: 20%"></span>
+               </div>
+            </a>
+         </div>
+               </div>
+   <p class="call-to-action-container">
+            这些译者帮助我们修补全世界！      您也想加入吗？      <a href="/Translate"><br>开始翻译 &rsaquo; </a>
+   </p>
+</div>
+                                                   <div class="column comments js-comment-container js-page-comments"
+   data-context="wiki"
+   data-contextid="253945"
+      data-api="getCommentsHtml"
+         id="articleComments"
+   >
+   <div class="row comments-header">
+      <div class="hidden-mobile">
+                     <h3 class="js-comment-count" data-numcomments="11">
+               11条评论            </h3>
+               </div>
+
+      <div class="comment-buttons">
+         <button type="button" class="addComment readonly-hidden js-add-comment js-scroll-to-editor iconLink comments-header-button button button-medium hideZero" rel="nofollow"
+          data-context="wiki"
+          data-contextid="253945"
+          data-editorid="prosemirror-wiki-253945"
+          data-addCount="1"
+          title="添加评论">
+            <i class="fa fa-comment-o fa-lg " ></i>            <span>添加评论</span>
+         </button>
+                        </div>
+   </div>
+   <div id="comments" class="readonly-disabled js-comments">
+                     <div class="comment-row comment-thread" id="container-657849"
+      >
+      <span style="display:inline-flex; width:20px; height:20px;"   class="fa-svg-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M160 368c26.5 0 48 21.5 48 48v16l72.5-54.4c8.3-6.2 18.4-9.6 28.8-9.6H448c8.8 0 16-7.2 16-16V64c0-8.8-7.2-16-16-16H64c-8.8 0-16 7.2-16 16V352c0 8.8 7.2 16 16 16h96zm48 124l-.2 .2-5.1 3.8-17.1 12.8c-4.8 3.6-11.3 4.2-16.8 1.5s-8.8-8.2-8.8-14.3V474.7v-6.4V468v-4V416H112 64c-35.3 0-64-28.7-64-64V64C0 28.7 28.7 0 64 0H448c35.3 0 64 28.7 64 64V352c0 35.3-28.7 64-64 64H309.3L208 492z"/></svg></span>      <div class="comment-info has-replies">
+      <div id="comment-657849" class="comment ">
+   <div class="commentContent" data-commentid="657849">
+      <p>Just replaced the screen for my Apple GPS Watch series 3 . Now it turns on but the touch is not working at all …. can someone help me fix the problem please ?</p>   </div>
+
+   
+   <p class="commentMeta">
+            <a href="/User/3545004/Junior+Tulloch">Junior Tulloch</a>
+            -
+      <span class="comment-date">
+         <time   title="Wed, 24 Jun 2020 20:09:26 -0700" datetime="2020-06-24T20:09:26-07:00">2020年6月24日</time>      </span>
+      <span class="commentActions">
+         
+         
+         
+                     <a class="addComment js-add-comment js-scroll-to-editor"
+               data-editorid="prosemirror-wiki-253945"
+               data-context="wiki"
+               data-contextid="253945"
+               data-parentid="657849"
+               title="回复 Junior Tulloch"
+               href="#reply">回复</a>
+         
+         <a
+            href=""
+            class="js-permalink"
+            data-permalink="https://zh.ifixit.com/Wiki/Troubleshooting_Problems_After_a_Repair?permalink=comment-657849#comment-657849"
+         >
+            分享         </a>
+      </span>
+  </p>
+</div>
+                        <div class="comment-reply">
+            <div id="comment-694080" class="comment ">
+   <div class="commentContent" data-commentid="694080">
+      <p>I had the exact same problem. Were you ever able to resolve this?</p>   </div>
+
+   
+   <p class="commentMeta">
+            <a href="/User/3715743/Cade+Capper">Cade Capper</a>
+            -
+      <span class="comment-date">
+         <time   title="Tue, 03 Nov 2020 11:18:30 -0700" datetime="2020-11-03T11:18:30-07:00">2020年11月3日</time>      </span>
+      <span class="commentActions">
+         
+         
+         
+         
+         <a
+            href=""
+            class="js-permalink"
+            data-permalink="https://zh.ifixit.com/Wiki/Troubleshooting_Problems_After_a_Repair?permalink=comment-694080#comment-694080"
+         >
+            分享         </a>
+      </span>
+  </p>
+</div>
+         </div>
+                        <div class="comment-reply">
+            <div id="comment-766035" class="comment ">
+   <div class="commentContent" data-commentid="766035">
+      <p>Im having the same issue.  Watch turns on, display works, but touch is not working.  Was anyone able to resolve this issue?</p>   </div>
+
+   
+   <p class="commentMeta">
+            <a href="/User/4035619/Chris+Pool">Chris Pool</a>
+            -
+      <span class="comment-date">
+         <time   title="Tue, 05 Oct 2021 15:25:57 -0700" datetime="2021-10-05T15:25:57-07:00">2021年10月5日</time>      </span>
+      <span class="commentActions">
+         
+         
+         
+         
+         <a
+            href=""
+            class="js-permalink"
+            data-permalink="https://zh.ifixit.com/Wiki/Troubleshooting_Problems_After_a_Repair?permalink=comment-766035#comment-766035"
+         >
+            分享         </a>
+      </span>
+  </p>
+</div>
+         </div>
+                        <div class="comment-reply">
+            <div id="comment-870774" class="comment ">
+   <div class="commentContent" data-commentid="870774">
+      <p>I too have this problem. Series 3GPS replaced screen and turns on fine but the touchscreen doesn’t work. Tried resetting it and reseating it too. Anyone ever resolve this? Thanks.</p>   </div>
+
+   
+   <p class="commentMeta">
+            <a href="/User/4284948/Nathan+Read">Nathan Read</a>
+            -
+      <span class="comment-date">
+         <time   title="Fri, 17 Mar 2023 08:43:33 -0700" datetime="2023-03-17T08:43:33-07:00">2023年3月17日</time>      </span>
+      <span class="commentActions">
+         
+         
+         
+         
+         <a
+            href=""
+            class="js-permalink"
+            data-permalink="https://zh.ifixit.com/Wiki/Troubleshooting_Problems_After_a_Repair?permalink=comment-870774#comment-870774"
+         >
+            分享         </a>
+      </span>
+  </p>
+</div>
+         </div>
+            </div>
+   </div>
+      <div class="comment-row comment-thread" id="container-688446"
+      >
+      <span style="display:inline-flex; width:20px; height:20px;"   class="fa-svg-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M160 368c26.5 0 48 21.5 48 48v16l72.5-54.4c8.3-6.2 18.4-9.6 28.8-9.6H448c8.8 0 16-7.2 16-16V64c0-8.8-7.2-16-16-16H64c-8.8 0-16 7.2-16 16V352c0 8.8 7.2 16 16 16h96zm48 124l-.2 .2-5.1 3.8-17.1 12.8c-4.8 3.6-11.3 4.2-16.8 1.5s-8.8-8.2-8.8-14.3V474.7v-6.4V468v-4V416H112 64c-35.3 0-64-28.7-64-64V64C0 28.7 28.7 0 64 0H448c35.3 0 64 28.7 64 64V352c0 35.3-28.7 64-64 64H309.3L208 492z"/></svg></span>      <div class="comment-info has-replies">
+      <div id="comment-688446" class="comment ">
+   <div class="commentContent" data-commentid="688446">
+      <p>I did everything that the instructions said but my Apple Watch still won’t turn on. What should I do?</p>   </div>
+
+   
+   <p class="commentMeta">
+            <a href="/User/3691674/Savannah+Tacy">Savannah Tacy</a>
+            -
+      <span class="comment-date">
+         <time   title="Tue, 13 Oct 2020 18:37:01 -0700" datetime="2020-10-13T18:37:01-07:00">2020年10月13日</time>      </span>
+      <span class="commentActions">
+         
+         
+         
+                     <a class="addComment js-add-comment js-scroll-to-editor"
+               data-editorid="prosemirror-wiki-253945"
+               data-context="wiki"
+               data-contextid="253945"
+               data-parentid="688446"
+               title="回复 Savannah Tacy"
+               href="#reply">回复</a>
+         
+         <a
+            href=""
+            class="js-permalink"
+            data-permalink="https://zh.ifixit.com/Wiki/Troubleshooting_Problems_After_a_Repair?permalink=comment-688446#comment-688446"
+         >
+            分享         </a>
+      </span>
+  </p>
+</div>
+                     </div>
+   </div>
+      <div align=center>
+      <button class="button button-action-solid js-show-page-comments">
+         <i class="fa fa-angle-down " ></i> 显示更多评论      </button>
+   </div>
+         </div>
+   <div class="row readonly-hidden">
+      <div class="column">
+         
+
+<form id="comment-form-wiki-253945" class="add-comment-form js-add-comment-form context-wiki"
+   data-context="wiki"
+   data-contextid="253945"
+   data-editorid="prosemirror-wiki-253945"
+   method="post">
+   <h4 class="js-add-comment-title">添加评论</h4>
+   <span class="comment js-reply-comment-text">
+   </span>
+   <div class="formBody">
+      <div class="formField">
+         <div class="prosemirror js-user-mention-editor"
+            id="prosemirror-wiki-253945"
+            data-wikitags="[&quot;Prefilter&quot;,&quot;Mature&quot;,&quot;Raw&quot;,&quot;Url&quot;,&quot;Link&quot;,&quot;Wikilink&quot;,&quot;Guidelink&quot;,&quot;Guides&quot;,&quot;Productlink&quot;,&quot;Partslink&quot;,&quot;Toolslink&quot;,&quot;Shoplink&quot;,&quot;Productlist&quot;,&quot;Postlink&quot;,&quot;Implicitlink&quot;,&quot;Document&quot;,&quot;Note&quot;,&quot;Quote&quot;,&quot;Linebreak&quot;,&quot;Paragraph&quot;,&quot;Strong&quot;,&quot;Emphasis&quot;,&quot;Teletype&quot;,&quot;Superscript&quot;,&quot;Subscript&quot;,&quot;Delete&quot;,&quot;Insert&quot;,&quot;Mention&quot;,&quot;Unbalancedtags&quot;,&quot;Transform&quot;]"
+            data-mincharacters="12"
+            data-maxcharacters="1024"
+            data-preset="comments"
+         >
+         </div>
+   </div>
+   </div>
+
+   <div class="form-footer">
+      <input class="js-comment-context" type="hidden" value="" />
+      <input class="js-comment-contextid" type="hidden" value="" />
+      <p class="maxCharacters js-max-characters" data-textarea-id="prosemirror-wiki-253945" data-minimum="12" style="display:none">1024</p>
+      <div class="comment-form-buttons">
+         <button class="hidden js-cancel-reply js-add-comment button" data-editorid="prosemirror-wiki-253945">
+            取消         </button>
+         <button class="post-comment button button-action-solid js-comment-submit" type="submit">发帖评论</button>
+      </div>
+   </div>
+</form>
+      </div>
+   </div>
+</div>
+                                                               </div>
+               </div> <!-- /content-container -->
+
+                                                       <script type="text/javascript">
+   (function() {
+      var mobileToc = document.getElementById('mobile-skeleton-toc');
+      if (document.getElementById('sidebar-wiki-toc')) {
+         var headings = document.querySelectorAll('#mainBody [id^="Section_"]');
+         var pageSidebar = document.getElementById('page-sidebar');
+         if (headings.length <= 1) {
+            // Must remove elements this way to maintain IE11 support
+            pageSidebar && pageSidebar.parentNode.removeChild(pageSidebar);
+            mobileToc && mobileToc.parentNode.removeChild(mobileToc);
+         }
+      } else {
+         mobileToc && mobileToc.parentNode.removeChild(mobileToc);
+      }
+      document.getElementById('page').classList.remove("invisible");
+   })();
+</script>                                             </div> <!-- /contentFloat -->
+            <div class="clearer"></div>
+         </div> <!-- /mainBody -->
+         <div class="clearer"></div>
+      </div> <!-- /main -->
+   </div> <!-- /page -->
+
+   
+                  <div id="pageStats" class="">
+   <div class="stats-module-title"><i class="fa fa-bar-chart-o " ></i> <strong>浏览统计数据:</strong></div>
+   <div class="stats-numbers-container">
+               <p><span class="statTitle">过去 24 小时：</span> <span class="statValue">32</span></p>
+               <p><span class="statTitle">过去 7 天：</span> <span class="statValue">206</span></p>
+               <p><span class="statTitle">过去 30 天：</span> <span class="statValue">1,047</span></p>
+               <p><span class="statTitle">总计</span> <span class="statValue">65,951</span></p>
+         </div>
+</div>
+<div class="clearer"></div>
+      
+                  <div class="react-component component-Footer"
+      data-reactroot
+   data-name="Footer"
+   data-props="{&quot;langViewID&quot;:&quot;zh&quot;,&quot;privacyPolicyUrl&quot;:&quot;https:\/\/zh.ifixit.com\/Info\/Privacy&quot;,&quot;batteryPolicyUrl&quot;:null,&quot;imprintData&quot;:null}">
+   
+         <style>
+            .footer-placeholder {
+               min-height: 1325.55px;
+
+               @media (min-width: 768px) {
+                  min-height: 630.94px;
+               }
+
+               @media (min-width: 1440px) {
+                  min-height: 622.94px;
+               }
+            }
+         </style>
+         <div class="footer-placeholder hide-until-css-loaded"></div>   </div>
+         </div> <!-- /background -->
+
+
+            
+            
+         <img src="https://ping.ifixit.com/pp/tick.gif?key=ifixit%2FWIKI%2F253945%2Fzh" width="1" height="1" alt="" class="hidden" />
+
+            <script type='text/javascript'>
+   var App = {"recaptchaToken":"6LdcrYcUAAAAADXZZ8mZBNd48Qpg6jF6_Zp2s1t5","canIBypassGAEventFiringOnMobile":false,"objectNameSingular":"Device","objectNamePlural":"Devices","which":"ifixit","siteid":2,"isLoggedIn":false,"algoliaConfig":{"appId":"XQEP3AD9ZT","apiKey":"YmNmZDA2NWEzZTAzZTZhNzBiMWM3MTFhYmI4MTAwNTViMjA5MTY1ZmJkZDc1MDc5MjU2MDUyZDAxOWQ5MjhmZmF0dHJpYnV0ZXNUb1JldHJpZXZlPSUyQSUyQy1wcmljZV90aWVycy5wcm9fMSUyQy1wcmljZV90aWVycy5wcm9fMiUyQy1wcmljZV90aWVycy5wcm9fMyUyQy1wcmljZV90aWVycy5wcm9fNCUyQy1wcmljZV90aWVycy5lbXBsb3llZSZmaWx0ZXJzPXNpdGUlM0ElMjJpZml4aXQlMjIlMjBBTkQlMjAlMjhwdWJsaWMlMjAlM0QlMjAxJTIwT1IlMjB2YXJpYW50c19jb3VudCUyMCUzRSUzRCUyMDElMjkmdmFsaWRVbnRpbD0xNzc4NTA4MTcz","indexPrefix":"","indexNamesByObjectType":{"guide":["guide_zh","guide_en"],"post":["post_zh","post_en"],"product":["product_en_us"],"searchpage":["searchpage_en"],"document":["document_en"],"wiki":["wiki_zh","wiki_en"],"topic":["topic_zh","topic_en"],"topic_variant":["topic_variant_zh","topic_variant_en"],"item":["item_zh","item_en"],"wp_searchable_posts":["wp_searchable_posts"]},"filtersByObjectType":{"product":"is_pro <= 0","wiki":"(NOT tags:\"store-au\" OR tags:\"store-us\") AND (NOT tags:\"store-ca\" OR tags:\"store-us\") AND (NOT tags:\"store-de\" OR tags:\"store-us\") AND (NOT tags:\"store-fr\" OR tags:\"store-us\") AND (NOT tags:\"store-uk\" OR tags:\"store-us\") AND (NOT tags:\"store-eu\" OR tags:\"store-us\") AND (NOT tags:\"store-eu_pro\" OR tags:\"store-us\") AND (NOT tags:\"store-checkout_dev\" OR tags:\"store-us\") AND (NOT tags:\"store-dev\" OR tags:\"store-us\") AND (NOT tags:\"store-test\" OR tags:\"store-us\") AND (NOT tags:\"store-eu_test\" OR tags:\"store-us\")"},"defaultDoctypes":["topic","product","guide","post","wiki","pages","news","document"]},"lang":"zh","wikiid":253945,"canIForceSentryReporting":false,"SENTRY_DSN_JS":"https:\/\/5552835e822c4c8db5070306b2535ef3@o186239.ingest.sentry.io\/1281569","sentryTags":{"site":"ifixit","lang":"zh","isAdmin":false,"deployment":"production"},"sentryPerformance":true,"sentryRelease":"e85306789f304d77a209d2730017d394587cd119\n","googleOAuth2Clientid":"622418919965-qcvbv04spukbdo9ut8pevt4pucmkp86o.apps.googleusercontent.com","googleOAuth2Domain":"","maxMediaSize":6000,"maxImageSize":80,"maxDocumentSize":150,"maxMediaLength":1800,"videosEnabled":true,"strokeWidthMedium":5,"iconTimes":"<i  class=\"svg-icon\"   style=\"display: inline-flex; width: 16px; height: 16px;\"><svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <line x1=\"18\" y1=\"6\" x2=\"6\" y2=\"18\"\/>\n    <line x1=\"6\" y1=\"6\" x2=\"18\" y2=\"18\"\/>\n<\/svg><\/i>","videoEncodings":{"MP4_720":{"column":"MP4_720","label":"480p","encoding":"mp4","width":720,"height":480,"codecs":"avc1.4D401E, mp4a.40.2","ffmpeg_args":["-vcodec","libx264","-profile:v","main","-level","3.1","-crf","23","-acodec","aac","-vf","format=yuv420p"],"mime":"video\/mp4","always_generate":true}},"mode":"onTranslation","masterLangid":"en","viewLangid":"zh","editLink":"\/Wiki\/Edit\/Troubleshooting_Problems_After_a_Repair","users":{"tedcusber":{"username":"Ted Cusber","unique_username":"tedcusber","image":"https:\/\/assets.cdn.ifixit.com\/static\/images\/avatars\/User\/ifixit\/avatar-5.thumbnail"},"lionhead31":{"username":"Junior Tulloch","unique_username":"lionhead31","image":"https:\/\/assets.cdn.ifixit.com\/static\/images\/avatars\/User\/ifixit\/avatar-5.thumbnail"},"savtacyy":{"username":"Savannah Tacy","unique_username":"savtacyy","image":"https:\/\/assets.cdn.ifixit.com\/static\/images\/avatars\/User\/ifixit\/avatar-10.thumbnail"},"cade_ec":{"username":"Cade Capper","unique_username":"cade_ec","image":"https:\/\/assets.cdn.ifixit.com\/static\/images\/avatars\/User\/ifixit\/avatar-6.thumbnail"},"chrispool":{"username":"Chris Pool","unique_username":"chrispool","image":"https:\/\/guide-images.cdn.ifixit.com\/igi\/exsMay62RevlFNXp.mini"},"stevenwils21992":{"username":"Steven Wilson","unique_username":"stevenwils21992","image":"https:\/\/guide-images.cdn.ifixit.com\/igi\/fTfdZd6QfNGvwQAL.mini"},"roshanghimire":{"username":"Roshan ghimire","unique_username":"roshanghimire","image":"https:\/\/guide-images.cdn.ifixit.com\/igi\/XS45tw1OXREW1rcM.mini"},"donnabrewer":{"username":"Donna Brewer","unique_username":"donnabrewer","image":"https:\/\/guide-images.cdn.ifixit.com\/igi\/bAGKwqUfHSVCGUgZ.mini"},"nathanread":{"username":"Nathan Read","unique_username":"nathanread","image":"https:\/\/guide-images.cdn.ifixit.com\/igi\/JSBmMcL4jg23yTqO.mini"},"olivierpet81077":{"username":"OLIVIER PETIT","unique_username":"olivierpet81077","image":"https:\/\/assets.cdn.ifixit.com\/static\/images\/avatars\/User\/ifixit\/avatar-6.thumbnail"},"tobiasmichels":{"username":"Tobias Michels","unique_username":"tobiasmichels","image":"https:\/\/guide-images.cdn.ifixit.com\/igi\/VxAuP1dx6M1dZVhb.mini"}},"FrameModules":["LoginFrameModule","ImageMenuFrameModule","MediaLibraryFrameModule","NotifyFrameModule","WatchFrameModule","NewsletterFrameModule","TranslateNavFrameModule","EditNavFrameModule","CommentsFrameModule","PageStatsFrameModule","TranslationCreditFrameModule","ImageMarkersFrameModule","ImageCropFrameModule","ModeratorVoteFrameModule"],"gb":{"attributes":[],"features":{"php-next-a-a-experiment":{"defaultValue":false,"rules":[{"condition":null,"coverage":1,"variations":[false,true],"key":"php-next-a-a-experiment","weights":[0.5,0.5],"namespace":null,"hashAttribute":"uniqueId","filters":null,"seed":"4f5cb2dc-a7e0-4468-a3b0-40a6a7162f48","hashVersion":2,"range":null,"meta":[{"key":"0","name":"Control"},{"key":"1","name":"Variation 1"}],"ranges":null,"name":"php-next-a-a-experiment","phase":"2"}]},"generic-reviews":{"defaultValue":false,"rules":[]},"show-answers-news-letter":{"defaultValue":false,"rules":[{"condition":null,"coverage":1,"variations":[false,true],"key":"show-answers-news-letter","weights":[0.1,0.9],"namespace":null,"hashAttribute":"uniqueId","filters":null,"seed":"9936e034-3bc1-4705-aedd-8d00b8f8dfe8","hashVersion":2,"range":null,"meta":[{"key":"0","name":"No popup"},{"key":"1","name":"popup (8 secs)"}],"ranges":null,"name":"Show (annoying) Newsletter sign up on answers view","phase":"1"}]},"workbench-tab-visibility":{"defaultValue":false,"rules":[{"condition":{"id":4119755},"coverage":null,"force":true,"variations":null,"key":null,"weights":null,"namespace":null,"hashAttribute":null,"filters":null,"seed":null,"hashVersion":null,"range":null,"meta":null,"ranges":null,"name":null,"phase":null}]},"guide-collections":{"defaultValue":false,"rules":[]},"a-a-experiment-v7":{"defaultValue":false,"rules":[{"condition":null,"coverage":1,"variations":[false,true],"key":"experiment-v7","weights":[0.5,0.5],"namespace":null,"hashAttribute":"uniqueId","filters":null,"seed":"e7fad591-a03b-4c8a-b118-01c6a0cc96e0","hashVersion":2,"range":null,"meta":[{"key":"0","name":"Control"},{"key":"1","name":"Variation 1"}],"ranges":null,"name":"a-a-experiment-v7","phase":"0"}]},"show-consent-banner":{"defaultValue":false,"rules":[]},"homepage-banner":{"defaultValue":false,"rules":[]},"allow-item-search":{"defaultValue":false,"rules":[]},"mobile-app-release":{"defaultValue":true,"rules":[{"condition":null,"coverage":null,"force":true,"variations":null,"key":null,"weights":null,"namespace":null,"hashAttribute":null,"filters":null,"seed":null,"hashVersion":null,"range":null,"meta":null,"ranges":null,"name":null,"phase":null}]},"fixbot-subscriptions":{"defaultValue":true,"rules":[]}},"forcedVariations":[],"viewedExperiments":[],"forcedFeatures":[]},"isOnMobileApp":false,"isProduction":true,"isTest":false,"baseiFixitOrigin":"http:\/\/www.ifixit.com","userPreferredStoreCurrency":"USD","userPreferredStoreLocale":"en-us","userPreferredStoreCode":"us","isEmployeeLoggedIn":false,"priceTiers":{},"locale":"zh_CN","siteName":"ifixit","useSecureCookies":true,"sameSiteValue":"None","imageSizeWidths":{"mini":56,"thumbnail":96,"140x105":140,"200x150":200,"standard":300,"440x330":440,"medium":592,"large":800,"huge":1600},"facebookAppId":"401112919922369","appleClientId":"com.ifixit.ifixit.2025.sign-in-with-apple","loginMessages":{"invalid_email":"\u6b64\u7535\u5b50\u90ae\u4ef6\u6ca1\u6709\u5173\u8054\u5e10\u6237\u3002","missing_email":"\u8bf7\u63d0\u4f9b\u6709\u6548\u7684\u7535\u5b50\u90ae\u4ef6\u5730\u5740\u3002\u6211\u4eec\u4f7f\u7528\u4f60\u7684\u7535\u5b50\u90ae\u4ef6\u5730\u5740\u4f5c\u4e3a\u4f60\u7684\u767b\u5f55\u8d26\u53f7\uff0c\u5e76\u901a\u8fc7\u5176\u5411\u4f60\u53d1\u9001\u8ba2\u5355\u786e\u8ba4\u4fe1\u606f\u3002","invalid_password":"\u5bc6\u7801\u4e0d\u6b63\u786e\u3002","invalid_code":"\u4ee3\u7801\u4e0d\u6b63\u786e\u3002","captcha":"\u9a8c\u8bc1\u7801\u5fc5\u586b","banned":"\u8be5\u5e10\u6237\u56e0\u4e0d\u5f53\u884c\u4e3a\u5df2\u6682\u65f6\u88ab\u5c01\u7981\u3002","disabledUser":"\u4f60\u7684\u5e10\u6237\u5df2\u88ab\u5c01\u7981\u3002\u5982\u679c\u4f60\u6709\u4efb\u4f55\u5f02\u8bae\uff0c\u8bf7\u4e0e\u7f51\u7ad9\u7ba1\u7406\u5458\u8054\u7cfb\u3002","noLogin":"\u767b\u5f55\u6682\u65f6\u4e0d\u53ef\u7528\u3002\u8bf7\u7a0d\u540e\u91cd\u8bd5\u3002","tooManyFailures":"\u7531\u4e8e\u8fc7\u591a\u5931\u8d25\u7684\u767b\u5f55\u5c1d\u8bd5\uff0c\u8be5\u5e10\u6237\u5df2\u88ab\u9501\u5b9a\u3002","tooManyCodeAttempts":"\u60a8\u8f93\u5165\u9519\u8bef\u4ee3\u7801\u7684\u6b21\u6570\u8fc7\u591a\u3002\u8bf7\u7533\u8bf7\u65b0\u4ee3\u7801\u3002","tooManyCodeGenerations":"\u60a8\u751f\u6210\u7684\u767b\u5f55\u4ee3\u7801\u8fc7\u591a\u3002\u8bf7\u7a0d\u540e\u518d\u8bd5\u3002","tooManySuccesses":"\u7531\u4e8e\u6700\u8fd1\u592a\u591a\u7684\u767b\u5f55\u5c1d\u8bd5\uff0c\u8be5\u5e10\u6237\u5df2\u88ab\u9501\u5b9a\u3002","insecurePassword":"\u6b64\u5bc6\u7801\u4e0d\u5b89\u5168\uff0c\u5fc5\u987b\u7acb\u5373\u66f4\u6539\u3002","adminOnlyEntrypoint":"\u53ea\u6709\u7ba1\u7406\u5458\u53ef\u4ee5\u901a\u8fc7\u6b64\u9875\u9762\u767b\u5f55","OAuth2_GOOGLE":"\u4f60\u7684\u5e10\u6237\u5df2\u8fde\u63a5\u5230\u4e00\u4e2a\u8c37\u6b4c\u5e10\u6237\u3002\u8bf7\u901a\u8fc7\u8c37\u6b4c\u767b\u5f55","OAuth2_WRONG_SITE":"\u6b64 OAuth2 \u5bc6\u94a5\u6307\u5411\u53e6\u4e00\u4e2a\u5e94\u7528\u3002\u8bf7\u4e0e\u7f51\u7ad9\u7ba1\u7406\u5458\u8054\u7cfb\u3002","OAuth2_GOOGLE_DISABLED":"\u201c\u901a\u8fc7\u8c37\u6b4c\u767b\u5f55\u201d\u4e0d\u53ef\u7528\u3002\u8bf7\u4e0e\u7f51\u7ad9\u7ba1\u7406\u5458\u8054\u7cfb\u3002","OAuth2_API_DISABLED":"Google+\u7684API\u4e0d\u53ef\u7528\u3002\u8bf7\u4e0e\u7f51\u7ad9\u7ba1\u7406\u5458\u8054\u7cfb\u3002","OAuth2_ACCESS_TOKEN":"\u65e0\u6548\u7684 OAuth2 Access Token\u3002\u8bf7\u4e0e\u7f51\u7ad9\u7ba1\u7406\u5458\u8054\u7cfb\u3002","OAuth2_ID_TOKEN":"\u65e0\u6548\u7684 OAuth2 ID Token\u3002\u8bf7\u4e0e\u7f51\u7ad9\u7ba1\u7406\u5458\u8054\u7cfb\u3002","apple_missing_email":"\u60a8\u7684 Apple \u8d26\u6237\u672a\u63d0\u4f9b\u7535\u5b50\u90ae\u4ef6\u5730\u5740\u3002\u8bf7\u5c1d\u8bd5\u5176\u4ed6\u767b\u5f55\u9009\u9879\u3002","default":"\u53d1\u751f\u672a\u77e5\u9519\u8bef\u3002\u8bf7\u518d\u8bd5\u4e00\u6b21\u3002","default_required":"\u8be5\u680f\u4e3a\u5fc5\u586b\u3002"},"registerMessages":{"required":"\u8be5\u680f\u4e3a\u5fc5\u586b\u3002","password_invalid":"\u5bc6\u7801\u5fc5\u987b\u81f3\u5c11 10 \u4e2a\u5b57\u7b26\uff0c\u5e76\u4e14\u4e0d\u80fd\u5305\u542b\u7a7a\u683c\u3002","username_invalid":"\u8bf7\u9009\u62e9\u4e00\u4e2a\u63cf\u8ff0\u6027\u7684\u3001\u53cb\u597d\u7684\u7528\u6237\u540d\u3002\u7528\u6237\u540d\u5e94\u4e3a3-30\u4e2a\u5b57\u7b26\uff0c\u4e0d\u8981\u5305\u542b< or >\u5b57\u7b26\u3002","error":"\u53d1\u751f\u672a\u77e5\u9519\u8bef\u3002\u8bf7\u91cd\u65b0\u52a0\u8f7d\u5e76\u518d\u8bd5\u4e00\u6b21\u3002"},"googleLoginEnabled":true,"facebookLoginEnabled":true,"appleLoginEnabled":true,"showJoinLink":true};
+</script>
+   </body>
+</html>
