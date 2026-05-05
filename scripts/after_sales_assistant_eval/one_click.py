@@ -3,7 +3,7 @@
 """
 一键跑评估：从同目录 local_secrets.json 读地址、应用 ID、API 密钥，再调用 run_eval。
 使用：在本目录执行  ../../.venv/bin/python one_click.py
-说明全文：docs/after_sales_assistant/11_工作流联调_自动评估脚本说明.md
+历史长文说明已迁至本地备份「桌面 → Max KB 项目 → docs」；本目录 README 保留运行入口说明。
 
 local_secrets.json 已加入 .gitignore，勿把真实密钥提交到 Git。
 若接口返回 401，请在 MaxKB 应用设置里使用「应用 API 密钥」

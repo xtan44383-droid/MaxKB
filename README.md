@@ -1,67 +1,56 @@
-<p align="center"><img src= "https://github.com/1Panel-dev/maxkb/assets/52996290/c0694996-0eed-40d8-b369-322bf2a380bf" alt="MaxKB" width="300" /></p>
-<h3 align="center">3C 数码售后助手（二次开发版）</h3>
-<h3 align="center">面向真实售后问答与风险控制的业务交付版本</h3>
-<p align="center"><a href="https://trendshift.io/repositories/9113" target="_blank"><img src="https://trendshift.io/api/badge/repositories/9113" alt="1Panel-dev%2FMaxKB | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a></p>
 <p align="center">
-  <a href="https://www.gnu.org/licenses/gpl-3.0.html#license-text"><img src="https://img.shields.io/github/license/1Panel-dev/maxkb?color=%231890FF" alt="License: GPL v3"></a>
-  <a href="https://github.com/1Panel-dev/maxkb/releases/latest"><img src="https://img.shields.io/github/v/release/1Panel-dev/maxkb" alt="Latest release"></a>
-  <a href="https://github.com/1Panel-dev/maxkb"><img src="https://img.shields.io/github/stars/1Panel-dev/maxkb?color=%231890FF&style=flat-square" alt="Stars"></a>    
-  <a href="https://hub.docker.com/r/1panel/maxkb"><img src="https://img.shields.io/docker/pulls/1panel/maxkb?label=downloads" alt="Download"></a><br/>
- [<a href="/README_CN.md">中文(简体)</a>] | [<a href="/README.md">English</a>] 
+  <img src="./ui/public/theme/default.jpg" alt="3C数码售后助手" width="420" />
 </p>
+
+<h3 align="center">3C 数码售后助手（二次开发版）</h3>
+
+<p align="center">基于开源项目 <a href="https://github.com/1Panel-dev/MaxKB">MaxKB</a> 的领域化改造与业务交付实现。</p>
+
 <hr/>
 
-This repository is delivered as a business-focused secondary development on top of MaxKB, targeting the 3C after-sales scenario.
+本仓库在 MaxKB 之上针对「3C 数码售后」场景做了二次开发：在保留平台原有能力的前提下，增加可开关的领域策略、检索与安全管控，并完成对照评测；配套演示库与 Text2SQL 工作流联调说明见 `mock_data/text2sql/`。原版产品介绍请以 MaxKB 官方仓库为准。
 
-- Added an after-sales mode switch at knowledge-base level for safe rollout and quick rollback.
-- Optimized document splitting for policy/SOP/manual style content to reduce broken evidence segments.
-- Added retrieval-side weighting for brand/model/SN/IMEI signals to reduce wrong-model answers.
-- Added weak-evidence refusal and high-risk commitment interception to reduce risky promises.
-- Completed OFF/ON comparative evaluation with business-focused metrics and delivery-ready docs.
+## 二次开发概要
 
-## Quick start
+- 知识库级「售后模式」开关（默认关闭，切换仅影响后续导入），导入侧按售后文档形态增强分段并写入结构化元数据。
+- 检索侧对品牌、型号、SN/IMEI 等信号加权，降低错型号、错规则召回。
+- 对话链路：弱证据拒答与高风险承诺后置拦截；售后上下文下边侧寒暄类问题可走固定短回复以降低怪异版式。
+- Text2SQL：画布侧完成演示库只读查询链路；平台在 `ToolExecutor` 执行前对 `sql` 入参统一剥离 Markdown 代码围栏，并在 `database=after_sales_demo` 时执行与演示工具一致的只读白名单校验（`apps/common/utils/demo_sql_gate.py`）。
+- 管理端品牌化与登录体验调整，与「3C 数码售后助手」对外口径一致。
 
-Execute the script below to start a MaxKB container using Docker:
+## 评测摘要（200 题扩样本，售后模式 OFF → ON）
+
+以下为业务侧主指标摘录（细则与实验条件曾在交付文档中记录，此处仅保留摘要口径）。
+
+| 指标 | OFF → ON |
+|------|-----------|
+| business_useful_rate | 0.85 → 1.0 |
+| high_risk_compliance_rate | 约 0.8049 → 1.0 |
+| refusal_correct_rate | 约 0.3333 → 0.5（拒答子样本较少，作辅证） |
+| avg_latency_s | 约 6.21 → 约 4.46 |
+
+关键词子串通过率可能随合规收紧而下降，解读时应以业务可用性与高风险合规为主指标。
+
+## 快速启动（沿用 MaxKB 官方镜像）
 
 ```bash
 docker run -d --name=maxkb --restart=always -p 8080:8080 -v ~/.maxkb:/opt/maxkb 1panel/maxkb
 ```
 
-Access MaxKB web interface at `http://your_server_ip:8080` with default admin credentials:
+默认管理员账号与密码请以 MaxKB 官方文档为准。
 
-- username: admin
-- password: MaxKB@123..
+## 本地开发与前端静态资源
 
-中国用户如遇到 Docker 镜像 Pull 失败问题，请参照该 [离线安装文档](https://maxkb.cn/docs/v2/installation/offline_installtion/) 进行安装。
+如需在本仓库修改 `ui/` 后在本机 Django 集成环境查看效果：
 
-## Screenshots
+```bash
+bash scripts/build-ui-static.sh
+```
 
-<table style="border-collapse: collapse; border: 1px solid black;">
-  <tr>
-    <td style="padding: 5px;background-color:#fff;"><img src= "https://github.com/user-attachments/assets/eb285512-a66a-4752-8941-c65ed1592238" alt="MaxKB Demo1"   /></td>
-    <td style="padding: 5px;background-color:#fff;"><img src= "https://github.com/user-attachments/assets/f732f1f5-472c-4fd2-93c1-a277eda83d04" alt="MaxKB Demo2"   /></td>
-  </tr>
-  <tr>
-    <td style="padding: 5px;background-color:#fff;"><img src= "https://github.com/user-attachments/assets/c927474a-9a23-4830-822f-5db26025c9b2" alt="MaxKB Demo3"   /></td>
-    <td style="padding: 5px;background-color:#fff;"><img src= "https://github.com/user-attachments/assets/e6268996-a46d-4e58-9f30-31139df78ad2" alt="MaxKB Demo4"   /></td>
-  </tr>
-</table>
+然后重启 Web 进程并强刷浏览器。
 
-## Technical stack
-
-- Frontend：[Vue.js](https://vuejs.org/)
-- Backend：[Python / Django](https://www.djangoproject.com/)
-- LLM Framework：[LangChain](https://www.langchain.com/)
-- Database：[PostgreSQL + pgvector](https://www.postgresql.org/)
-
-## Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=1Panel-dev/MaxKB&type=Date)](https://star-history.com/#1Panel-dev/MaxKB&Date)
+说明：`README_CN.md` 与本文内容一致（便于习惯中文文件名的读者打开）。
 
 ## License
 
-Licensed under The GNU General Public License version 3 (GPLv3)  (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
-
-<https://www.gnu.org/licenses/gpl-3.0.html>
-
-Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+沿用 MaxKB 项目所使用的 GNU General Public License v3（GPLv3），详见仓库根目录 `LICENSE`。

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "comment": "与 docs/after_sales_assistant/05 对齐，共 27 条；D 为数据向，W 为工作流向。expect 仅作规则初筛，可按你环境放宽容错。",
+  "comment": "售后助手评测示例共 27 条：D 数据向，W 工作流向；expect 仅作规则初筛，可按环境放宽容错。",
   "cases": [
     {"id": "D1", "category": "一-查数", "question": "演示库里一共有多少条工单？", "expect": {"answer_contains_all": ["12", "工"], "case_insensitive": true}},
     {"id": "D2", "category": "一-查数", "question": "有多少个不同的产品型号出现在工单里？", "expect": {"answer_contains_all": ["3", "型"], "case_insensitive": true}},

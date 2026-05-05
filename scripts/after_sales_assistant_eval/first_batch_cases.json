@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "comment": "基于 docs/after_sales_assistant/12 中当前已上传 5 篇文档整理的首批 30 题，用于 baseline 自动测试。",
+  "comment": "首批上传知识文档场景下整理的 30 题 baseline，用于自动评测；详细背景说明若需要可到本地备份「桌面 → Max KB 项目 → docs」查阅。",
   "cases": [
     {
       "id": "FB01",

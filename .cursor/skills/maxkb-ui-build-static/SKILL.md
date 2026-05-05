@@ -16,7 +16,7 @@ description: >-
 
 - 仓库根：`/home/tlx/projects/MaxKB`
 - 一条命令打包：`bash scripts/build-ui-static.sh`（含 Node≥20 检查、`npm install`、管理端与对话端 build、`collectstatic`）
-- 细节与 Node 一次性安装：见 `docs/after_sales_assistant/09_本机启动与前端构建说明.md`
+- 细节与 Node 一次性安装：见仓库根目录 `README.md` / `README_CN.md` 中「本地开发与前端静态资源」一节（原详细说明已迁至本地备份包，不在线上仓库）。
 
 ## Agent 执行顺序（给用户的最短路径）
 

@@ -5,7 +5,7 @@
 1. 读取同目录 local_secrets.json
 2. 调用现有 run_eval.py 跑 first_batch_cases.json
 3. 生成 first_batch_report.json / first_batch_report.txt
-4. 自动写入 docs/after_sales_assistant/13_首批问题测试.md
+4. 自动写入同目录 first_batch_generated_summary.md（原曾写入 docs，已改为脚本旁落盘）
 """
 from __future__ import annotations
 
@@ -21,7 +21,7 @@ ROOT = HERE.parent.parent
 SECRETS = HERE / "local_secrets.json"
 CASES = HERE / "first_batch_cases.json"
 REPORT = HERE / "first_batch_report.json"
-DOC = ROOT / "docs" / "after_sales_assistant" / "13_首批问题测试.md"
+DOC = HERE / "first_batch_generated_summary.md"
 
 
 def load_json(path: Path) -> dict:
@@ -70,7 +70,7 @@ def render_markdown_doc(secrets: dict, report: dict, cases_data: dict) -> str:
     lines.append("")
     lines.append("## 1. 测试范围")
     lines.append("")
-    lines.append("- 用例来源：`docs/after_sales_assistant/12 二开方向 gpt.md` 第 12 节")
+    lines.append("- 用例来源：历史规划文档第 12 节（全文见本地备份「桌面 → Max KB 项目 → docs」）")
     lines.append("- 用例文件：`scripts/after_sales_assistant_eval/first_batch_cases.json`")
     lines.append("- 文档包：`mock_data/knowledge/after_sales_upload_ready.zip`")
     lines.append("- 生成时间：`%s`" % datetime.now().strftime("%Y-%m-%d %H:%M:%S"))

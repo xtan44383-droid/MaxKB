@@ -13,11 +13,11 @@
 
 1. 工作空间 → 工具 → 新建自定义工具。
 2. **入参**：`sql`，类型 string，必填。
-3. **初始化参数**：`host`、`port`、`user`、`password`、`database`（演示库见项目交接说明：`after_sales_demo`）。
+3. **初始化参数**：`host`、`port`、`user`、`password`、`database`（演示库库名：`after_sales_demo`）。
 4. 将 `safe_pg_tool_for_maxkb.py` 的**文件全文**复制到工具代码编辑器（保留文件末尾对外暴露的函数名，与 MaxKB 要求一致：文件中**最后一个** `def` 会被调用）。
-5. 工作流：若采用「多数问题只走一边」，请先在画布上做好 **意图识别 → 知识支路 / 数据支路**，仅在数据支路中接：AI 节点（只输出一条 `SELECT`）→ 工具节点映射 `sql`。说明见 [docs/after_sales_assistant/06_单边意图分流_工作流配置.md](../../docs/after_sales_assistant/06_单边意图分流_工作流配置.md)。
+5. 工作流：若采用「多数问题只走一边」，请在画布上先做 **意图识别 → 知识支路 / 数据支路**，仅在数据支路中接：AI 节点（约束其只输出一条只读 `SELECT`）→ 工具节点映射 `sql`。画布节点填写细节请参考 MaxKB 官方「工作流 / 工具」文档自行编排。
 
-更完整的提示词模板见 [docs/after_sales_assistant/04_Text2SQL_工具与工作流说明.md](../../docs/after_sales_assistant/04_Text2SQL_工具与工作流说明.md)。
+补充说明（曾为交付撰写的图文流程）：已从线上仓库移除以免占用主页篇幅；如需全文可在本地备份目录「桌面 → Max KB 项目 → docs」中查找对应 Markdown。
 
 ## 本地验证（可选）
 

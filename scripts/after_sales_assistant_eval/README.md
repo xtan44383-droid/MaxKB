@@ -1,5 +1,5 @@
 # after_sales_assistant_eval
 
-可执行联调与用例数据在本目录；完整说明、命名与 `docs/after_sales_assistant` 目录一致，见同仓库：
+可执行联调与用例数据在本目录。
 
-[docs/after_sales_assistant/11_工作流联调_自动评估脚本说明.md](../../docs/after_sales_assistant/11_工作流联调_自动评估脚本说明.md)
+运行方式、字段说明与环境变量示例见同目录内 `README` 段落注释及各 `*.example.*` 文件。更长的流程说明文档已从仓库移除，如需历史版全文可在本地备份「桌面 → Max KB 项目 → docs」中查找原 `11_工作流联调_自动评估脚本说明.md` 等文件。
